@@ -1,0 +1,32 @@
+.links{
+    color: #a926f1;
+    font-size: 100%;
+    text-decoration: none;
+    margin-left: 2%;
+    float: left;
+    margin-top: 1%;
+}
+
+.links:hover{
+    color: #a926f1;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #a926f1;
+}
+
+.container-navbar{
+    background-color: #0C0C0C;
+    overflow: hidden;
+    position: relative;
+}
+
+.imagem{
+    margin-left: 4.5%;
+    float: left;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.img-login{
+    margin-left: 55%;
+    margin-top: 0.7%;
+}

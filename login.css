@@ -1,0 +1,41 @@
+body{
+    background-color: #111113;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container{
+    padding: 3rem;
+    width: 30%;
+    background-color: #0C0C0C;
+    border-radius: 0.5rem;
+}
+
+.input{
+    background-color: #111113;
+    border: none;
+}
+
+.input:focus{
+    background-color: #111113 !important;
+    border: 3px solid #a926f1;
+}
+
+.titulo{
+    text-align: center;
+    color: white;
+    font-size: 280%;
+    margin-bottom: 2rem;
+}
+
+.label-texto{
+    color: white;
+}
+
+.img-login{
+    display: block;
+    margin: 0 auto;
+}

@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+footer{
+    width: 100%;
+    background-color: #0C0C0C;
+}
+
+.footer-link{
+    text-decoration: none;
+}
+
+#footer-content{
+    background-color: #0C0C0C;
+    display: grid;
+    grid-template-columns: repeat(5,16fr);
+    padding: 3rem 3.5rem;
+}
+
+#footer-contacts h1{
+    margin-bottom: 0.75rem;
+}
+
+#footer-social-media{
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+#footer-social-media .footer-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: white;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+#footer-social-media .footer-link i{
+    font-size: 1.5rem;
+}
+
+#footer-social-media .footer-link:hover{
+    opacity: 0.8;
+}
+
+#instagram{
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#facebook{
+    background-color: #4267b3;
+}
+
+#discord{
+    background-color: #5865F2;
+}
+
+.footer-list{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+.footer-list .footer-link{
+    color: white;
+    transition: all 0.4s;
+}
+
+
+.footer-list .footer-link:hover{
+    color: #a926f1;
+}
+
+#footer-subscribe{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#footer-subscribe p{
+    color: white;
+}
+
+#input-group{
+    display: flex;
+    align-items: center;
+    background-color: #111113;
+    border-radius: 4px;
+}
+
+#input-group input{
+    all: unset;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+#input-group button{
+    background-color: #a926f1;
+    border: none;
+    color: #0C0C0C;
+    padding: 0 1.25rem;
+    font-size: 1.125rem;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+#input-group button:hover{
+    opacity: 0.8;
+}
+
+#footer-copyright{
+    display: flex;
+    justify-content: center;
+    background-color: #0C0C0C;
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+    #footer-content{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 426px){
+    #footer-content{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
+}
+
+h1{
+    color: white;
+}
+
+h3{
+    color: white;
+}
