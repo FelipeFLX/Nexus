@@ -15,7 +15,7 @@
   <a class="links" href="avaliacoes.php">Avaliações</a>
   <a class="links" href="contato.php">Contato</a>
   <a class="links" href="sobre.php">Sobre</a>
-  <a href="cadastro.php"><img src="IMAGENS/User-Entrar.png" alt="User" width="70" height="alto" class="img-login"></a>
+  <a href="login.php"><img src="IMAGENS/User-Entrar.png" alt="User" width="70" height="alto" class="img-login"></a>
 </div>
 </body>
 </html>
