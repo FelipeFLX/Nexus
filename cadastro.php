@@ -1,7 +1,5 @@
-<?php
-    require('./Scripts/Login/Registro.php')
-?>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +11,7 @@
 
 <body>
     <div class="form-container">
-        <img src="IMAGENS/Nome-Logo.png" alt="imagem" width="150" height="auto" class="img-login">
+        <a href="index.php"><img src="IMAGENS/Nome-Logo.png" alt="imagem" width="150" height="auto" class="img-login"></a>
         <h3 class="titulo">Cadastro</h3>
         <form action="" method="post">
             <div class="form-floating mb-3">
@@ -39,6 +37,9 @@
             <button type="submit">Enviar</button>
         </form>
     </div>
+    <?php
+    require('./Scripts/Login/Registro.php')
+    ?>
 </body>
 
 </html>

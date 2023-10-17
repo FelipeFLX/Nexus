@@ -1,5 +1,5 @@
 <?php
-include("./Conexao_sql.php");
+include("./Scripts/Conexao_Banco_de_Dados/Conexao_sql.php");
 
 // Acessando dados do banco de dados
 
