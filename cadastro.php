@@ -13,25 +13,26 @@
     <div class="form-container">
         <a href="index.php"><img src="IMAGENS/Nome-Logo.png" alt="imagem" width="150" height="auto" class="img-login"></a>
         <h3 class="titulo">Cadastro</h3>
-        <form action="" method="post">
+        <form action="" method="post" class="needs-validation" novalidate>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control text-light input" id="floatingName" name="nome" placeholder="Seu nome completo">
+                <input type="text" class="form-control text-light input" id="floatingName" name="nome"  maxlength="60" required>
                 <label for="floatingName" class="label-texto">Nome Completo</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control text-light input" id="floatingName" name="nick" placeholder="Seu nome completo">
+                <input type="text" class="form-control text-light input" id="floatingName" name="nick"  maxlength="35" required>
                 <label for="floatingName" class="label-texto">Nick</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control text-light input" id="floatingName" name="email" placeholder="Seu nome completo">
+                <input type="email" class="form-control text-light input" id="floatingName" name="email"  maxlength="100" 
+                 required>
                 <label for="floatingName" class="label-texto">Email</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control text-light input" id="floatingName" name="senha" placeholder="Seu nome completo">
+                <input type="password" class="form-control text-light input" id="floatingName" name="senha"  maxlength="35" required>
                 <label for="floatingName" class="label-texto">Senha</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="date" class="form-control text-light input" id="floatingName" name="dataNasc" placeholder="Seu nome completo">
+                <input type="date" class="form-control text-light input" id="floatingName" name="dataNasc" required>
                 <label for="floatingName" class="label-texto">Data de nascimento</label>
             </div>
             <button type="submit">Enviar</button>
@@ -39,8 +40,8 @@
         <a href="login.php">Já tem uma conta?</a>
     </div>
     <?php
-    require('./Scripts/Login/Registro.php')
-    ?>
+                require('./Scripts/Login/Registro.php')
+            ?>
+    <script src="./validacaoCampos.js"></script>
 </body>
-
 </html>
