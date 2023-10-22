@@ -3,6 +3,7 @@ $hostname = "localhost";
 $usuario = "root";
 $senha = "";
 $banco_de_dados = "bdNexus";
+
 $nome_tabela = "tbUser";
 
 $mysqli = new mysqli($hostname, $usuario, $senha, $banco_de_dados);

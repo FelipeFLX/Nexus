@@ -1,3 +1,6 @@
+<?php
+  include("./Admin/jogos/script_registro.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,58 +17,105 @@
 </head>
 
 <body style="justify-content: center; align-items: center; height: 100vh ">
-  <?php 
-      include('./../../componentes/header-adm.php');
+  <?php
+  include('./../../componentes/header-adm.php');
   ?>
   <div class="container-fluid" style="height: 90vh">
     <div class="row h-100">
-      <?php 
+      <?php
       include('./../../componentes/menu-adm.php');
       ?>
       <div class="col-md-10  p-4 borber">
         <div class="card">
-          <form method="post" action="process.php" enctype="multipart/form-data" class="needs-validation" novalidate>
+          <form method="post" enctype="multipart/form-data" action="./script_registro.php" class="needs-validation" novalidate>
             <div class="card-header">
-              <strong>INFORMAÇÕES DO USUÁRIO</strong>
+              <strong>INFORMAÇÕES DO JOGO</strong>
             </div>
             <div class="card-body row justify-content-center align-items-center">
-              <div class="col-md-2   text-center">
-                <div class="bg-white rounded">
-                  <img id="preview" src="../../img/user/padrao.png" alt="..." class=" w-75">
+              <div class="col-md-2 text-center">
+                <div class="bg-white rounded img-fluid">
+                  <img id="imagemPreview" src="../../img/user/padrao.png" alt="..." class="img-fluid">
                 </div>
               </div>
               <div class=" col-md-10">
                 <div class="row">
                   <div class="col-md-3 mb-3">
                     <label for="nome" class="col-form-label">Nome do Jogo:</label>
-                    <input type="text" class="form-control" name="nome" maxlength="50" id="nome">
+                    <input type="text" class="form-control" name="nomeJogo" maxlength="50">
                   </div>
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-3 mb-3">
                     <label for="sobrenome" class="col-form-label">Preço:</label>
-                    <input type="text" class="form-control" name="sobrenome" maxlength="50" id="sobrenome">
+                    <input type="number" class="form-control" name="preco" maxlength="50">
                   </div>
                   <div class="col-md-3 mb-3">
                     <label for="cpf" class="col-form-label">Plataforma:</label>
-                    <input type="text" class="form-control" name="cpf" maxlength="50" id="cpf">
+                    <select class="form-select" name="plataforma" aria-label="Default select example">
+                      <option value="1">PlayStation</option>
+                      <option value="2">PlayStation 2</option>
+                      <option value="3">PlayStation 3</option>
+                      <option value="4">PlayStation 4</option>
+                      <option value="5">PlayStation 5</option>
+                      <option value="6">PlayStation Vita</option>
+                      <option value="7">PSP</option>
+                      <option value="8">NES</option>
+                      <option value="9">SNES</option>
+                      <option value="10">Nintendo 64</option>
+                      <option value="11">Nintendo GameCube</option>
+                      <option value="12">Nintendo Wii</option>
+                      <option value="13">Nintendo Wii U</option>
+                      <option value="14">Nintendo Switch</option>
+                      <option value="15">Nintendo Game Boy</option>
+                      <option value="16">Nintendo Game Boy Advance</option>
+                      <option value="17">Nintendo DS</option>
+                      <option value="18">Nintendo 3DS</option>
+                      <option value="19">Xbox Clássico</option>
+                      <option value="20">Xbox 360</option>
+                      <option value="21">Xbox One</option>
+                      <option value="22">Xbox Series X/S</option>
+                      <option value="23">Windows</option>
+                      <option value="24">Linux</option>
+                      <option value="25">Mac OS</option>
+                      <option value="26">Android</option>
+                      <option value="27">iOS</option>
+                    </select>
                   </div>
-                </div>
-                <div class="row">
+
                   <div class="col-md-3">
                     <label for="nasc" class="col-form-label">Genero:</label>
-                    <input type="date" class="form-control" name="nasc" id="nasc" required>
+                    <select class="form-select" name="genero" aria-label="Default select example">
+                      <option value="1">Ação</option>
+                      <option value="2">Aventura</option>
+                      <option value="3">RPG</option>
+                      <option value="4">Estratégia</option>
+                      <option value="5">Simulação</option>
+                      <option value="6">Esportes</option>
+                      <option value="7">Quebra-cabeças</option>
+                      <option value="8">Corrida</option>
+                      <option value="9">Luta</option>
+                      <option value="10">Terror</option>
+                      <option value="11">Jogo de ritmo</option>
+                      <option value="12">Card-Games</option>
+                      <option value="13">Sandbox</option>
+                      <option value="14">FPS</option>
+                      <option value="15">Plataforma</option>
+                      <option value="16">Visual Novel</option>
+                      <option value="17">Roguelike</option>
+                      <option value="18">MMORPG</option>
+                    </select>
                   </div>
                   <div class="col-md-6">
-                    <label for="email" class="col-form-label">Descrição:</label>
-                    <input type="email" class="form-control" name="email" maxlength="100" id="email" required>
+                    <label for="floatingTextarea2">Descrição do Jogo:</label>
+                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"></textarea>
                   </div>
-                  <div class="col-md-3">
-                    <label for="senha" class="col-form-label">Senha:</label>
-                    <input type="password" class="form-control" name="senha" maxlength="10" id="senha" required>
+                  <div class="col-md-6">
+                    <label for="email" class="col-form-label">Data de lançamento:</label>
+                    <input type="date" class="form-control" name="dataLancamento" maxlength="100" id="email" required>
                   </div>
+
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-3">
-                    <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input">
+                    <input type="file" id="imagemInput" name="capaJogo" accept="image/* " class="custom-file-input">
                   </div>
                 </div>
                 <div class=" text-end p-3">
@@ -80,12 +130,38 @@
     </div>
   </div>
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>
   </script>
   <!-- Para usar Mascara  -->
   <script type="text/javascript" src="./../../js/jquery.mask.min.js"></script>
   <script type="text/javascript" src="./../../js/personalizar.js"></script>
+  <script>
+    // Obtém os elementos do input de imagem e da pré-visualização
+    var imagemInput = document.getElementById('imagemInput');
+    var imagemPreview = document.getElementById('imagemPreview');
+
+    // Adiciona um ouvinte de eventos para o input de imagem
+    imagemInput.addEventListener('change', function() {
+      var file = imagemInput.files[0];
+
+      // Verifica se um arquivo foi selecionado
+      if (file) {
+        var reader = new FileReader();
+
+        // Define uma função para executar quando o arquivo for lido
+        reader.onload = function(e) {
+          imagemPreview.src = e.target.result;
+          imagemPreview.style.display = 'block'; // Exibe a pré-visualização
+        };
+
+        // Lê o arquivo como uma URL de dados
+        reader.readAsDataURL(file);
+      } else {
+        // Se nenhum arquivo for selecionado, esconde a pré-visualização
+        imagemPreview.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -14,7 +15,7 @@
     <div class="form-container">
         <a href="index.php"><img src="IMAGENS/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a>
         <h3 class="titulo">Cadastro</h3>
-        <form action="" method="post" class="needs-validation" novalidate>
+        <form action="./Scripts_PHP/Login/Registro.php  " method="post" class="needs-validation" novalidate>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control input" id="name" name="nome" maxlength="60" required>
                 <label for="name" class="label-texto">Nome Completo</label>
@@ -49,4 +50,5 @@
     ?>
     <script src="./validacaoCampos.js"></script>
 </body>
+
 </html>
