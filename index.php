@@ -25,17 +25,17 @@
         </div>
     </div>
     <div class="container-imagem">
-        <img src="IMAGENS/Foto-Home.png" alt="Imagem Home" width="400" height="auto" class="imagem-home">
-        <img src="IMAGENS/Foto-Texto.png" alt="Imagem Texto" width="380" height="auto" class="imagem-texto">
+        <img src="IMAGENS/Logo/Foto-Home.png" alt="Imagem Home" width="400" height="auto" class="imagem-home">
+        <img src="IMAGENS/Logo/Foto-Texto.png" alt="Imagem Texto" width="380" height="auto" class="imagem-texto">
     </div>
     <h1 id="destaques" class="titulo">Destaques</h1>
         <?php 
-        include 'carrosel.php'
+        include 'Componentes/carrosel.php'
         ?>
     <h1 id="noticias" class="titulo">Notícias</h1>
     <div class="noticias">
         <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-        <img src="IMAGENS/BGS.png" class="card-img-top" alt="Imagem Noticia">
+        <img src="IMAGENS/Noticias/BGS.png" class="card-img-top" alt="Imagem Noticia">
             <div class="card-body">
                 <h5 class="card-title t-cor">Evento começa nesta quinta; Veja o passeio pelo evento</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">BGS 2023</h6>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-        <img src="IMAGENS/Pokemon.png" class="card-img-top" alt="Imagem Noticia">
+        <img src="IMAGENS/Noticias/Pokemon.png" class="card-img-top" alt="Imagem Noticia">
             <div class="card-body">
                 <h5 class="card-title t-cor">Jogadores se reúnem anos após o lançamento e amizade vira grande motor de jogo  </h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Pokemon GO</h6>
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-        <img src="IMAGENS/FC24.png" class="card-img-top" alt="Imagem Noticia">
+        <img src="IMAGENS/Noticias/FC24.png" class="card-img-top" alt="Imagem Noticia">
             <div class="card-body">
                 <h5 class="card-title t-cor">1° Game pós-'Fifa' passa a usar partidas reais para recriar movimentos de jogadores</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary t-cor" style="color: white;">FC 24</h6>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-        <img src="IMAGENS/terror.png" class="card-img-top" alt="Imagem Noticia">
+        <img src="IMAGENS/Noticias/terror.png" class="card-img-top" alt="Imagem Noticia">
             <div class="card-body">
                 <h5 class="card-title t-cor">7 Filmes de terror que ganharam versões para videogame</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Jogos</h6>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-        <img src="IMAGENS/mk1.jpg" class="card-img-top" alt="Imagem Noticia">
+        <img src="IMAGENS/Noticias/mk1.jpg" class="card-img-top" alt="Imagem Noticia">
             <div class="card-body">
                 <h5 class="card-title t-cor">Mortal Kombat 1 ganha atualização com melhorias e correções no Switch</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Mortal Kombat</h6>
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-        <img src="IMAGENS/nitendo.jpg" class="card-img-top" alt="Imagem Noticia">
+        <img src="IMAGENS/Noticias/nitendo.jpg" class="card-img-top" alt="Imagem Noticia">
             <div class="card-body">
                 <h5 class="card-title t-cor">Nintendo quer localizar todos os jogos em PT-BR futuramente</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Nintendo</h6>
@@ -92,15 +92,15 @@
     <h1 id="novidades" class="titulo">Novidades</h1>
     <div class="container-trailer">
         <div class="trailers">
-            <a href="https://www.youtube.com/watch?v=o604zywV14Q&t" target="_blank"><img src="IMAGENS/jujutsu.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
+            <a href="https://www.youtube.com/watch?v=o604zywV14Q&t" target="_blank"><img src="IMAGENS/Trailers/jujutsu.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
             <p class="t-trailer">Jujutsu Kaisen Cursed Clash - Official Release Date Trailer</p>
         </div>
         <div class="trailers">
-            <a href="https://www.youtube.com/watch?v=Xt1VEgUxTMQ" target="_blank"><img src="IMAGENS/aders.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
+            <a href="https://www.youtube.com/watch?v=Xt1VEgUxTMQ" target="_blank"><img src="IMAGENS/Trailers/aders.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
             <p class="t-trailer">The Alters - All By Myselves | Official Game Trailer</p>
         </div>
         <div class="trailers">
-            <a href="https://www.youtube.com/watch?v=Gkfip4T13bQ" target="_blank"><img src="IMAGENS/lof.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
+            <a href="https://www.youtube.com/watch?v=Gkfip4T13bQ" target="_blank"><img src="IMAGENS/Trailers/lof.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
             <p class="t-trailer">LORDS OF THE FALLEN - Official Launch Trailer | Out October 13th on PC, PS5 & Xbox Series X|S</p>
         </div>
     </div>

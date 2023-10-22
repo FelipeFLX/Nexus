@@ -13,7 +13,7 @@
     <footer>
         <div id="footer-content">
             <div id="footer-contacts">
-                <img src="IMAGENS/Logo Nexus Preto e Branco.png" alt="logo rodape" width="auto" height="180">
+                <img src="IMAGENS/Logo/Logo Nexus Preto e Branco.png" alt="logo rodape" width="auto" height="180">
 
                 <div id="footer-social-media">
                     <a href="#" class="footer-link" id="instagram">

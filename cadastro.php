@@ -12,7 +12,7 @@
 
 <body>
     <div class="form-container">
-        <a href="index.php"><img src="IMAGENS/Nome-Logo.png" alt="imagem" width="150" height="auto" class="img-login"></a>
+        <a href="index.php"><img src="IMAGENS/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a>
         <h3 class="titulo">Cadastro</h3>
         <form action="" method="post" class="needs-validation" novalidate>
             <div class="form-floating mb-3">
@@ -37,15 +37,15 @@
             </div>
             <script>
                 $(document).ready(function() {
-                $('#dtnasc').mask('00/00/0000'); // Aplica a máscara de data
+                $('#dtnasc').mask('00/00/0000');
                 });
             </script>
-            <button class="botao" type="submit">Enviar</button>
+            <button class="botao" type="submit">Cadastrar</button>
         </form>
-        <a href="login.php">Já tem uma conta?</a>
+        <a class="link" href="login.php">Já tem uma conta?</a>
     </div>
     <?php
-    require('./Scripts/Login/Registro.php')
+    //require('./Scripts/Login/Registro.php')
     ?>
     <script src="./validacaoCampos.js"></script>
 </body>

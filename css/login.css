@@ -6,11 +6,14 @@ body{
     align-items: center;
     height: 100vh;
 }
+
 .form-container{
   background-color: #0C0C0C;
-  width: 50%;
-  height: 100%;
+  width: 30%;
+  height: auto;
+  padding: 3rem;
 }
+
 .titulo{
     text-align: center;
     color: white;
@@ -30,7 +33,7 @@ body{
   
 .input {
   width: 100%;
-  height: 10%;
+  height: 70px;
   padding: 10px;
   border: 1px solid white;
   border-radius: 4px;
@@ -65,7 +68,15 @@ body{
 .botao{
   background-color: #a926f1;
   width: 100%;
-  height: 10%;
+  height: 70px;
+  border-radius: 4px;
+  color: white;
+  font-size: 130%;
+  font-weight: bold;
+}
+
+.link{
+  font-size: 130%;
 }
 
 

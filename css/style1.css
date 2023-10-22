@@ -1,3 +1,15 @@
+body{
+    background-color: #111113 !important;
+}
+
+.titulo{
+    color: white;
+    font-size: 160%;
+    font-weight: bold;
+    margin-top: 3%;
+    margin-left: 8%;
+}
+
 .carousel-container {
     position: relative;
     overflow: hidden;
@@ -39,12 +51,13 @@
 }
 
 .carousel div {
-    flex: 0 0 10%;
+    flex: 0 0 96%;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 0.9rem;
-    margin-right: 0.9rem;
+    margin-left: 1rem; 
+    margin-right: 1rem; 
 }
+
 
 .carousel img {
     max-width: 100%;

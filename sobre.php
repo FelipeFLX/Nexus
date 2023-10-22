@@ -13,7 +13,7 @@
         include 'Componentes/cabecalho.php';
     ?>
         <div class="sobre-container">
-            <img src="IMAGENS/Nome-Logo.png" alt="nome" width="250" height="auto" class="img-s">
+            <img src="IMAGENS/Logo/Nome-Logo.png" alt="nome" width="250" height="auto" class="img-s">
             <h1 class="titulo-s">História</h1>
             <p class="texto-s">A história da Nexus Games começa em um pequeno escritório no coração de uma cidade movimentada. Era o ano de 2005, e um grupo de amigos apaixonados por videogames se reuniu para criar algo que mudaria para sempre a forma como as pessoas experimentavam os jogos online. Eles compartilhavam uma visão comum: proporcionar uma experiência de jogo inigualável e reunir jogadores de todo o mundo em um ambiente virtual que transcendesse barreiras geográficas.</p>
             <p class="texto-s">Nexus Games nasceu da paixão pela indústria de jogos e o desejo de oferecer uma plataforma online que oferecesse mais do que apenas diversão, mas também um senso de comunidade e pertencimento. Eles estavam determinados a criar um espaço onde jogadores de todos os cantos do globo pudessem se reunir, competir e colaborar em um ambiente seguro e amigável.</p>
@@ -30,11 +30,11 @@
             <h1 class="titulo-s">Fundadores e Desenvolvedores</h1>
             <div class="img-container">
                 <div class="img-txt">
-                    <img src="IMAGENS/nobru.png" alt="fund" width="200" height="auto" class="img-fund">
+                    <img src="IMAGENS/Integrantes/nobru.png" alt="fund" width="200" height="auto" class="img-fund">
                     <p class="texto-s-img">Nobru</p>
                 </div>
                 <div class="img-txt">
-                    <img src="IMAGENS/cellbit.png" alt="fund" width="200" height="auto" class="img-fund">
+                    <img src="IMAGENS/Integrantes/cellbit.png" alt="fund" width="200" height="auto" class="img-fund">
                     <p class="texto-s-img">Cellbit</p>
                 </div>
             </div>
