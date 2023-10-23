@@ -15,12 +15,12 @@
     <div class="carousel-container">
         <button class="carousel-button prev"><</button>
         <div class="carousel">
-            <div><img src="IMAGENS/lol.jpg" alt="Imagem 1"></div>
-            <div><img src="IMAGENS/valorante.jpg" alt="Imagem 2"></div>
-            <div><img src="IMAGENS/gi.png" alt="Imagem 3"></div>
-            <div><img src="IMAGENS/bloons.jpg" alt="Imagem 4"></div>
-            <div><img src="IMAGENS/gta.png" alt="Imagem 5"></div>
-            <div><img src="IMAGENS/need.png" alt="Imagem 1"></div>
+            <div><img src="IMAGENS/Jogos/lol.jpg" alt="Imagem 1"></div>
+            <div><img src="IMAGENS/Jogos/valorante.jpg" alt="Imagem 2"></div>
+            <div><img src="IMAGENS/Jogos/gi.png" alt="Imagem 3"></div>
+            <div><img src="IMAGENS/Jogos/bloons.jpg" alt="Imagem 4"></div>
+            <div><img src="IMAGENS/Jogos/gta.png" alt="Imagem 5"></div>
+            <div><img src="IMAGENS/Jogos/need.png" alt="Imagem 1"></div>
         </div>
         <button class="carousel-button next">></button>
     </div>

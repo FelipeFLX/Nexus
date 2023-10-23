@@ -6,7 +6,3 @@ $(document).ready(function(){
         prevArrow: $('.carousel-button.prev')
     });
 });
-
-$(document).ready(function() {
-    $('#floatingName').mask('00/00/0000');
-  });
