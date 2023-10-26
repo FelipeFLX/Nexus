@@ -1,6 +1,10 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 require("./Scripts/Conexao_Banco_de_Dados/Conexao_sql.php");
+=======
+require("./Scripts_PHP/Conexao_Banco_de_Dados/Conexao_sql.php");
+>>>>>>> a109695 (.)
 
 // Verifique se os campos existem no array $_POST
 if (isset($_POST['nome'], $_POST['nick'], $_POST['email'], $_POST['senha'], $_POST['dataNasc'])) {

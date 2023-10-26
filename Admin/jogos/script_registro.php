@@ -23,4 +23,6 @@ if ($mysqli->query($sql_code)) {
 // Fecha a conexão com o banco de dados
 $mysqli->close();
 
+echo "Hello, World!";
+
 ?>
