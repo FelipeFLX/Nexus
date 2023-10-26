@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 <?php
   include("./Admin/jogos/script_registro.php");
 ?>
+=======
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,13 +30,18 @@
       ?>
       <div class="col-md-10  p-4 borber">
         <div class="card">
+<<<<<<< HEAD
           <form method="post" enctype="multipart/form-data" action="./script_registro.php" class="needs-validation" novalidate>
+=======
+          <form method="post" enctype="multipart/form-data" action="" class="needs-validation" novalidate>
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
             <div class="card-header">
               <strong>INFORMAÇÕES DO JOGO</strong>
             </div>
             <div class="card-body row justify-content-center align-items-center">
               <div class="col-md-2 text-center">
                 <div class="bg-white rounded img-fluid">
+<<<<<<< HEAD
                   <img id="imagemPreview" src="../../img/user/padrao.png" alt="..." class="img-fluid">
                 </div>
               </div>
@@ -44,6 +52,18 @@
                     <input type="text" class="form-control" name="nomeJogo" maxlength="50">
                   </div>
                   <div class="col-md-3 mb-3">
+=======
+                  <img id="imagemPreview" src="../../img/user/padrao.png" alt="" class="img-fluid">
+                </div>
+              </div>
+              <div class=" col-md-9">
+                <div class="row">
+                  <div class="col-md-3 mb-4">
+                    <label for="nome" class="col-form-label">Nome do Jogo:</label>
+                    <input type="text" class="form-control" name="nomeJogo" maxlength="50">
+                  </div>
+                  <div class="col-md-2 mb-3">
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
                     <label for="sobrenome" class="col-form-label">Preço:</label>
                     <input type="number" class="form-control" name="preco" maxlength="50">
                   </div>
@@ -80,7 +100,11 @@
                     </select>
                   </div>
 
+<<<<<<< HEAD
                   <div class="col-md-3">
+=======
+                  <div class="col-md-2">
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
                     <label for="nasc" class="col-form-label">Genero:</label>
                     <select class="form-select" name="genero" aria-label="Default select example">
                       <option value="1">Ação</option>
@@ -107,7 +131,11 @@
                     <label for="floatingTextarea2">Descrição do Jogo:</label>
                     <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"></textarea>
                   </div>
+<<<<<<< HEAD
                   <div class="col-md-6">
+=======
+                  <div class="col-md-3">
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
                     <label for="email" class="col-form-label">Data de lançamento:</label>
                     <input type="date" class="form-control" name="dataLancamento" maxlength="100" id="email" required>
                   </div>
@@ -122,6 +150,12 @@
                   <a class=" btn btn-primary px-3" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
                   <input type="submit" class=" btn btn-success" value="Salvar" name="acao">
                 </div>
+<<<<<<< HEAD
+=======
+                <?php
+                  include('../../Scripts_PHP/Bd_Imagens/Registro.php');
+                ?>  
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
               </div>
             </div>
           </form>

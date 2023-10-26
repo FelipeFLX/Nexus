@@ -8,10 +8,27 @@ body{
 }
 
 .form-container{
+<<<<<<< HEAD
   background-color: #0C0C0C;
   width: 30%;
   height: auto;
   padding: 3rem;
+=======
+    padding: 3rem;
+    width: 30%;
+    background-color: #0C0C0C;
+    border-radius: 0.5rem;
+}
+
+.input{
+    background-color: #111113;
+    border: none;
+}
+
+.input:focus{
+    background-color: #111113 !important;
+    border: 3px solid #a926f1;
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
 }
 
 .titulo{
@@ -21,6 +38,7 @@ body{
     margin-bottom: 2rem;
 }
 
+<<<<<<< HEAD
 .img-login{
     display: block;
     margin: 0 auto;
@@ -81,3 +99,13 @@ body{
 
 
   
+=======
+.label-texto{
+    color: white;
+}
+
+.img-login{
+    display: block;
+    margin: 0 auto;
+}
+>>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76

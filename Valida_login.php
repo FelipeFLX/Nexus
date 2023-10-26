@@ -1,5 +1,5 @@
 <?php
-include("./Scripts/Conexao_Banco_de_Dados/ObtendoDados_sql.php");
+include("./Scripts_PHP/Conexao_Banco_de_Dados/Conexao_sql.php");
 
 // Recuperando os valores do formulário de login de forma segura
 $email = $mysqli->real_escape_string($_POST['email']);
