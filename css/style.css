@@ -1,6 +1,13 @@
 body{
     background-color: #111113 !important;
 }
+
+.container-all{
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
 .titulo{
     color: white;
     font-size: 160%;

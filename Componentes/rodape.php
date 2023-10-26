@@ -19,8 +19,8 @@
                     <a href="#" class="footer-link" id="instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class="fa-brands fa-facebook"></i>
+                    <a href="#" class="footer-link" id="twitter">
+                        <i class="fa-brands fa-twitter"></i>
                     </a>
                     <a href="#" class="footer-link" id="discord">
                         <i class="fa-brands fa-discord"></i>
