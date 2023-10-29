@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="form-container">
-    <button style="background-color: transparent; border: none; display: block; margin: 0 auto;"><a href="index.php"><img src="/Nexus/public/img/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a></button>
+    <button style="background-color: transparent; border: none; display: block; margin: 0 auto;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a></button>
         <h3 class="titulo">Cadastro</h3>
         <form action="" method="post" class="needs-validation" novalidate>
             <div class="form-linha">
