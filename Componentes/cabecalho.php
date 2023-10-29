@@ -15,7 +15,7 @@
   <a class="links" href="avaliacoes.php">Avaliações</a>
   <a class="links" href="contato.php">Contato</a>
   <a class="links" href="sobre.php">Sobre</a>
-  <a href="login.php"><img src="IMAGENS/Logo/User-Entrar.png" alt="User" width="70" height="alto" class="img-login"></a>
+  <<button style="margin-left: 50%; background-color: transparent; border: none; margin-top: 0.7%;"><a href="login.php"><img src="IMAGENS/Logo/User-Entrar.png" alt="User" width="70" height="alto" class="img-login"></a></button>
 </div>
 </body>
 </html>

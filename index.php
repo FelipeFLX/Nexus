@@ -6,10 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-<<<<<<< HEAD
     <script src="Script JS/script.js"></script>
-=======
->>>>>>> cd4f1388227c6b713a93f60c01609ab24c07bd76
     <title>Nexus</title>
 </head>
 <body>
@@ -39,7 +36,7 @@
             ?>
         <h1 id="noticias" class="titulo">Notícias</h1>
         <div class="noticias">
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+            <div class="card cards" style="width: 23rem; background-color: rgba(12,12,12, 0.50);">
             <img src="IMAGENS/Noticias/BGS.png" class="card-img-top" alt="Imagem Noticia">
                 <div class="card-body">
                     <h5 class="card-title t-cor">Evento começa nesta quinta; Veja o passeio pelo evento</h5>
@@ -48,7 +45,7 @@
                     <a href="https://g1.globo.com/pop-arte/games/noticia/2023/10/12/bgs-2023-comeca-nesta-quinta-sem-xbox-e-playstation-veja-passeio-pelo-evento.ghtml" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
                 </div>
             </div>
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+            <div class="card cards" style="width: 23rem; background-color: rgba(12,12,12, 0.50);">
             <img src="IMAGENS/Noticias/Pokemon.png" class="card-img-top" alt="Imagem Noticia">
                 <div class="card-body">
                     <h5 class="card-title t-cor">Jogadores se reúnem anos após o lançamento e amizade vira grande motor de jogo  </h5>
@@ -57,7 +54,7 @@
                     <a href="https://g1.globo.com/ce/ceara/noticia/2023/09/23/pokemon-go-jogadores-se-reunem-em-encontros-anos-apos-o-lancamento-e-amizade-vira-grande-motor-do-jogo.ghtml" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
                 </div>
             </div>
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+            <div class="card cards" style="width: 23rem; background-color: rgba(12,12,12, 0.50);">
             <img src="IMAGENS/Noticias/FC24.png" class="card-img-top" alt="Imagem Noticia">
                 <div class="card-body">
                     <h5 class="card-title t-cor">1° Game pós-'Fifa' passa a usar partidas reais para recriar movimentos de jogadores</h5>
@@ -66,7 +63,7 @@
                     <a href="https://g1.globo.com/pop-arte/games/noticia/2023/09/29/fc-24-1o-game-pos-fifa-passa-a-usar-partidas-reais-para-recriar-movimentos-de-jogadores.ghtml" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
                 </div>
             </div>
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+            <div class="card cards" style="width: 23rem; background-color: rgba(12,12,12, 0.50);">
             <img src="IMAGENS/Noticias/terror.png" class="card-img-top" alt="Imagem Noticia">
                 <div class="card-body">
                     <h5 class="card-title t-cor">7 Filmes de terror que ganharam versões para videogame</h5>
@@ -75,7 +72,7 @@
                     <a href="https://www.tecmundo.com.br/voxel/269265-filmes-terror-ganharam-versoes-videogame.htm" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
                 </div>
             </div>
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+            <div class="card cards" style="width: 23rem; background-color: rgba(12,12,12, 0.50);">
             <img src="IMAGENS/Noticias/mk1.jpg" class="card-img-top" alt="Imagem Noticia">
                 <div class="card-body">
                     <h5 class="card-title t-cor">Mortal Kombat 1 ganha atualização com melhorias e correções no Switch</h5>
@@ -84,7 +81,7 @@
                     <a href="https://www.tecmundo.com.br/voxel/272648-mortal-kombat-1-ganha-atualizacao-melhorias-correcoes-switch.htm" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
                 </div>
             </div>
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+            <div class="card cards" style="width: 23rem; background-color: rgba(12,12,12, 0.50);">
             <img src="IMAGENS/Noticias/nitendo.jpg" class="card-img-top" alt="Imagem Noticia">
                 <div class="card-body">
                     <h5 class="card-title t-cor">Nintendo quer localizar todos os jogos em PT-BR futuramente</h5>
