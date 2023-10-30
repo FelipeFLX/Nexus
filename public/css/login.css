@@ -12,6 +12,7 @@ body{
 
 .form-container{
   background-color: #0C0C0C;
+  height: 100%;
   width: 55%;
   padding: 5rem;
   /*border-radius: 0.5rem;*/
@@ -95,6 +96,7 @@ body{
   color: white;
   font-size: 130%;
   font-weight: bold;
+  border: none;
 }
 
 .link{
