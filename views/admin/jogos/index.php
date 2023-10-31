@@ -15,12 +15,12 @@
 
 <body style="justify-content: center; align-items: center; height: 100vh ">
   <?php 
-      include('./../../Componentes/header-adm.php');
+      include('../../componentes/header-adm.php');
   ?>
   <div class="container-fluid" style="height: 90vh">
     <div class="row h-100">
       <?php 
-      include('./../../Componentes/menu-adm.php');
+      include('../../componentes/menu-adm.php');
       ?>
       <div class="col-md-10  p-4 borber">
         <div class="row align-items-center mb-4">
