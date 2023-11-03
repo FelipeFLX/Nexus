@@ -10,17 +10,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- icon -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> <!-- CSS Projeto -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/Nexus/public/css/css/style.css">
 </head>
+
 
 <body style="justify-content: center; align-items: center; height: 100vh ">
   <?php
-  include('./../../componentes/header-adm.php');
+  require_once("../views/componentes/header-adm.php");
   ?>
   <div class="container-fluid" style="height: 90vh">
     <div class="row h-100">
       <?php
-      include('./../../componentes/menu-adm.php');
+      require_once("../views/componentes/menu-adm.php");
       ?>
       <div class="col-md-10  p-4 borber">
         <div class="card">
@@ -36,7 +37,7 @@
               </div>
               <div class=" col-md-9">
                 <div class="row">
-                  <div class="col-md-3 mb-4">
+                  <div class="col-md-4 mb-4">
                     <label for="nome" class="col-form-label">Nome do Jogo:</label>
                     <input type="text" class="form-control" name="nomeJogo" maxlength="50">
                   </div>
@@ -120,8 +121,8 @@
                   <input type="submit" class=" btn btn-success" value="Salvar" name="acao">
                 </div>
                 <?php
-                  include('../../Scripts_PHP/Bd_Imagens/Registro.php');
-                ?>  
+                include('../../Scripts_PHP/Bd_Imagens/Registro.php');
+                ?>
               </div>
             </div>
           </form>
