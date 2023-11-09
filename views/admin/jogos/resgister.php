@@ -120,9 +120,6 @@
                   <a class=" btn btn-primary px-3" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
                   <input type="submit" class=" btn btn-success" value="Salvar" name="acao">
                 </div>
-                <?php
-                include('../../Scripts_PHP/Bd_Imagens/Registro.php');
-                ?>
               </div>
             </div>
           </form>

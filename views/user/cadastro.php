@@ -81,9 +81,6 @@
         </form>
         <a class="link" href="loginController.php">Já tem uma conta?</a>
     </div>
-    <?php
-    //require('./Scripts/Login/Registro.php')
-    ?>
     <script src="./validacaoCampos.js"></script>
 </body>
 

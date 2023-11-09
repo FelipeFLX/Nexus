@@ -3,7 +3,7 @@ require_once("../config/Conexao.php");
 
 class JogoDao
 {
-    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento)
+    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $capaJogo)
     {
         try {
             $conexao = new conexao();
@@ -12,7 +12,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbJogo (nomeJogo, precoJogo, plataformaJogo, generoJogo, descJogo, dataLancamentoJogo) VALUES (:nome, :preco, :plataforma, :genero, :descricao, :dataLancamento)";
+        $sql_code = "INSERT INTO tbJogo (nomeJogo, precoJogo, plataformaJogo, generoJogo, descJogo, dataLancamentoJogo, capaJogo) VALUES (:nome, :preco, :plataforma, :genero, :descricao, :dataLancamento, :capaJogo)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -22,6 +22,7 @@ class JogoDao
         $stmt->bindParam(":genero", $genero);
         $stmt->bindParam(":descricao", $descricao);
         $stmt->bindParam(":dataLancamento", $dataLancamento);
+        $stmt->bindParam(":capaJogo", $capaJogo);
 
         $stmt->execute();
 

@@ -14,7 +14,9 @@
     <?php
     include '../componentes/cabecalho.php';
     ?>
-
+    <div class="estrelas">
+        <input type="radio" id="estrela-1" name="estrelas" value="1" checked>
+    </div>
     <?php
     include '../componentes/rodape.php';
     ?>

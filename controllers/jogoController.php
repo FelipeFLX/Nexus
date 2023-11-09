@@ -11,7 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descJogo = $_POST['descJogo'];
     $dataLancamento = $_POST['dataLancamento'];
     $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
+    $capaJogo = $_FILES['capaJogo'];
 
-    JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento);
+    $extencao = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
+    $nome = uniqid();
+    $imgName = $nome . "." . $extencao;
+    $diretorio = 'C:\xampp\htdocs\Nexus\public\img\capaJogos\ ' . $imgName;
 
+    echo $diretorio;
+
+    $upload = move_uploaded_file($capaJogo["tmp_name"], $diretorio);
+
+    if($upload){
+        JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $diretorio);
+    }
 }
