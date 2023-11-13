@@ -13,16 +13,42 @@
 </head>
 <body>
     <div class="carousel-container">
-        <button class="carousel-button prev"><</button>
-        <div class="carousel">
-            <div><img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1"></div>
-            <div><img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2"></div>
-            <div><img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3"></div>
-            <div><img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4"></div>
-            <div><img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5"></div>
-            <div><img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1"></div>
+        <div class="button-container">
+            <button class="carousel-button prev"><</button>
+            <button class="carousel-button next">></button>
         </div>
-        <button class="carousel-button next">></button>
+        <div class="carousel">
+            <div>
+                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
+                <p class="game-title">League of Legends</p>
+                <p class="game-price">Grátis</p>
+            </div>
+            <div>
+                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
+                <p class="game-title">Valorant</p>
+                <p class="game-price">Grátis</p>
+            </div>
+            <div>
+                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
+                <p class="game-title">Genshin Impact</p>
+                <p class="game-price">Grátis</p>
+            </div>
+            <div>
+                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
+                <p class="game-title">Bloons TD 6</p>
+                <p class="game-price">R$ 49,99</p>
+            </div>
+            <div>
+                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
+                <p class="game-title">Grand Theft Auto V</p>
+                <p class="game-price">R$ 82,42</p>
+            </div>
+            <div>
+                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
+                <p class="game-title">Need for Speed™ Rivals</p>
+                <p class="game-price">R$ 59,00</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
