@@ -28,56 +28,10 @@
                 <a class="ancora" href="#novidades">Novidades</a>
             </div>
         </div>
-        <!--<section class="slider">
-            <div class="slider-content">
-                <input type="radio" name="imgSlide" id="radio1">
-                <input type="radio" name="imgSlide" id="radio2">
-                <input type="radio" name="imgSlide" id="radio3">
-                <input type="radio" name="imgSlide" id="radio4">
-                <input type="radio" name="imgSlide" id="radio5">
-
-                <div class="slide-box primeiro">
-                    <img class="img-desktop" src="/Nexus/public/img/Banners/Ban-AlanWake.jpg" alt="slide1">
-                </div>
-
-                <div class="slide-box">
-                    <img class="img-desktop" src="/Nexus/public/img/Banners/Ban-DemonSlayer.jpg" alt="slide2">
-                </div>
-
-                <div class="slide-box">
-                    <img class="img-desktop" src="/Nexus/public/img/Banners/Ban-Hogwarts.png" alt="slide3">
-                </div>
-
-                <div class="slide-box">
-                    <img class="img-desktop" src="/Nexus/public/img/Banners/Ban-Genshin.jpg" alt="slide4">
-                </div>
-
-                <div class="slide-box">
-                    <img class="img-desktop" src="/Nexus/public/img/Banners/Ban-TheSims.png" alt="slide5">
-                </div>
-
-                <div class="nav-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                    <div class="auto-btn5"></div>
-                </div>
-
-                <div class="nav-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
-                    <label for="radio4" class="manual-btn"></label>
-                    <label for="radio5" class="manual-btn"></label>
-                </div>
-            </div>
-        </section>-->
         <div class="container-imagem">
             <img src="/Nexus/public/img/Logo/Foto-Home.png" alt="Imagem Home" width="400" height="auto" class="imagem-home">
             <img src="/Nexus/public/img/Logo/Foto-Texto.png" alt="Imagem Texto" width="380" height="auto" class="imagem-texto">
         </div>
-        <h1 id="destaques" class="titulo">Destaques</h1>
         <?php
         include '../componentes/carrosel.php'
         ?>

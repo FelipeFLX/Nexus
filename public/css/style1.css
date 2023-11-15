@@ -300,3 +300,10 @@ body {
     text-align: start;
     font-size: 130%;
 }
+
+.titulos-botaos{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2.5%;
+    margin-top: 3%;
+}

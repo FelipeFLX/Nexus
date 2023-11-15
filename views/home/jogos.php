@@ -3,292 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/Nexus/public/css/style1.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/Nexus/public/js/script.js"></script>
-    <link rel="stylesheet" type="text/css" href="/Nexus/public/css/style1.css">
+
     <title>Nexus</title>
 </head>
 <body>
     <?php
     include '../componentes/cabecalho.php';
     ?>
-    <h1 id="acao" class="titulo">Ação</h1>
+
     <?php
     include '../componentes/carroselAcao.php';
     ?>
-    <h1 id="aventura" class="titulo">Aventura</h1>
     <div class="carousel-container">
-        <div class="button-container">
-            <button class="carousel-button prev2"><</button>
-            <button class="carousel-button next2">></button>
+        <div class="titulos-botaos">
+            <div class="titulos-carrosel">
+                <h1 id="aventura" class="titulo">Aventura</h1>
+            </div>
+            <div class="button-container">
+                <button class="carousel-button prev2"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button>
+                <button class="carousel-button next2"><i class="fa-solid fa-angle-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
         <div class="carousel2">
             <div>
-                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
-                <p class="game-title">League of Legends</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
-                <p class="game-title">Valorant</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
-                <p class="game-title">Genshin Impact</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
-                <p class="game-title">Bloons TD 6</p>
-                <p class="game-price">R$ 49,99</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
-                <p class="game-title">Grand Theft Auto V</p>
-                <p class="game-price">R$ 82,42</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
-                <p class="game-title">Need for Speed™ Rivals</p>
-                <p class="game-price">R$ 59,00</p>
+                <img src="/Nexus/public/img/Jogos/mortal-kombat1.jpeg" alt="Imagem 1">
+                <p class="game-title">Mortal Kombat 1</p>
+                <p class="game-price">R$ 279,90</p>
             </div>
         </div>
     </div>
-    <h1 id="rpg" class="titulo">RPG</h1>
+
     <div class="carousel-container">
-        <div class="button-container">
-            <button class="carousel-button prev3"><</button>
-            <button class="carousel-button next3">></button>
+        <div class="titulos-botaos">
+            <div class="titulos-carrosel">
+                <h1 id="rpg" class="titulo">RPG</h1>
+            </div>
+            <div class="button-container">
+                <button class="carousel-button prev3"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button>
+                <button class="carousel-button next3"><i class="fa-solid fa-angle-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
         <div class="carousel3">
             <div>
-                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
-                <p class="game-title">League of Legends</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
-                <p class="game-title">Valorant</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
-                <p class="game-title">Genshin Impact</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
-                <p class="game-title">Bloons TD 6</p>
-                <p class="game-price">R$ 49,99</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
-                <p class="game-title">Grand Theft Auto V</p>
-                <p class="game-price">R$ 82,42</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
-                <p class="game-title">Need for Speed™ Rivals</p>
-                <p class="game-price">R$ 59,00</p>
+                <img src="/Nexus/public/img/Jogos/lof.jpeg" alt="Imagem 1">
+                <p class="game-title">Lords of the Fallen</p>
+                <p class="game-price">R$ 249,00</p>
             </div>
         </div>
     </div>
-    <h1 id="terror" class="titulo">Terror</h1>
+    
     <div class="carousel-container">
-        <div class="button-container">
-            <button class="carousel-button prev4"><</button>
-            <button class="carousel-button next4">></button>
+        <div class="titulos-botaos">
+            <div class="titulos-carrosel">
+                <h1 id="terror" class="titulo">Terror</h1>
+            </div>
+            <div class="button-container">
+                <button class="carousel-button prev4"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button>
+                <button class="carousel-button next4"><i class="fa-solid fa-angle-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
         <div class="carousel4">
             <div>
-                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
-                <p class="game-title">League of Legends</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
-                <p class="game-title">Valorant</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
-                <p class="game-title">Genshin Impact</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
-                <p class="game-title">Bloons TD 6</p>
-                <p class="game-price">R$ 49,99</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
-                <p class="game-title">Grand Theft Auto V</p>
-                <p class="game-price">R$ 82,42</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
-                <p class="game-title">Need for Speed™ Rivals</p>
-                <p class="game-price">R$ 59,00</p>
+                <img src="/Nexus/public/img/Jogos/tew.jpeg" alt="Imagem 1">
+                <p class="game-title">The Evil Within</p>
+                <p class="game-price">R$ 85,99</p>
             </div>
         </div>
     </div>
-    <h1 id="esportes" class="titulo">Esporte</h1>
+
     <div class="carousel-container">
-        <div class="button-container">
-            <button class="carousel-button prev5"><</button>
-            <button class="carousel-button next5">></button>
+        <div class="titulos-botaos">
+            <div class="titulos-carrosel">
+                <h1 id="esportes" class="titulo">Esporte</h1>
+            </div>
+            <div class="button-container">
+                <button class="carousel-button prev5"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button>
+                <button class="carousel-button next5"><i class="fa-solid fa-angle-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
         <div class="carousel5">
             <div>
-                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
-                <p class="game-title">League of Legends</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
-                <p class="game-title">Valorant</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
-                <p class="game-title">Genshin Impact</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
-                <p class="game-title">Bloons TD 6</p>
-                <p class="game-price">R$ 49,99</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
-                <p class="game-title">Grand Theft Auto V</p>
-                <p class="game-price">R$ 82,42</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
-                <p class="game-title">Need for Speed™ Rivals</p>
-                <p class="game-price">R$ 59,00</p>
+                <img src="/Nexus/public/img/Jogos/ibm23.jpg" alt="Imagem 1">
+                <p class="game-title">International Basketball Manager 23</p>
+                <p class="game-price">R$ 66,99</p>
             </div>
         </div>
     </div>
-    <h1 id="estrategia" class="titulo">Estratégia</h1>
+
     <div class="carousel-container">
-        <div class="button-container">
-            <button class="carousel-button prev6"><</button>
-            <button class="carousel-button next6">></button>
+        <div class="titulos-botaos">
+            <div class="titulos-carrosel">
+                <h1 id="estrategia" class="titulo">Estratégia</h1>
+            </div>
+            <div class="button-container">
+                <button class="carousel-button prev6"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button>
+                <button class="carousel-button next6"><i class="fa-solid fa-angle-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
         <div class="carousel6">
             <div>
-                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
-                <p class="game-title">League of Legends</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
-                <p class="game-title">Valorant</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
-                <p class="game-title">Genshin Impact</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
-                <p class="game-title">Bloons TD 6</p>
-                <p class="game-price">R$ 49,99</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
-                <p class="game-title">Grand Theft Auto V</p>
-                <p class="game-price">R$ 82,42</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
-                <p class="game-title">Need for Speed™ Rivals</p>
-                <p class="game-price">R$ 59,00</p>
+                <img src="/Nexus/public/img/Jogos/dungeons4.png" alt="Imagem 1">
+                <p class="game-title">Dungeons 4</p>
+                <p class="game-price">R$ 219,00</p>
             </div>
         </div>
     </div>
-    <h1 id="casual" class="titulo">Casual</h1>
+
     <div class="carousel-container">
-        <div class="button-container">
-            <button class="carousel-button prev7"><</button>
-            <button class="carousel-button next7">></button>
+        <div class="titulos-botaos">
+            <div class="titulos-carrosel">
+                <h1 id="casual" class="titulo">Casual</h1>
+            </div>
+            <div class="button-container">
+                <button class="carousel-button prev7"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button>
+                <button class="carousel-button next7"><i class="fa-solid fa-angle-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
         <div class="carousel7">
             <div>
-                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
-                <p class="game-title">League of Legends</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
-                <p class="game-title">Valorant</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
-                <p class="game-title">Genshin Impact</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
-                <p class="game-title">Bloons TD 6</p>
-                <p class="game-price">R$ 49,99</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
-                <p class="game-title">Grand Theft Auto V</p>
-                <p class="game-price">R$ 82,42</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
-                <p class="game-title">Need for Speed™ Rivals</p>
-                <p class="game-price">R$ 59,00</p>
+                <img src="/Nexus/public/img/Jogos/sfk.png" alt="Imagem 1">
+                <p class="game-title">StrikeForce Kitty</p>
+                <p class="game-price">R$ 16,19</p>
             </div>
         </div>
     </div>
-    <h1 id="simulacao" class="titulo">Simulação</h1>
+
     <div class="carousel-container">
-        <div class="button-container">
-            <button class="carousel-button prev8"><</button>
-            <button class="carousel-button next8">></button>
+        <div class="titulos-botaos">
+            <div class="titulos-carrosel">
+                <h1 id="simulacao" class="titulo">Simulação</h1>
+            </div>
+            <div class="button-container">
+                <button class="carousel-button prev8"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button>
+                <button class="carousel-button next8"><i class="fa-solid fa-angle-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
         <div class="carousel8">
             <div>
-                <img src="/Nexus/public/img/Jogos/lol.jpg" alt="Imagem 1">
-                <p class="game-title">League of Legends</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/valorante.jpg" alt="Imagem 2">
-                <p class="game-title">Valorant</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gi.png" alt="Imagem 3">
-                <p class="game-title">Genshin Impact</p>
-                <p class="game-price">Grátis</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/bloons.jpg" alt="Imagem 4">
-                <p class="game-title">Bloons TD 6</p>
-                <p class="game-price">R$ 49,99</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/gta.png" alt="Imagem 5">
-                <p class="game-title">Grand Theft Auto V</p>
-                <p class="game-price">R$ 82,42</p>
-            </div>
-            <div>
-                <img src="/Nexus/public/img/Jogos/need.png" alt="Imagem 1">
-                <p class="game-title">Need for Speed™ Rivals</p>
-                <p class="game-price">R$ 59,00</p>
+                <img src="/Nexus/public/img/Jogos/wrc.jpeg" alt="Imagem 1">
+                <p class="game-title">EA SPORTS™ WRC</p>
+                <p class="game-price">R$ 249,00</p>
             </div>
         </div>
     </div>
