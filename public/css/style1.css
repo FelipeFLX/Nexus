@@ -32,6 +32,54 @@ body {
     align-items: flex-start;
 }
 
+.carousel1 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
+.carousel2 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
+.carousel3 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
+.carousel4 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
+.carousel5 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
+.carousel6 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
+.carousel7 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
+.carousel8 {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+}
+
 .carousel-button {
     padding: 10px 20px;
     background: #333;
@@ -52,14 +100,190 @@ body {
     z-index: 1;
 }
 
+.carousel-button.prev1 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next1 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.prev2 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next2 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.prev3 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next3 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.prev4 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next4 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.prev5 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next5 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.prev6 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next6 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.prev7 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next7 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.prev8 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
+.carousel-button.next8 {
+    border-radius: 40%;
+    z-index: 1;
+}
+
 .carousel div {
-    flex: 0 0 30%; /* Ajusta a largura dos itens, você pode ajustar conforme necessário */
+    flex: 0 0 30%;
     margin-left: 1rem;
     margin-right: 1rem;
-    text-align: center; /* Centraliza o conteúdo dentro do div */
+    text-align: center;
+}
+
+.carousel1 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.carousel2 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.carousel3 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.carousel4 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.carousel5 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.carousel6 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.carousel7 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.carousel8 div {
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
 }
 
 .carousel img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel1 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel2 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel3 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel4 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel5 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel6 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel7 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel8 img {
     max-width: 100%;
     height: auto;
 }
