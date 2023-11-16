@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 29/10/2023 às 21:42
+-- Host: 127.0.0.1
+-- Tempo de geração: 16/11/2023 às 01:58
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -18,25 +18,25 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bdNexus`
+-- Banco de dados: `bdnexus`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbGenero`
+-- Estrutura para tabela `tbgenero`
 --
 
-CREATE TABLE `tbGenero` (
+CREATE TABLE `tbgenero` (
   `nomeGenero` varchar(35) NOT NULL,
   `idGenero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbGenero`
+-- Despejando dados para a tabela `tbgenero`
 --
 
-INSERT INTO `tbGenero` (`nomeGenero`, `idGenero`) VALUES
+INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
 ('Ação', 1),
 ('Aventura', 2),
 ('RPG', 3),
@@ -59,37 +59,50 @@ INSERT INTO `tbGenero` (`nomeGenero`, `idGenero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbJogo`
+-- Estrutura para tabela `tbjogo`
 --
 
-CREATE TABLE `tbJogo` (
+CREATE TABLE `tbjogo` (
   `idJogo` int(11) NOT NULL,
   `nomeJogo` varchar(75) NOT NULL,
   `precoJogo` decimal(10,2) NOT NULL,
   `generoJogo` int(11) NOT NULL,
   `plataformaJogo` int(11) NOT NULL,
   `descJogo` text NOT NULL,
-  `capaJogo` int(11) NOT NULL,
-  `backgroundJogo` varchar(225) NOT NULL,
+  `capaJogo` varchar(150) NOT NULL,
   `dataLancamentoJogo` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbPlataforma`
+-- Estrutura para tabela `tbnoticias`
 --
 
-CREATE TABLE `tbPlataforma` (
+CREATE TABLE `tbnoticias` (
+  `idNoticia` int(11) NOT NULL,
+  `tituloNoticia` varchar(50) NOT NULL,
+  `textoNoticia` text NOT NULL,
+  `dataLancNoticia` datetime NOT NULL,
+  `dataModfcNoticia` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbplataforma`
+--
+
+CREATE TABLE `tbplataforma` (
   `idPlataforma` int(11) NOT NULL,
   `nomePlataforma` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbPlataforma`
+-- Despejando dados para a tabela `tbplataforma`
 --
 
-INSERT INTO `tbPlataforma` (`idPlataforma`, `nomePlataforma`) VALUES
+INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
 (1, 'PlayStation'),
 (2, 'PlayStation 2'),
 (3, 'PlayStation 3'),
@@ -121,10 +134,23 @@ INSERT INTO `tbPlataforma` (`idPlataforma`, `nomePlataforma`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbUser`
+-- Estrutura para tabela `tbtrailer`
 --
 
-CREATE TABLE `tbUser` (
+CREATE TABLE `tbtrailer` (
+  `idTrailer` int(11) NOT NULL,
+  `tituloTrailer` varchar(50) NOT NULL,
+  `linkTrailer` varchar(255) NOT NULL,
+  `dataTrailer` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbuser`
+--
+
+CREATE TABLE `tbuser` (
   `idUser` int(11) NOT NULL,
   `nomeUser` varchar(60) NOT NULL,
   `nickUser` varchar(35) NOT NULL,
@@ -136,10 +162,10 @@ CREATE TABLE `tbUser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbUser`
+-- Despejando dados para a tabela `tbuser`
 --
 
-INSERT INTO `tbUser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`, `dataNascUser`, `sobrenomeUser`, `cpfUser`) VALUES
+INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`, `dataNascUser`, `sobrenomeUser`, `cpfUser`) VALUES
 (1, 'Matheus', 'Vuall_Platium', 'mh15122006@gmail.com', '1234rewqa', '2006-12-15', 'Henrique', '111.111.111-11');
 
 --
@@ -147,30 +173,42 @@ INSERT INTO `tbUser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`
 --
 
 --
--- Índices de tabela `tbGenero`
+-- Índices de tabela `tbgenero`
 --
-ALTER TABLE `tbGenero`
+ALTER TABLE `tbgenero`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Índices de tabela `tbJogo`
+-- Índices de tabela `tbjogo`
 --
-ALTER TABLE `tbJogo`
+ALTER TABLE `tbjogo`
   ADD PRIMARY KEY (`idJogo`),
   ADD KEY `generoJogo` (`generoJogo`),
   ADD KEY `plataformaJogo` (`plataformaJogo`),
   ADD KEY `capaJogo` (`capaJogo`);
 
 --
--- Índices de tabela `tbPlataforma`
+-- Índices de tabela `tbnoticias`
 --
-ALTER TABLE `tbPlataforma`
+ALTER TABLE `tbnoticias`
+  ADD PRIMARY KEY (`idNoticia`);
+
+--
+-- Índices de tabela `tbplataforma`
+--
+ALTER TABLE `tbplataforma`
   ADD PRIMARY KEY (`idPlataforma`);
 
 --
--- Índices de tabela `tbUser`
+-- Índices de tabela `tbtrailer`
 --
-ALTER TABLE `tbUser`
+ALTER TABLE `tbtrailer`
+  ADD PRIMARY KEY (`idTrailer`);
+
+--
+-- Índices de tabela `tbuser`
+--
+ALTER TABLE `tbuser`
   ADD PRIMARY KEY (`idUser`);
 
 --
@@ -178,38 +216,40 @@ ALTER TABLE `tbUser`
 --
 
 --
--- AUTO_INCREMENT de tabela `tbGenero`
+-- AUTO_INCREMENT de tabela `tbgenero`
 --
-ALTER TABLE `tbGenero`
+ALTER TABLE `tbgenero`
   MODIFY `idGenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de tabela `tbJogo`
+-- AUTO_INCREMENT de tabela `tbjogo`
 --
-ALTER TABLE `tbJogo`
+ALTER TABLE `tbjogo`
   MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbPlataforma`
+-- AUTO_INCREMENT de tabela `tbnoticias`
 --
-ALTER TABLE `tbPlataforma`
+ALTER TABLE `tbnoticias`
+  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tbplataforma`
+--
+ALTER TABLE `tbplataforma`
   MODIFY `idPlataforma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT de tabela `tbUser`
+-- AUTO_INCREMENT de tabela `tbtrailer`
 --
-ALTER TABLE `tbUser`
+ALTER TABLE `tbtrailer`
+  MODIFY `idTrailer` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tbuser`
+--
+ALTER TABLE `tbuser`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `tbJogo`
---
-ALTER TABLE `tbJogo`
-  ADD CONSTRAINT `capaJogo` FOREIGN KEY (`capaJogo`) REFERENCES `tbCapaJogo` (`idCapaJogo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

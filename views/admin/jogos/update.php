@@ -1,3 +1,10 @@
+<?php
+  require_once('../../../dao/jogoDao.php');
+  $idJogo = $_POST['idJogo'];
+  $jogo = jogoDao::getById($idJogo);
+  $nomeDoArquivo = basename($jogo['capaJogo']);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,89 +33,113 @@
       <div class="col-md-10  p-4 borber">
         <div class="card">
           <form method="post" enctype="multipart/form-data" action="../../../controllers/jogoController.php" class="needs-validation" novalidate>
-            <input type="hidden" name="option" value="CREATE">
+            <input type="hidden" name="option" value="UPDATE">
+            <input type="hidden" name="idJogo" value="<?php echo $idJogo ?>">
+            <input type="hidden" name="capaJogo" value="<?php echo $capaJogo ?>">
             <div class="card-header">
               <strong>INFORMAÇÕES DO JOGO</strong>
             </div>
             <div class="card-body row justify-content-center align-items-center">
               <div class="col-md-2 text-center">
                 <div class="bg-white rounded img-fluid">
-                  <img id="imagemPreview" src="../../img/user/padrao.png" alt="" class="img-fluid">
+                  <img id="imagemPreview" src="../../../public/img/capajogos/<?php echo $nomeDoArquivo ?>" alt="" class="img-fluid">
                 </div>
               </div>
               <div class=" col-md-9">
                 <div class="row">
                   <div class="col-md-4 mb-4">
                     <label for="nome" class="col-form-label">Nome do Jogo:</label>
-                    <input type="text" class="form-control" name="nomeJogo" maxlength="50">
+                    <input type="text" class="form-control" name="nomeJogo" value="<?php echo $jogo['nomeJogo'] ?>" maxlength="50">
                   </div>
                   <div class="col-md-2 mb-3">
                     <label for="sobrenome" class="col-form-label">Preço:</label>
-                    <input type="number" class="form-control" name="preco" maxlength="50">
+                    <input type="number" class="form-control" name="preco" value="<?php echo $jogo['precoJogo'] ?>" maxlength="50">
                   </div>
                   <div class="col-md-3 mb-3">
                     <label for="cpf" class="col-form-label">Plataforma:</label>
                     <select class="form-select" name="plataforma" aria-label="Default select example">
-                      <option value="1">PlayStation</option>
-                      <option value="2">PlayStation 2</option>
-                      <option value="3">PlayStation 3</option>
-                      <option value="4">PlayStation 4</option>
-                      <option value="5">PlayStation 5</option>
-                      <option value="6">PlayStation Vita</option>
-                      <option value="7">PSP</option>
-                      <option value="8">NES</option>
-                      <option value="9">SNES</option>
-                      <option value="10">Nintendo 64</option>
-                      <option value="11">Nintendo GameCube</option>
-                      <option value="12">Nintendo Wii</option>
-                      <option value="13">Nintendo Wii U</option>
-                      <option value="14">Nintendo Switch</option>
-                      <option value="15">Nintendo Game Boy</option>
-                      <option value="16">Nintendo Game Boy Advance</option>
-                      <option value="17">Nintendo DS</option>
-                      <option value="18">Nintendo 3DS</option>
-                      <option value="19">Xbox Clássico</option>
-                      <option value="20">Xbox 360</option>
-                      <option value="21">Xbox One</option>
-                      <option value="22">Xbox Series X/S</option>
-                      <option value="23">Windows</option>
-                      <option value="24">Linux</option>
-                      <option value="25">Mac OS</option>
-                      <option value="26">Android</option>
-                      <option value="27">iOS</option>
+                    <?php
+                      $plataformaSelecionada = $jogo['plataformaJogo']; // Substitua pelo valor da plataforma a ser pré-selecionada
+
+                      $plataformas = [
+                          1 => "PlayStation",
+                          2 => "PlayStation 2",
+                          3 => "PlayStation 3",
+                          4 => "PlayStation 4",
+                          5 => "PlayStation 5",
+                          6 => "PlayStation Vita",
+                          7 => "PSP",
+                          8 => "NES",
+                          9 => "SNES",
+                          10 => "Nintendo 64",
+                          11 => "Nintendo GameCube",
+                          12 => "Nintendo Wii",
+                          13 => "Nintendo Wii U",
+                          14 => "Nintendo Switch",
+                          15 => "Nintendo Game Boy",
+                          16 => "Nintendo Game Boy Advance",
+                          17 => "Nintendo DS",
+                          18 => "Nintendo 3DS",
+                          19 => "Xbox Clássico",
+                          20 => "Xbox 360",
+                          21 => "Xbox One",
+                          22 => "Xbox Series X/S",
+                          23 => "Windows",
+                          24 => "Linux",
+                          25 => "Mac OS",
+                          26 => "Android",
+                          27 => "iOS",
+                      ];
+
+                      foreach ($plataformas as $value => $plataforma) {
+                          $selected = ($plataformaSelecionada == $value) ? 'selected' : '';
+                          echo "<option value=\"$value\" $selected>$plataforma</option>";
+                      }
+                      ?>
                     </select>
                   </div>
 
                   <div class="col-md-2">
                     <label for="nasc" class="col-form-label">Genero:</label>
                     <select class="form-select" name="genero" aria-label="Default select example">
-                      <option value="1">Ação</option>
-                      <option value="2">Aventura</option>
-                      <option value="3">RPG</option>
-                      <option value="4">Estratégia</option>
-                      <option value="5">Simulação</option>
-                      <option value="6">Esportes</option>
-                      <option value="7">Quebra-cabeças</option>
-                      <option value="8">Corrida</option>
-                      <option value="9">Luta</option>
-                      <option value="10">Terror</option>
-                      <option value="11">Jogo de ritmo</option>
-                      <option value="12">Card-Games</option>
-                      <option value="13">Sandbox</option>
-                      <option value="14">FPS</option>
-                      <option value="15">Plataforma</option>
-                      <option value="16">Visual Novel</option>
-                      <option value="17">Roguelike</option>
-                      <option value="18">MMORPG</option>
+                    <?php
+                      $generoSelecionado = $jogo['generoJogo']; // Substitua pelo valor do gênero a ser pré-selecionado
+
+                      $generos = [
+                          1 => "Ação",
+                          2 => "Aventura",
+                          3 => "RPG",
+                          4 => "Estratégia",
+                          5 => "Simulação",
+                          6 => "Esportes",
+                          7 => "Quebra-cabeças",
+                          8 => "Corrida",
+                          9 => "Luta",
+                          10 => "Terror",
+                          11 => "Jogo de ritmo",
+                          12 => "Card-Games",
+                          13 => "Sandbox",
+                          14 => "FPS",
+                          15 => "Plataforma",
+                          16 => "Visual Novel",
+                          17 => "Roguelike",
+                          18 => "MMORPG",
+                      ];
+
+                      foreach ($generos as $value => $genero) {
+                          $selected = ($generoSelecionado == $value) ? 'selected' : '';
+                          echo "<option value=\"$value\" $selected>$genero</option>";
+                      }
+                    ?>
                     </select>
                   </div>
                   <div class="col-md-6">
                     <label for="floatingTextarea2">Descrição do Jogo:</label>
-                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"><?php echo $jogo['descJogo'] ?></textarea>
                   </div>
                   <div class="col-md-3">
                     <label for="email" class="col-form-label">Data de lançamento:</label>
-                    <input type="date" class="form-control" name="dataLancamento" maxlength="100" id="email" required>
+                    <input type="date" class="form-control" name="dataLancamento" maxlength="100" value="<?php echo $jogo['dataLancamentoJogo'] ?>" id="email" required>
                   </div>
 
                 </div>
