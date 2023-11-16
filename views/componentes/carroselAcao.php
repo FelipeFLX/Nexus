@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="carousel1">
-            <div>
+            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
                 <img src="/Nexus/public/img/Jogos/assasino.png" alt="Imagem 1">
                 <p class="game-title">Assassin's Creed Mirage: Edição Deluxe</p>
                 <p class="game-price">R$ 249,99</p>

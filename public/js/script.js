@@ -78,3 +78,8 @@ $(document).ready(function(){
         prevArrow: $('.carousel-button.prev8')
     });
 });
+
+function abrirPagina(element) {
+    var url = element.getAttribute('data-url');
+    window.location.href = url;
+}
