@@ -57,7 +57,7 @@
                 <tr>
                   <td class="align-middle"><?php echo $jogo['idJogo']; ?></td>
                   <td class="align-middle"><?php echo $jogo['nomeJogo']; ?></td>
-                  <td class="align-middle"><?php echo $jogo['precoJogo']; ?></td>
+                  <td class="align-middle">R$ <?php echo $jogo['precoJogo']; ?></td>
                   <td class="align-middle"><?php echo jogoDao::getPlataforma($jogo['plataformaJogo']); ?></td>
                   <td class="align-middle"><?php echo jogoDao::getGenero($jogo['generoJogo']); ?></td>
                   <td class="align-middle"><?php echo date('d/m/Y', strtotime($jogo['dataLancamentoJogo'])); ?></td>

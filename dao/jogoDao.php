@@ -68,6 +68,30 @@ class JogoDao
 
         return $resultado;
     }
+    public static function getByGenero($genero)
+    {
+        try {
+            $conexao = new Conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        
+        $sql_code = "SELECT * FROM tbJogo WHERE generoJogo = :genero";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->bindParam(":genero", $genero);
+        $stmt->execute();
+
+
+        $jogos = [];
+        while ($row = $stmt->fetch()) {
+            $jogos[] = $row;
+        }
+
+        return $jogos;
+
+    }
     public static function getGenero($genero)
     {
         try {

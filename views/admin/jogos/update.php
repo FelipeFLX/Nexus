@@ -16,7 +16,7 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- icon -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> <!-- CSS Projeto -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link rel="stylesheet" href="/Nexus/public/css/css/style.css">
 </head>
 
@@ -59,7 +59,7 @@
                     <label for="cpf" class="col-form-label">Plataforma:</label>
                     <select class="form-select" name="plataforma" aria-label="Default select example">
                     <?php
-                      $plataformaSelecionada = $jogo['plataformaJogo']; // Substitua pelo valor da plataforma a ser pré-selecionada
+                      $plataformaSelecionada = $jogo['plataformaJogo'];
 
                       $plataformas = [
                           1 => "PlayStation",

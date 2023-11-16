@@ -1,3 +1,7 @@
+<?php
+  require_once('../../dao/jogoDao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,6 +33,13 @@
                 <p class="game-title">Assassin's Creed Mirage: Edição Deluxe</p>
                 <p class="game-price">R$ 249,99</p>
             </div>
+            <?php foreach(jogoDao::getByGenero(1) as $jogo): ?>
+            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+                <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
+                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </body>
