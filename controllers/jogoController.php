@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $diretorio);
             }
 
-            header("Location: /Nexus/views/admin/jogos/resgister.php");
+            header("Location: /Nexus/views/admin/jogos/index.php");
             break;
 
             case 'UPDATE':
@@ -38,8 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $dataLancamento = $_POST['dataLancamento'];
                 $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
                 $capaJogo = $_FILES['capaJogo'];
-                
-                // Verifica se o arquivo foi enviado corretamente
+
+                var_dump($capaJogo);
+
+                if ($capaJogo['name'] == '' || $capaJogo['name'] == null) {
+                    JogoDao::updateSemCapa($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento);
+                } else {
+                    // Verifica se o arquivo foi enviado corretamente
                 if ($capaJogo['error'] == UPLOAD_ERR_OK) {
                     $diretorio = 'C:\xampp\htdocs\Nexus\public\img\capaJogos\ ';
                     
@@ -55,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 } else {
                     JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $diretorioCompleto);
+                }
                 }
                 
                 header("Location: /Nexus/views/admin/jogos/index.php");

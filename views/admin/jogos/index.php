@@ -62,7 +62,7 @@
                   <td class="align-middle"><?php echo jogoDao::getGenero($jogo['generoJogo']); ?></td>
                   <td class="align-middle"><?php echo date('d/m/Y', strtotime($jogo['dataLancamentoJogo'])); ?></td>
                   <td class="align-middle text-center">
-                    <form action="../../../controllers/jogoController.php" method="POST">
+                    <form action="./update.php" method="POST">
                       <input type="hidden" name="idJogo" value="<?php echo $jogo['idJogo'];?>">
                       <input type="hidden" value="UPDATE" name="option">
                       <button type="submit" class="dropdown-item"><i class="fas fa-edit fa-lg text-secondary"></i></button>

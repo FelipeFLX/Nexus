@@ -160,6 +160,34 @@ class JogoDao
             return "Erro na atualização de dados.";
         }
     }
+    public static function updateSemCapa($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento)
+    {
+        try {
+            $conexao = new Conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "UPDATE tbJogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento WHERE idJogo = :id";
+
+        $stmt = $pdo->prepare($sql_code);
+
+        $stmt->bindParam(":id", $id);
+        $stmt->bindParam(":nome", $nome);
+        $stmt->bindParam(":preco", $preco);
+        $stmt->bindParam(":plataforma", $plataforma);
+        $stmt->bindParam(":genero", $genero);
+        $stmt->bindParam(":descricao", $descricao);
+        $stmt->bindParam(":dataLancamento", $dataLancamento);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return "Valores atualizados com sucesso!";
+        } else {
+            return "Erro na atualização de dados.";
+        }
+    }
 
     public static function delete($id)
     {
