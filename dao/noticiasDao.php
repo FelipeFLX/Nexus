@@ -1,9 +1,9 @@
 <?php
 require_once(__DIR__ . "/../config/Conexao.php");
 
-class JogoDao
+class NoticiasDao
 {
-    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $capaJogo)
+    public static function insert($titulo, $texto, $dataLanc, $capa)
     {
         try {
             $conexao = new Conexao();
@@ -12,17 +12,15 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbJogo (nomeJogo, precoJogo, plataformaJogo, generoJogo, descJogo, dataLancamentoJogo, capaJogo) VALUES (:nome, :preco, :plataforma, :genero, :descricao, :dataLancamento, :capaJogo)";
+        $sql_code = "INSERT INTO tbNoticias (tituloNoticia, textoNoticia, dataLancNoticia, dataModfcNoticia, capaNoticia) VALUES (:titulo, :texto, :dataLanc, :dataModfc, :capa)";
 
         $stmt = $pdo->prepare($sql_code);
 
-        $stmt->bindParam(":nome", $nome);
-        $stmt->bindParam(":preco", $preco);
-        $stmt->bindParam(":plataforma", $plataforma);
-        $stmt->bindParam(":genero", $genero);
-        $stmt->bindParam(":descricao", $descricao);
-        $stmt->bindParam(":dataLancamento", $dataLancamento);
-        $stmt->bindParam(":capaJogo", $capaJogo);
+        $stmt->bindParam(":titulo", $titulo);
+        $stmt->bindParam(":texto", $texto);
+        $stmt->bindParam(":dataLanc", $dataLanc);
+        $stmt->bindParam(":dataModfc", $dataLanc);
+        $stmt->bindParam(":capa", $capa);
 
         $stmt->execute();
 
@@ -42,7 +40,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbJogo";
+        $sql_code = "SELECT * FROM tbNoticias";
         $stmt = $pdo->prepare($sql_code);        
         $stmt->execute();
 
@@ -59,7 +57,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbJogo WHERE idJogo = :id";
+        $sql_code = "SELECT * FROM tbNoticias WHERE idNoticia = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -68,7 +66,7 @@ class JogoDao
 
         return $resultado;
     }
-    public static function getByGenero($genero)
+    public static function update($id, $titulo, $texto, $dataModfc, $capa)
     {
         try {
             $conexao = new Conexao();
@@ -77,80 +75,14 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        
-        $sql_code = "SELECT * FROM tbJogo WHERE generoJogo = :genero";
-        $stmt = $pdo->prepare($sql_code);
-        $stmt->bindParam(":genero", $genero);
-        $stmt->execute();
-
-
-        $jogos = [];
-        while ($row = $stmt->fetch()) {
-            $jogos[] = $row;
-        }
-
-        return $jogos;
-
-    }
-    public static function getGenero($genero)
-    {
-        try {
-            $conexao = new Conexao();
-            $pdo = $conexao->getPDO();
-        } catch (PDOException $e) {
-            echo "Erro na conexão: " . $e->getMessage();
-        }
-
-        $sql_code = "SELECT nomeGenero FROM tbgenero WHERE idGenero = :genero";
-        $stmt = $pdo->prepare($sql_code);
-        $stmt->bindParam(":genero", $genero);
-
-        $stmt->execute();
-
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $resultado['nomeGenero'];
-    }
-    public static function getPlataforma($plataforma)
-    {
-        try {
-            $conexao = new Conexao();
-            $pdo = $conexao->getPDO();
-        } catch (PDOException $e) {
-            echo "Erro na conexão: " . $e->getMessage();
-        }
-
-        $sql_code = "SELECT nomePlataforma FROM tbPlataforma WHERE idPlataforma = :plataforma";
-        $stmt = $pdo->prepare($sql_code);
-        $stmt->bindParam(":plataforma", $plataforma);
-
-        $stmt->execute();
-
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $resultado['nomePlataforma'];
-    }
-    public static function update($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $capaJogo)
-    {
-        try {
-            $conexao = new Conexao();
-            $pdo = $conexao->getPDO();
-        } catch (PDOException $e) {
-            echo "Erro na conexão: " . $e->getMessage();
-        }
-
-        $sql_code = "UPDATE tbJogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento, capaJogo = :capaJogo WHERE idJogo = :id";
-
+        $sql_code = "UPDATE tbNoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc, capaNoticia = :capa WHERE idNoticia = :id";
         $stmt = $pdo->prepare($sql_code);
 
         $stmt->bindParam(":id", $id);
-        $stmt->bindParam(":nome", $nome);
-        $stmt->bindParam(":preco", $preco);
-        $stmt->bindParam(":plataforma", $plataforma);
-        $stmt->bindParam(":genero", $genero);
-        $stmt->bindParam(":descricao", $descricao);
-        $stmt->bindParam(":dataLancamento", $dataLancamento);
-        $stmt->bindParam(":capaJogo", $capaJogo);
+        $stmt->bindParam(":titulo", $titulo);
+        $stmt->bindParam(":texto", $texto);
+        $stmt->bindParam(":dataModfc", $dataModfc);
+        $stmt->bindParam(":capa", $capa);
 
         $stmt->execute();
 
@@ -160,7 +92,7 @@ class JogoDao
             return "Erro na atualização de dados.";
         }
     }
-    public static function updateSemCapa($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento)
+    public static function updateSemCapa($id, $titulo, $texto, $dataModfc)
     {
         try {
             $conexao = new Conexao();
@@ -169,17 +101,15 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "UPDATE tbJogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento WHERE idJogo = :id";
+        $sql_code = "UPDATE tbNoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc WHERE idNoticia = :id";
 
         $stmt = $pdo->prepare($sql_code);
 
         $stmt->bindParam(":id", $id);
-        $stmt->bindParam(":nome", $nome);
-        $stmt->bindParam(":preco", $preco);
-        $stmt->bindParam(":plataforma", $plataforma);
-        $stmt->bindParam(":genero", $genero);
-        $stmt->bindParam(":descricao", $descricao);
-        $stmt->bindParam(":dataLancamento", $dataLancamento);
+        $stmt->bindParam(":titulo", $titulo);
+        $stmt->bindParam(":texto", $texto);
+        $stmt->bindParam(":dataModfc", $dataModfc);
+
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -198,7 +128,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "DELETE FROM tbJogo WHERE idJogo = :id";
+        $sql_code = "DELETE FROM tbNoticias WHERE idNoticia = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();

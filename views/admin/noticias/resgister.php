@@ -25,10 +25,10 @@
       ?>
       <div class="col-md-10  p-4 borber">
         <div class="card">
-          <form method="post" enctype="multipart/form-data" action="../../../controllers/jogoController.php" class="needs-validation" novalidate>
+          <form method="post" enctype="multipart/form-data" action="../../../controllers/noticiasController.php" class="needs-validation" novalidate>
             <input type="hidden" name="option" value="CREATE">
             <div class="card-header">
-              <strong>INFORMAÇÕES DO JOGO</strong>
+              <strong>INFORMAÇÕES DA NOTÍCIA</strong>
             </div>
             <div class="card-body row justify-content-center align-items-center">
               <div class="col-md-2 text-center">
@@ -38,83 +38,19 @@
               </div>
               <div class=" col-md-9">
                 <div class="row">
-                  <div class="col-md-4 mb-4">
-                    <label for="nome" class="col-form-label">Nome do Jogo:</label>
-                    <input type="text" class="form-control" name="nomeJogo" maxlength="50">
+                  <div class="col-md-6 mb-4">
+                    <label for="nome" class="col-form-label">Titulo notícia:</label>
+                    <input type="text" class="form-control" name="titulo" maxlength="50">
                   </div>
-                  <div class="col-md-2 mb-3">
-                    <label for="sobrenome" class="col-form-label">Preço:</label>
-                    <input type="number" class="form-control" name="preco" maxlength="50">
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="cpf" class="col-form-label">Plataforma:</label>
-                    <select class="form-select" name="plataforma" aria-label="Default select example">
-                      <option value="1">PlayStation</option>
-                      <option value="2">PlayStation 2</option>
-                      <option value="3">PlayStation 3</option>
-                      <option value="4">PlayStation 4</option>
-                      <option value="5">PlayStation 5</option>
-                      <option value="6">PlayStation Vita</option>
-                      <option value="7">PSP</option>
-                      <option value="8">NES</option>
-                      <option value="9">SNES</option>
-                      <option value="10">Nintendo 64</option>
-                      <option value="11">Nintendo GameCube</option>
-                      <option value="12">Nintendo Wii</option>
-                      <option value="13">Nintendo Wii U</option>
-                      <option value="14">Nintendo Switch</option>
-                      <option value="15">Nintendo Game Boy</option>
-                      <option value="16">Nintendo Game Boy Advance</option>
-                      <option value="17">Nintendo DS</option>
-                      <option value="18">Nintendo 3DS</option>
-                      <option value="19">Xbox Clássico</option>
-                      <option value="20">Xbox 360</option>
-                      <option value="21">Xbox One</option>
-                      <option value="22">Xbox Series X/S</option>
-                      <option value="23">Windows</option>
-                      <option value="24">Linux</option>
-                      <option value="25">Mac OS</option>
-                      <option value="26">Android</option>
-                      <option value="27">iOS</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-2">
-                    <label for="nasc" class="col-form-label">Genero:</label>
-                    <select class="form-select" name="genero" aria-label="Default select example">
-                      <option value="1">Ação</option>
-                      <option value="2">Aventura</option>
-                      <option value="3">RPG</option>
-                      <option value="4">Estratégia</option>
-                      <option value="5">Simulação</option>
-                      <option value="6">Esportes</option>
-                      <option value="7">Quebra-cabeças</option>
-                      <option value="8">Corrida</option>
-                      <option value="9">Luta</option>
-                      <option value="10">Terror</option>
-                      <option value="11">Jogo de ritmo</option>
-                      <option value="12">Card-Games</option>
-                      <option value="13">Sandbox</option>
-                      <option value="14">FPS</option>
-                      <option value="15">Plataforma</option>
-                      <option value="16">Visual Novel</option>
-                      <option value="17">Roguelike</option>
-                      <option value="18">MMORPG</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="floatingTextarea2">Descrição do Jogo:</label>
-                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"></textarea>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="email" class="col-form-label">Data de lançamento:</label>
-                    <input type="date" class="form-control" name="dataLancamento" maxlength="100" id="email" required>
+                  <div class="col-md-10">
+                    <label for="floatingTextarea2">Texto:</label>
+                    <textarea class="form-control" name="texto" id="floatingTextarea2" style="height: 100px"></textarea>
                   </div>
 
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-3">
-                    <input type="file" id="imagemInput" name="capaJogo" accept="image/* " class="custom-file-input">
+                    <input type="file" id="imagemInput" name="capaNoticia" accept="image/* " class="custom-file-input">
                   </div>
                 </div>
                 <div class=" text-end p-3">

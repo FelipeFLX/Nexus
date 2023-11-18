@@ -1,3 +1,9 @@
+<?php
+  require_once('../../dao/noticiasDao.php');
+
+  $Noticias = NoticiasDao::getAll();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -91,6 +97,17 @@
                     <a href="https://g1.globo.com/ce/ceara/noticia/2023/09/23/pokemon-go-jogadores-se-reunem-em-encontros-anos-apos-o-lancamento-e-amizade-vira-grande-motor-do-jogo.ghtml" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
                 </div>
             </div>
+            <?php foreach($Noticias as $noticia): ?>
+            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+                <img src="/Nexus/public/img/capaNoticias/ <?php echo $noticia['capaNoticia']?>" class="card-img-top" alt="Imagem Noticia">
+                <div class="card-body">
+                    <h5 class="card-title t-cor"></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Nintendo</h6>
+                    <p class="card-text t-cor"><?php echo $noticia['textoNoticia']?></p>
+                    <a href="https://g1.globo.com/ce/ceara/noticia/2023/09/23/pokemon-go-jogadores-se-reunem-em-encontros-anos-apos-o-lancamento-e-amizade-vira-grande-motor-do-jogo.ghtml" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
+                </div>
+            </div>
+            <?php endforeach ?>
         </div>
         <h1 id="novidades" class="titulo">Novidades</h1>
         <div class="container-trailer">

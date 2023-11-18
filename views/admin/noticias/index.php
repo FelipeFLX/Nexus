@@ -1,7 +1,7 @@
 <?php
-  require_once('../../../dao/jogoDao.php');
+  require_once('../../../dao/noticiasDao.php');
 
-  $Jogos = jogoDao::getAll();
+  $Noticias = NoticiasDao::getAll();
 ?>
 
 <!DOCTYPE html>
@@ -43,33 +43,27 @@
             <thead>
               <tr>
                 <th class="col-md-1">ID</th>
-                <th class="col-md-3">Nome Jogo</th>
-                <th class="col-md-1">Preço</th>
-                <th class="col-md-2">Plataforma</th>
-                <th class="col-md-2">Gênero</th>
-                <th class="col-md-2">Data Lançamento</th>
+                <th class="col-md-2">Titulo</th>
+                <th class="col-md-6">Data</th>
                 <th class="text-center col-md-1">Alterar</th>
                 <th class="text-center col-md-1">Excluir</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($Jogos as $jogo): ?>
+              <?php foreach ($Noticias as $Noticia): ?>
                 <tr>
-                  <td class="align-middle"><?php echo $jogo['idJogo']; ?></td>
-                  <td class="align-middle"><?php echo $jogo['nomeJogo']; ?></td>
-                  <td class="align-middle">R$ <?php echo $jogo['precoJogo']; ?></td>
-                  <td class="align-middle"><?php echo jogoDao::getPlataforma($jogo['plataformaJogo']); ?></td>
-                  <td class="align-middle"><?php echo jogoDao::getGenero($jogo['generoJogo']); ?></td>
-                  <td class="align-middle"><?php echo date('d/m/Y', strtotime($jogo['dataLancamentoJogo'])); ?></td>
+                  <td class="align-middle"><?php echo $Noticia['idNoticia']; ?></td>
+                  <td class="align-middle"><?php echo $Noticia['tituloNoticia']; ?></td>
+                  <td class="align-middle"><?php echo date('d/m/Y H:i:s', strtotime($Noticia['dataModfcNoticia'])); ?></td>
                   <td class="align-middle text-center">
                     <form action="./update.php" method="POST">
-                      <input type="hidden" name="idJogo" value="<?php echo $jogo['idJogo'];?>">
+                      <input type="hidden" name="idNoticia" value="<?php echo $Noticia['idNoticia'];?>">
                       <input type="hidden" value="UPDATE" name="option">
                       <button type="submit" class="dropdown-item"><i class="fas fa-edit fa-lg text-secondary"></i></button>
                     </form>
                   </td>
                   <td class="text-center align-middle">
-                    <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $jogo['idJogo']; ?>)">
+                    <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $Noticia['idNoticia']; ?>)">
                       <i class="fas fa-trash-alt fa-lg text-danger"></i>
                     </button>
                   </td>
@@ -90,10 +84,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="../../../controllers/jogoController.php" method="post">
+          <form action="../../../controllers/noticiasController.php" method="post">
             <input type="hidden" class="form-control" id="idDeletar" name="option" value="DELETE">
-            <input type="hidden" name="idJogo" value="<?php echo $jogo['idJogo'];?>">
-            <p>Tem certeza que deseja excluir o jogo selecionado?</p>
+            <input type="hidden" name="idNoticia" value="<?php echo $Noticia['idNoticia'];?>">
+            <p>Tem certeza que deseja excluir a notícia selecionada?</p>
             <div class="text-end">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Não</button>
               <button type="submit" class="btn btn-primary ms-3" value="DELETE" name="option">Sim</button>
