@@ -1,0 +1,146 @@
+body{
+    background-color: #111113 !important;
+}
+
+.jogos-container{
+    padding-top: 3rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    padding-bottom: 3rem;
+}
+
+.carrosel-container{
+    width: 100%;
+}
+
+.titu-jogos{
+    color: white;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.textDesc{
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.textDesc p{
+    color: white;
+    font-size: 100%;
+}
+
+.ficTec{
+    display: flex;
+    justify-content: space-between;
+    width: 47%;
+    margin-bottom: 3rem;
+}
+
+.ficTec p{
+    color: white;
+    padding-right: 10px;
+}
+
+.borderText{
+    border-right: 2px solid white;
+}
+
+.ladoAlado{
+    display: flex;
+    justify-content: space-between;
+}
+
+.compraJogo{
+    background-color: #0C0C0C;
+    width: 30%;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.compraJogo img{
+    display: block;
+    margin: 0 auto;
+}
+
+.carrosel{
+    width: 60%;
+}
+
+.textPreco{
+    margin-top: 5rem;
+    color: white;
+    font-size: 120%;
+}
+
+.botaoCompra{
+    width: 100%;
+    background-color: white;
+    border-radius: 7px;
+    height: 10%;
+}
+
+.botaoCompra p{
+    margin-top: 0.5rem;
+    color: black;
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.botaoFav{
+    margin-top: 1rem;
+    width: 100%;
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 7px;
+    height: 10%;
+}
+
+.botaoFav p{
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 120%;
+}
+
+.descText{
+    display: flex;
+    justify-content: space-between;
+}
+
+.descText p{
+    color: white;
+    font-size: 100%;
+}
+
+.bordaBottom{
+    border-bottom: 3px solid white;
+}
+
+.first{
+    margin-top: 2.5rem;
+}
+
+.pesquisar{
+    width: 17%;
+    margin-left: 15rem;
+    margin-top: 3%;
+    float: left;
+}
+
+.navbar2{
+    overflow: auto;
+    position: relative;
+}
+
+.ancora{
+    color: white;
+    text-decoration: none;
+    float: left;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+}
+
+.ancoras{
+    float: left;
+    width: 30%;
+    margin-top: 3.3%;
+}
