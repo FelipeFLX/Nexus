@@ -83,3 +83,12 @@ function abrirPagina(element) {
     var url = element.getAttribute('data-url');
     window.location.href = url;
 }
+
+const estrelas = document.querySelectorAll('.avaliacao input');
+
+estrelas.forEach((estrela) => {
+  estrela.addEventListener('click', () => {
+    console.log('Avaliação:', estrela.value);
+    // Aqui você pode enviar o valor da avaliação para onde precisar (ex: backend)
+  });
+});
