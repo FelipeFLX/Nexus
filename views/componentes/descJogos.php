@@ -102,8 +102,10 @@
                 </div>
                 <p class="textAva">Comentário:</p>
                 <textarea id="mensagem" name="mensagem" rows="4"  required></textarea>
+                <button type="submit" class="botaoEnviar">Enviar</button>
             </form>
         </div>
+        <h3 class="subTitu2">Comentarios</h3>
         <section id="testimonials">
             <div class="testimonial-box-container">
                 <div class="testimonial-box">

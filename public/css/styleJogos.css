@@ -205,6 +205,7 @@ body{
 a{
     text-decoration: none;
 }
+
 #testimonials{
     display: flex;
     justify-content: center;
@@ -212,6 +213,7 @@ a{
     flex-direction: column;
     width:100%;
 }
+
 .testimonial-heading{
     letter-spacing: 1px;
     margin: 30px 0px;
@@ -221,6 +223,7 @@ a{
     justify-content: center;
     align-items: center;
 }
+
 .testimonial-heading h1{
     font-size: 2.2rem;
     font-weight: 500;
@@ -228,6 +231,7 @@ a{
     color: #ffffff;
     padding: 10px 20px;
 }
+
 .testimonial-heading span{
     font-size: 1.3rem;
     color: #ffffff;
@@ -235,6 +239,7 @@ a{
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
 .testimonial-box-container{
     display: flex;
     justify-content: center;
@@ -242,6 +247,7 @@ a{
     flex-wrap: wrap;
     width:100%;
 }
+
 .testimonial-box{
     width:500px;
     box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
@@ -250,6 +256,7 @@ a{
     margin: 15px;
     cursor: pointer;
 }
+
 .profile-img{
     width:50px;
     height: 50px;
@@ -257,42 +264,51 @@ a{
     overflow: hidden;
     margin-right: 10px;
 }
+
 .profile-img img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
+
 .profile{
     display: flex;
     align-items: center;
 }
+
 .name-user{
     display: flex;
     flex-direction: column;
 }
+
 .name-user strong{
     color: #ffffff;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
 }
+
 .name-user span{
     color: #ffffff;
     font-size: 0.8rem;
 }
+
 .reviews{
     color: #f9d71c;
 }
+
 .box-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
+
 .client-comment p{
     font-size: 0.9rem;
     color: #ffffff;
 }
+
 .testimonial-box:hover{
     transform: translateY(-10px);
     transition: all ease 0.3s;
@@ -304,6 +320,7 @@ a{
         padding: 10px;
     }
 }
+
 @media(max-width:790px){
     .testimonial-box{
         width:100%;
@@ -312,6 +329,7 @@ a{
         font-size: 1.4rem;
     }
 }
+
 @media(max-width:340px){
     .box-top{
         flex-wrap: wrap;
@@ -321,7 +339,27 @@ a{
         margin-top: 10px;
     }
 }
+
 ::selection{
     color: #000000;
     background-color: #ffffff;
+}
+
+.botaoEnviar{
+    background-color: #a926f1;
+    color: white;
+    height: 3rem;
+    width: 10%;
+    margin-top: 1rem;
+    font-size: 120%;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+}
+
+.subTitu2{
+    color: white;
+    font-size: 150%;
+    margin-top: 2rem;
+    text-align: center;
 }
