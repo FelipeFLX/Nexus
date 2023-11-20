@@ -19,7 +19,7 @@
 
 <body>
     <?php
-    include '../componentes/cabecalho.php';
+    include '../componentes/headerNotLog.php';
     ?>
     <div class="container-all">
         <div class="navbar2">

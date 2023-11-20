@@ -12,7 +12,7 @@
 
 <body>
     <?php
-    include '../componentes/cabecalho.php';
+    include '../componentes/headerNotLog.php';
     ?>
     <div class="sobre-container">
         <img src="/Nexus/public/img/Logo/Nome-Logo.png" alt="nome" width="250" height="auto" class="img-s">

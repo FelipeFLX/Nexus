@@ -19,7 +19,7 @@
 </head>
 <body>
     <?php
-    include '../componentes/cabecalho.php';
+    include '../componentes/headerNotLog.php';
     ?>
 
     <?php

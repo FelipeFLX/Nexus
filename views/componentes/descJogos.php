@@ -15,7 +15,7 @@
 
 <body>
     <?php
-    include '../componentes/cabecalho.php';
+    include '../componentes/headerNotLog.php';
     ?>
     <div class="navbar2">
             <div class="pesquisar">
