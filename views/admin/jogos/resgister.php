@@ -114,7 +114,7 @@
                   </div>
                   <div class="col-md-2">
                     <label for="nasc" class="col-form-label">Tipo:</label>
-                    <select class="form-select" name="Tipo" aria-label="Default select example">
+                    <select class="form-select" name="tipo" aria-label="Default select example">
                       <option value="1">Ação</option>
                       <option value="2">Aventura</option>
                       <option value="3">RPG</option>

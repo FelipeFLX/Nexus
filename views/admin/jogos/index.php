@@ -1,6 +1,5 @@
 <?php
   require_once('../../../dao/jogoDao.php');
-
   $Jogos = jogoDao::getAll();
 ?>
 
@@ -71,7 +70,7 @@
                     </form>
                   </td>
                   <td class="text-center align-middle">
-                    <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $jogo['idJogo']; ?>)">
+                    <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $jogo['idJogo']; ?>, '<?php echo $jogo['nomeJogo']; ?>')">
                       <i class="fas fa-trash-alt fa-lg text-danger"></i>
                     </button>
                   </td>
@@ -88,14 +87,14 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header bg-danger text-white">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Usuário</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Jogo</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="../../../controllers/jogoController.php" method="post">
             <input type="hidden" class="form-control" id="idDeletar" name="option" value="DELETE">
-            <input type="hidden" name="idJogo" value="<?php echo $jogo['idJogo'];?>">
-            <p>Tem certeza que deseja excluir o jogo selecionado?</p>
+            <input type="hidden" id="idJogoExcluir" name="idJogo" value="">
+            <p>Tem certeza que deseja excluir o <span id="nomeJogoExcluir"></span>?</p>
             <div class="text-end">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Não</button>
               <button type="submit" class="btn btn-primary ms-3" value="DELETE" name="option">Sim</button>
@@ -112,9 +111,11 @@
   <script src='../../js/personalizar.js'></script>
 
   <script>
-    function confirmarExclusao(idJogo) {
-      // Preenche o campo de idDeletar no modal
+    function confirmarExclusao(idJogo, nomeJogo) {
+      // Preenche os campos no modal
       document.getElementById('idDeletar').value = idJogo;
+      document.getElementById('idJogoExcluir').value = idJogo;
+      document.getElementById('nomeJogoExcluir').innerText = nomeJogo;
 
       // Abre o modal de exclusão
       var modal = new bootstrap.Modal(document.getElementById('modalExcluir'));

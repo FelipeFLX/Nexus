@@ -31,9 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (!is_dir(dirname($diretorioLogo))) {
                 echo "O diretório de destino não é válido.";
+                echo $diretorioCapa;
             } else {
                 if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
-                    JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $nota, $logoName);
+                    JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, $capaName, $logoName);
                     header("Location: /Nexus/views/admin/jogos/index.php");
                 } else {
                     echo "Erro ao mover o arquivo.";

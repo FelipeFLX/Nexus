@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="compraJogo">
-                <img src="/Nexus/public/img/nomeJogos/mirageLogo.webp" alt="..." width="180" height="auto">
+                <img src="../../public/img/capajogos/ <?php echo $jogo['logoJogo']; ?>" alt="..." width="180" height="auto">
                 <p class="textPreco"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
                 <button class="botaoCompra"><p>Comprar <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></p></button>
                 <button class="botaoFav"><p>Lista de desejos <i class="fa-regular fa-bookmark" style="color: #ffffff;"></i></p></button>

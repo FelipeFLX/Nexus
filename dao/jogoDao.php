@@ -3,7 +3,7 @@ require_once(__DIR__ . "/../config/Conexao.php");
 
 class JogoDao
 {
-    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $capaJogo, $nota, $logo)
+    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $nota, $capaJogo, $logo)
     {
         try {
             $conexao = new Conexao();
@@ -19,7 +19,7 @@ class JogoDao
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":preco", $preco);
         $stmt->bindParam(":plataforma", $plataforma);
-        $stmt->bindParam(":genero", $genero);
+        $stmt->bindParam(":generoPrincipal", $genero);
         $stmt->bindParam(":descricao", $descricao);
         $stmt->bindParam(":dataLancamento", $dataLancamento);
         $stmt->bindParam(":subgenero", $subgenero);
