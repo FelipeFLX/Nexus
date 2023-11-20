@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/Nexus/public/js/script.js"></script>
 
-    <title>Nexus</title>
+    <title>Nexus | Jogos</title>
 </head>
 <body>
     <?php
@@ -42,10 +42,10 @@
                 <p class="game-price">R$ 279,90</p>
             </div>
             <?php foreach(jogoDao::getByGenero(2) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo $jogo['capaJogo']; ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach ?>
         </div>
@@ -68,10 +68,10 @@
                 <p class="game-price">R$ 249,00</p>
             </div>
             <?php foreach(jogoDao::getByGenero(3) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+                <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach ?>
         </div>
@@ -94,10 +94,10 @@
                 <p class="game-price">R$ 85,99</p>
             </div>
             <?php foreach(jogoDao::getByGenero(10) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+                <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach ?>
         </div>
@@ -120,10 +120,10 @@
                 <p class="game-price">R$ 66,99</p>
             </div>
             <?php foreach(jogoDao::getByGenero(6) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+                <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach ?>
         </div>
@@ -146,10 +146,10 @@
                 <p class="game-price">R$ 219,00</p>
             </div>
             <?php foreach(jogoDao::getByGenero(4) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+                <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach ?>
         </div>
@@ -172,10 +172,10 @@
                 <p class="game-price">R$ 16,19</p>
             </div>
             <?php foreach(jogoDao::getByGenero(19) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+                <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach ?>
         </div>
@@ -198,10 +198,10 @@
                 <p class="game-price">R$ 249,00</p>
             </div>
             <?php foreach(jogoDao::getByGenero(5) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+            z<div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach ?>
         </div>

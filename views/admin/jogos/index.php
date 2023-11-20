@@ -47,6 +47,7 @@
                 <th class="col-md-1">Preço</th>
                 <th class="col-md-2">Plataforma</th>
                 <th class="col-md-2">Gênero</th>
+                <th class="col-md-2">Tipo</th>
                 <th class="col-md-2">Data Lançamento</th>
                 <th class="text-center col-md-1">Alterar</th>
                 <th class="text-center col-md-1">Excluir</th>
@@ -57,9 +58,10 @@
                 <tr>
                   <td class="align-middle"><?php echo $jogo['idJogo']; ?></td>
                   <td class="align-middle"><?php echo $jogo['nomeJogo']; ?></td>
-                  <td class="align-middle">R$ <?php echo $jogo['precoJogo']; ?></td>
+                  <td class="align-middle"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></td>
                   <td class="align-middle"><?php echo jogoDao::getPlataforma($jogo['plataformaJogo']); ?></td>
-                  <td class="align-middle"><?php echo jogoDao::getGenero($jogo['generoJogo']); ?></td>
+                  <td class="align-middle"><?php echo jogoDao::getGenero($jogo['generoPrincipalJogo']); ?></td>
+                  <td class="align-middle"><?php echo jogoDao::getGenero($jogo['subgeneroJogo']); ?></td>
                   <td class="align-middle"><?php echo date('d/m/Y', strtotime($jogo['dataLancamentoJogo'])); ?></td>
                   <td class="align-middle text-center">
                     <form action="./update.php" method="POST">

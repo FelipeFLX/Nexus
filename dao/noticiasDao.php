@@ -12,7 +12,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbNoticias (tituloNoticia, textoNoticia, dataLancNoticia, dataModfcNoticia, capaNoticia) VALUES (:titulo, :texto, :dataLanc, :dataModfc, :capa)";
+        $sql_code = "INSERT INTO tbnoticias (tituloNoticia, textoNoticia, dataLancNoticia, dataModfcNoticia, capaNoticia) VALUES (:titulo, :texto, :dataLanc, :dataModfc, :capa)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -40,7 +40,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbNoticias";
+        $sql_code = "SELECT * FROM tbnoticias";
         $stmt = $pdo->prepare($sql_code);        
         $stmt->execute();
 
@@ -57,7 +57,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbNoticias WHERE idNoticia = :id";
+        $sql_code = "SELECT * FROM tbnoticias WHERE idNoticia = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -75,7 +75,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "UPDATE tbNoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc, capaNoticia = :capa WHERE idNoticia = :id";
+        $sql_code = "UPDATE tbnoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc, capaNoticia = :capa WHERE idNoticia = :id";
         $stmt = $pdo->prepare($sql_code);
 
         $stmt->bindParam(":id", $id);
@@ -101,7 +101,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "UPDATE tbNoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc WHERE idNoticia = :id";
+        $sql_code = "UPDATE tbnoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc WHERE idNoticia = :id";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -128,7 +128,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "DELETE FROM tbNoticias WHERE idNoticia = :id";
+        $sql_code = "DELETE FROM tbnoticias WHERE idNoticia = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();

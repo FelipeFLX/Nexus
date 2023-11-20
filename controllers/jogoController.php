@@ -8,24 +8,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nomeJogo = $_POST['nomeJogo'];
             $preco = $_POST['preco'];
             $plataforma = $_POST['plataforma'];
-            $genero = $_POST['genero'];
+            $desenvolvedora = $_POST['desenvolvedora'];
+            $nota = $_POST['nota'];
             $descJogo = $_POST['descJogo'];
+            $genero = $_POST['genero'];
+            $tipo = $_POST['tipo'];
+            $classificacao = $_POST['classificacao'];
             $dataLancamento = $_POST['dataLancamento'];
             $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
             $capaJogo = $_FILES['capaJogo'];
+            $logoJogo = $_FILES['logoJogo'];
         
             $extencao = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
             $nome = uniqid();
-            $imgName = $nome . "." . $extencao;
-            $diretorio = 'C:\xampp\htdocs\Nexus\public\img\capaJogos\ ' . $imgName;
-                
-            $upload = move_uploaded_file($capaJogo["tmp_name"], $diretorio);
-        
-            if($upload){
-                JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $diretorio);
+            $capaName = $nome . "." . $extencao;
+            $diretorioCapa = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/capaJogos/' . $capaName;
+
+            $extencao = pathinfo($logoJogo['name'], PATHINFO_EXTENSION);
+            $nome = uniqid();
+            $logoName = $nome . "." . $extencao;
+            $diretorioLogo = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/logoJogos/' . $logoName;
+
+            if (!is_dir(dirname($diretorioLogo))) {
+                echo "O diretório de destino não é válido.";
+            } else {
+                if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
+                    JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $nota, $logoName);
+                    header("Location: /Nexus/views/admin/jogos/index.php");
+                } else {
+                    echo "Erro ao mover o arquivo.";
+                    echo "<pre>";
+                    print_r(error_get_last());
+                    echo "</pre>";
+                }
             }
 
-            header("Location: /Nexus/views/admin/jogos/index.php");
             break;
 
             case 'UPDATE':

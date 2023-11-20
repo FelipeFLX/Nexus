@@ -3,7 +3,7 @@ require_once(__DIR__ . "/../config/Conexao.php");
 
 class JogoDao
 {
-    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $capaJogo)
+    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $capaJogo, $nota, $logo)
     {
         try {
             $conexao = new Conexao();
@@ -12,7 +12,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbJogo (nomeJogo, precoJogo, plataformaJogo, generoJogo, descJogo, dataLancamentoJogo, capaJogo) VALUES (:nome, :preco, :plataforma, :genero, :descricao, :dataLancamento, :capaJogo)";
+        $sql_code = "INSERT INTO tbjogo (nomeJogo, precoJogo, plataformaJogo, generoPrincipalJogo, descJogo, dataLancamentoJogo, subgeneroJogo, desenvolvedoraJogo, classificacaoJogo, notaJogo, capaJogo, logoJogo) VALUES (:nome, :preco, :plataforma, :generoPrincipal, :descricao, :dataLancamento, :subgenero, :desenvolvedora, :classificacao, :capaJogo, :nota, :logo)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -22,7 +22,12 @@ class JogoDao
         $stmt->bindParam(":genero", $genero);
         $stmt->bindParam(":descricao", $descricao);
         $stmt->bindParam(":dataLancamento", $dataLancamento);
+        $stmt->bindParam(":subgenero", $subgenero);
+        $stmt->bindParam(":desenvolvedora", $desenvolvedora);
+        $stmt->bindParam(":classificacao", $classificacao);
         $stmt->bindParam(":capaJogo", $capaJogo);
+        $stmt->bindParam(":nota", $nota);
+        $stmt->bindParam(":logo", $logo);
 
         $stmt->execute();
 
@@ -42,7 +47,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbJogo";
+        $sql_code = "SELECT * FROM tbjogo";
         $stmt = $pdo->prepare($sql_code);        
         $stmt->execute();
 
@@ -59,7 +64,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbJogo WHERE idJogo = :id";
+        $sql_code = "SELECT * FROM tbjogo WHERE idJogo = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -78,7 +83,7 @@ class JogoDao
         }
 
         
-        $sql_code = "SELECT * FROM tbJogo WHERE generoJogo = :genero";
+        $sql_code = "SELECT * FROM tbjogo WHERE generoPrincipalJogo = :genero";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":genero", $genero);
         $stmt->execute();
@@ -120,7 +125,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT nomePlataforma FROM tbPlataforma WHERE idPlataforma = :plataforma";
+        $sql_code = "SELECT nomePlataforma FROM tbplataforma WHERE idPlataforma = :plataforma";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":plataforma", $plataforma);
 
@@ -139,7 +144,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "UPDATE tbJogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento, capaJogo = :capaJogo WHERE idJogo = :id";
+        $sql_code = "UPDATE tbjogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoPrincipalJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento, capaJogo = :capaJogo WHERE idJogo = :id";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -169,7 +174,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "UPDATE tbJogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento WHERE idJogo = :id";
+        $sql_code = "UPDATE tbjogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoPrincipalJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento WHERE idJogo = :id";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -198,7 +203,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "DELETE FROM tbJogo WHERE idJogo = :id";
+        $sql_code = "DELETE FROM tbjogo WHERE idJogo = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();

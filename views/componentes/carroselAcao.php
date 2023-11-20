@@ -34,10 +34,10 @@
                 <p class="game-price">R$ 249,99</p>
             </div>
             <?php foreach(jogoDao::getByGenero(1) as $jogo): ?>
-            <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
+                <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
+            <img src="../../public/img/capajogos/ <?php echo basename($jogo['capaJogo']); ?>" alt="Imagem 1" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
-                <p class="game-price">R$ <?php echo $jogo['precoJogo']; ?></p>
+                <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>
             <?php endforeach; ?>
         </div>

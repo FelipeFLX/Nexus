@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="/Nexus/public/css/css/style.css">
 </head>
 
-
 <body style="justify-content: center; align-items: center; height: 100vh ">
   <?php
   require_once("../../componentes/header-adm.php");
@@ -42,7 +41,7 @@
                     <label for="nome" class="col-form-label">Nome do Jogo:</label>
                     <input type="text" class="form-control" name="nomeJogo" maxlength="50">
                   </div>
-                  <div class="col-md-2 mb-3">
+                  <div class="col-md-1 mb-3">
                     <label for="sobrenome" class="col-form-label">Preço:</label>
                     <input type="number" class="form-control" name="preco" maxlength="50">
                   </div>
@@ -77,8 +76,19 @@
                       <option value="26">Android</option>
                       <option value="27">iOS</option>
                     </select>
+                  </div>                 
+                  <div class="col-md-3 mb-4">
+                    <label for="nome" class="col-form-label">Desenvolvedora:</label>
+                    <input type="text" class="form-control" name="desenvolvedora" maxlength="50">
                   </div>
-
+                  <div class="col-md-1 mb-4">
+                    <label for="nome" class="col-form-label">Nota:</label>
+                    <input type="text" class="form-control" name="nota" maxlength="50">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="floatingTextarea2">Descrição do Jogo:</label>
+                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"></textarea>
+                  </div>
                   <div class="col-md-2">
                     <label for="nasc" class="col-form-label">Genero:</label>
                     <select class="form-select" name="genero" aria-label="Default select example">
@@ -102,19 +112,50 @@
                       <option value="18">MMORPG</option>
                     </select>
                   </div>
-                  <div class="col-md-6">
-                    <label for="floatingTextarea2">Descrição do Jogo:</label>
-                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"></textarea>
+                  <div class="col-md-2">
+                    <label for="nasc" class="col-form-label">Tipo:</label>
+                    <select class="form-select" name="Tipo" aria-label="Default select example">
+                      <option value="1">Ação</option>
+                      <option value="2">Aventura</option>
+                      <option value="3">RPG</option>
+                      <option value="4">Estratégia</option>
+                      <option value="5">Simulação</option>
+                      <option value="6">Esportes</option>
+                      <option value="7">Quebra-cabeças</option>
+                      <option value="8">Corrida</option>
+                      <option value="9">Luta</option>
+                      <option value="10">Terror</option>
+                      <option value="11">Jogo de ritmo</option>
+                      <option value="12">Card-Games</option>
+                      <option value="13">Sandbox</option>
+                      <option value="14">FPS</option>
+                      <option value="15">Plataforma</option>
+                      <option value="16">Visual Novel</option>
+                      <option value="17">Roguelike</option>
+                      <option value="18">MMORPG</option>
+                    </select>
                   </div>
+                  <div class="col-md-2">
+                    <label for="nasc" class="col-form-label">Classificação:</label>
+                    <select class="form-select" name="classificacao" aria-label="Default select example">
+                      <option value="1">Livre</option>
+                      <option value="2">10</option>
+                      <option value="3">12</option>
+                      <option value="4">14</option>
+                      <option value="5">16</option>
+                      <option value="6">18</option>
+                    </select>
+                </div>
                   <div class="col-md-3">
                     <label for="email" class="col-form-label">Data de lançamento:</label>
                     <input type="date" class="form-control" name="dataLancamento" maxlength="100" id="email" required>
-                  </div>
-
-                </div>
+                  </div> 
                 <div class="row mt-5">
                   <div class="col-md-3">
                     <input type="file" id="imagemInput" name="capaJogo" accept="image/* " class="custom-file-input">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="file" id="imagemInput" name="logoJogo" accept="image/* " class="custom-file-input">
                   </div>
                 </div>
                 <div class=" text-end p-3">

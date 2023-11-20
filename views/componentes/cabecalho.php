@@ -10,11 +10,11 @@
 </head>
 <body>
 <div class="container-navbar">
-  <a href="index.php"><img src="/Nexus/public/img/Logo/Logo Nexus Icone.png" alt="Logo" width="60" height="alto" class="imagem"></a>
-  <a class="links" href="jogos.php">Jogos</a>
-  <a class="links" href="avaliacoes.php">Avaliações</a>
-  <a class="links" href="contato.php">Contato</a>
-  <a class="links" href="sobre.php">Sobre</a>
+  <a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Logo Nexus Icone.png" alt="Logo" width="60" height="alto" class="imagem"></a>
+  <a class="links" href="/Nexus/views/home/jogos.php">Jogos</a>
+  <a class="links" href="/Nexus/views/home/avaliacoes.php">Avaliações</a>
+  <a class="links" href="/Nexus/views/home/contato.php">Contato</a>
+  <a class="links" href="/Nexus/views/home/sobre.php">Sobre</a>
   <a href="../user/login.php"><img src="/Nexus/public/img/Logo/User-Entrar.png" alt="User" width="70" height="alto" class="img-login"></a>
 </div>
 </body>

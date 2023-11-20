@@ -12,7 +12,7 @@ class userDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbUser (nomeUser, nickUser, emailUser, senhaUser, dataNascUser, sobrenomeUser, cpfUser) VALUES (:nome, :nick, :email, :senha, :dataNasc, :sobrenome, :cpf)";
+        $sql_code = "INSERT INTO tbuser (nomeUser, nickUser, emailUser, senhaUser, dataNascUser, sobrenomeUser, cpfUser) VALUES (:nome, :nick, :email, :senha, :dataNasc, :sobrenome, :cpf)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -42,7 +42,7 @@ class userDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbUser";
+        $sql_code = "SELECT * FROM tbuser";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -63,7 +63,7 @@ class userDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbUser WHERE idUser = :id";
+        $sql_code = "SELECT * FROM tbuser WHERE idUser = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -84,7 +84,7 @@ class userDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbUser WHERE emailUser = :email AND senhaUser = :senha";
+        $sql_code = "SELECT * FROM tbuser WHERE emailUser = :email AND senhaUser = :senha";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":senha", $senha);
