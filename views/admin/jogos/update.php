@@ -51,7 +51,7 @@
                     <label for="nome" class="col-form-label">Nome do Jogo:</label>
                     <input type="text" class="form-control" name="nomeJogo" value="<?php echo $jogo['nomeJogo'] ?>" maxlength="50">
                   </div>
-                  <div class="col-md-2 mb-3">
+                  <div class="col-md-1 mb-3">
                     <label for="sobrenome" class="col-form-label">Preço:</label>
                     <input type="number" class="form-control" name="preco" value="<?php echo $jogo['precoJogo'] ?>" maxlength="50">
                   </div>
@@ -98,12 +98,23 @@
                       ?>
                     </select>
                   </div>
-
+                  <div class="col-md-3 mb-4">
+                    <label for="nome" class="col-form-label">Desenvolvedora:</label>
+                    <input type="text" class="form-control" name="desenvolvedora" value="<?php echo $jogo['desenvolvedoraJogo'] ?>" maxlength="50">
+                  </div>
+                  <div class="col-md-1 mb-4">
+                    <label for="nome" class="col-form-label">Nota:</label>
+                    <input type="text" class="form-control" name="nota" value="<?php echo $jogo['notaJogo'] ?>" maxlength="50">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="floatingTextarea2">Descrição do Jogo:</label>
+                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"><?php echo $jogo['descJogo'] ?></textarea>
+                  </div>
                   <div class="col-md-2">
                     <label for="nasc" class="col-form-label">Genero:</label>
                     <select class="form-select" name="genero" aria-label="Default select example">
                     <?php
-                      $generoSelecionado = $jogo['generoJogo']; // Substitua pelo valor do gênero a ser pré-selecionado
+                      $generoSelecionado = $jogo['generoJogo']; 
 
                       $generos = [
                           1 => "Ação",
@@ -133,9 +144,61 @@
                     ?>
                     </select>
                   </div>
-                  <div class="col-md-6">
-                    <label for="floatingTextarea2">Descrição do Jogo:</label>
-                    <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"><?php echo $jogo['descJogo'] ?></textarea>
+                  <div class="col-md-2">
+                    <label for="nasc" class="col-form-label">Tipo:</label>
+                    <select class="form-select" name="tipo" aria-label="Default select example">
+                    <?php
+                      $generoSelecionado = $jogo['subgeneroJogo']; 
+
+                      $generos = [
+                          1 => "Ação",
+                          2 => "Aventura",
+                          3 => "RPG",
+                          4 => "Estratégia",
+                          5 => "Simulação",
+                          6 => "Esportes",
+                          7 => "Quebra-cabeças",
+                          8 => "Corrida",
+                          9 => "Luta",
+                          10 => "Terror",
+                          11 => "Jogo de ritmo",
+                          12 => "Card-Games",
+                          13 => "Sandbox",
+                          14 => "FPS",
+                          15 => "Plataforma",
+                          16 => "Visual Novel",
+                          17 => "Roguelike",
+                          18 => "MMORPG",
+                      ];
+
+                      foreach ($generos as $value => $genero) {
+                          $selected = ($generoSelecionado == $value) ? 'selected' : '';
+                          echo "<option value=\"$value\" $selected>$genero</option>";
+                      }
+                    ?>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="nasc" class="col-form-label">Classificaçao:</label>
+                    <select class="form-select" name="classificacao" aria-label="Default select example">
+                    <?php
+                      $generoSelecionado = $jogo['classificacaoJogo'];
+
+                      $generos = [
+                          1 => "Livre",
+                          2 => "10 anos",
+                          3 => "12 anos",
+                          4 => "14 anos",
+                          5 => "16 anos",
+                          6 => "18 anos",
+                      ];
+
+                      foreach ($generos as $value => $genero) {
+                          $selected = ($generoSelecionado == $value) ? 'selected' : '';
+                          echo "<option value=\"$value\" $selected>$genero</option>";
+                      }
+                    ?>
+                    </select>
                   </div>
                   <div class="col-md-3">
                     <label for="email" class="col-form-label">Data de lançamento:</label>
@@ -146,6 +209,9 @@
                 <div class="row mt-5">
                   <div class="col-md-3">
                     <input type="file" id="imagemInput" name="capaJogo" accept="image/* " class="custom-file-input">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="file" id="imagemInput" name="logoJogo" accept="image/* " class="custom-file-input">
                   </div>
                 </div>
                 <div class=" text-end p-3">

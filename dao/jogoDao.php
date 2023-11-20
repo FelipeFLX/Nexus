@@ -12,7 +12,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbjogo (nomeJogo, precoJogo, plataformaJogo, generoPrincipalJogo, descJogo, dataLancamentoJogo, subgeneroJogo, desenvolvedoraJogo, classificacaoJogo, notaJogo, capaJogo, logoJogo) VALUES (:nome, :preco, :plataforma, :generoPrincipal, :descricao, :dataLancamento, :subgenero, :desenvolvedora, :classificacao, :capaJogo, :nota, :logo)";
+        $sql_code = "INSERT INTO tbjogo (nomeJogo, precoJogo, plataformaJogo, generoPrincipalJogo, descJogo, dataLancamentoJogo, subgeneroJogo, desenvolvedoraJogo, classificacaoJogo, notaJogo, capaJogo, logoJogo) VALUES (:nome, :preco, :plataforma, :generoPrincipal, :descricao, :dataLancamento, :subgenero, :desenvolvedora, :classificacao, :nota, :capaJogo, :logo)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -109,6 +109,25 @@ class JogoDao
         $sql_code = "SELECT nomeGenero FROM tbgenero WHERE idGenero = :genero";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":genero", $genero);
+
+        $stmt->execute();
+
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $resultado['nomeGenero'];
+    }
+    public static function getClassificacao($classificacao)
+    {
+        try {
+            $conexao = new Conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "SELECT classificacao FROM tbclassificacao WHERE idClassificacao = :classificacao";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->bindParam(":classificacao", $classificacao);
 
         $stmt->execute();
 

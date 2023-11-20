@@ -43,9 +43,9 @@
     <div class="jogos-container">
         <h1 class="titu-jogos"><?php echo $jogo['nomeJogo'] ?></h1>
         <div class="ficTec">
-            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> e Aventura</p>
-            <p class="borderText">Avaliações: 4.4</p>
-            <p>Classificação indicativa: 16 anos</p> 
+            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> e <?php echo JogoDao::getGenero($jogo['subgeneroJogo']); ?></p>
+            <p class="borderText">Avaliações: <?php echo $jogo['notaJogo'] ?></p>
+            <p>Classificação indicativa: <?php if($jogo['classificacaoJogo'] == "1"){echo 'Livre';} else {echo JogoDao::getClassificacao($jogo['classificacaoJogo'] . " anos"); }?></p> 
         </div>
         <div class="ladoAlado">
             <div class="carrosel">
@@ -73,13 +73,13 @@
                 </div>
             </div>
             <div class="compraJogo">
-                <img src="../../public/img/capajogos/ <?php echo $jogo['logoJogo']; ?>" alt="..." width="180" height="auto">
+                <img src="../../public/img/logoJogos/<?php echo $jogo['logoJogo']; ?>" alt="..." width="180" height="auto">
                 <p class="textPreco"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
                 <button class="botaoCompra"><p>Comprar <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></p></button>
                 <button class="botaoFav"><p>Lista de desejos <i class="fa-regular fa-bookmark" style="color: #ffffff;"></i></p></button>
                 <div class="descText bordaBottom first">
                     <p>Desenvolvedor</p>
-                    <p>Ubisoft</p>
+                    <p><?php  echo $jogo['desenvolvedoraJogo']?></p>
                 </div>
                 <div class="descText bordaBottom mt-3">
                     <p>Data de lançamento</p>
