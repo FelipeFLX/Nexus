@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 20, 2023 at 06:12 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1
+-- Tempo de geração: 20/11/2023 às 20:26
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,48 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdNexus`
+-- Banco de dados: `bdnexus`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbbackground`
---
-
-CREATE TABLE `tbbackground` (
-  `idBackground` int(11) NOT NULL,
-  `idJogo` int(11) NOT NULL,
-  `pathBackground` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbclassificacao`
---
-
-CREATE TABLE `tbclassificacao` (
-  `idClassificacao` int(11) NOT NULL,
-  `classificacao` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbclassificacao`
---
-
-INSERT INTO `tbclassificacao` (`idClassificacao`, `classificacao`) VALUES
-(1, 'Livre'),
-(2, '10'),
-(3, '12'),
-(4, '14'),
-(5, '16'),
-(6, '18');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbgenero`
+-- Estrutura para tabela `tbgenero`
 --
 
 CREATE TABLE `tbgenero` (
@@ -68,7 +33,7 @@ CREATE TABLE `tbgenero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbgenero`
+-- Despejando dados para a tabela `tbgenero`
 --
 
 INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
@@ -95,7 +60,7 @@ INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbjogo`
+-- Estrutura para tabela `tbjogo`
 --
 
 CREATE TABLE `tbjogo` (
@@ -115,7 +80,7 @@ CREATE TABLE `tbjogo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbjogo`
+-- Despejando dados para a tabela `tbjogo`
 --
 
 INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, `plataformaJogo`, `descJogo`, `capaJogo`, `dataLancamentoJogo`, `desenvolvedoraJogo`, `subgeneroJogo`, `notaJogo`, `logoJogo`, `classificacaoJogo`) VALUES
@@ -125,12 +90,13 @@ INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, 
 (5, 'God of War', 50.00, 1, 2, 'Este jogo de ação/aventura/combate faz uso poderoso do mundo sombrio e imaginativo da mitologia da Grécia Antiga, onde os reinos do mortal e do divino colidem em uma atmosfera generalizada de força bruta e violência. Jogando como Kratos, ao longo do jogo os jogadores empunharão lâminas duplas presas ao seu corpo por longas correntes, armas que simbolizam este mundo cruel ao qual ele está preso e o destino do qual procura escapar. Apresentando uma hora de sequências cinematográficas e um sistema de combate profundo que incorpora ações sensíveis ao contexto e uma extensa gama de combos, GOD OF WAR leva os jogadores através de vários ambientes que os farão lutar contra inimigos ferozes, balançar em cordas, escalar penhascos de montanhas, nadar em rios. e deslizando pelas tirolesas. O resultado é uma aventura única e emocionante pela mitologia grega.', '6557ba96c58fa.jpg', '2005-05-22', '', 0, 0.0, '', 0),
 (6, 'Super Mario Bros. 3', 15.00, 15, 8, 'Lute contra monstros e mini-chefes, evite fantasmas e o sol escaldante. Faça o seu caminho através da água e da areia movediça. Desvie de bolas de canhão e balas e resgate a varinha do rei! Em Super Mario Bros. 3 há mais warps, mais chances de vidas extras e novos trajes especiais! O traje de guaxinim permite voar e derrubar blocos. O traje de sapo ajuda você a nadar mais que os peixes mortais. Há ternos para todas as ocasiões! Guarde flores e cogumelos para usar mais tarde. Jogue rodadas de bônus do tipo game show! Volte para a última tela e pegue um cogumelo! Faça uma pausa para fazer uma pausa e continue de onde parou! Super Mario Bros. 3 é divertido de jogar sozinho ou em equipe com um amigo para prolongar a aventura!', '6557ab02a7a83.jpg', '1988-10-23', '', 0, 0.0, '', 0),
 (7, 'The Legend of Zelda: Majora\'s Mask', 20.00, 2, 10, 'A nova aventura épica de Link o leva ao mundo místico de Termina, onde relógios sempre presentes contam as horas até que uma lua ameaçadora caia do céu. Quando seu cavalo e Ocarina são roubados por uma figura estranha e mascarada, Link embarca em uma missão urgente para resolver o mistério da lua, salvar o mundo da destruição e encontrar o caminho de volta à pacífica terra de Hyrule! * Link se transforma diante de seus olhos – Mais de 20 máscaras mágicas dão a Link poderes e habilidades que ele nunca teve antes! Veja-o se transformar em uma infeliz criança Deku, um poderoso herói Goron e um lendário guitarrista Zora. * Corrida contra o tempo - Personagens e eventos fluem com as horas do dia. Defina seu próprio horário e até altere o próprio tempo em uma corrida para parar a lua e salvar o mundo! * Ambientes panorâmicos! Batalhas de ação poderosas! Personagens e eventos totalmente interativos! Experimente lindas paisagens renderizadas, enxames de inimigos atacantes e um mundo profundo e envolvente de maravilhas com o poder do N64 Expansion Pak.', '6557ab9b016d2.jpg', '2000-04-27', '', 0, 0.0, '', 0),
-(8, 'The Binding of Isaac: Repentance', 68.00, 1, 23, 'Experimente o clássico moderno, The Binding of Isaac, como você nunca viu antes. É um jogo grande demais para ser chamado de sequência: Repentance leva Isaac a novos patamares de aventura em masmorras roguelike, enquanto o garoto corajoso desce ao porão para seu maior desafio até agora! A nova missão de Isaac leva-o a lugares desconhecidos onde ele nunca esteve, repletos de novos inimigos e chefes horríveis, combinações de armas com as quais você nunca sinergizou antes e itens que ele nunca viu... terrores profanos de seus sonhos mais loucos e piores pesadelos!', '6557acf74d74a.jpg', '2021-03-31', '', 0, 0.0, '', 0);
+(8, 'The Binding of Isaac: Repentance', 68.00, 1, 23, 'Experimente o clássico moderno, The Binding of Isaac, como você nunca viu antes. É um jogo grande demais para ser chamado de sequência: Repentance leva Isaac a novos patamares de aventura em masmorras roguelike, enquanto o garoto corajoso desce ao porão para seu maior desafio até agora! A nova missão de Isaac leva-o a lugares desconhecidos onde ele nunca esteve, repletos de novos inimigos e chefes horríveis, combinações de armas com as quais você nunca sinergizou antes e itens que ele nunca viu... terrores profanos de seus sonhos mais loucos e piores pesadelos!', '6557acf74d74a.jpg', '2021-03-31', '', 0, 0.0, '', 0),
+(12, 'The legend of Zelda:Ocarina of time', 0.00, 1, 10, 'Ganondorf, o malvado Rei dos Ladrões, está em movimento, ameaçando a pacífica terra de Hyrule. Ele está determinado a roubar seu caminho para o lendário Reino Sagrado na esperança de aproveitar o poder da mítica Triforce. Como o jovem herói Link, é seu destino frustrar os esquemas malignos de Ganondorf. Navi, sua fada guardiã, irá guiá-lo enquanto você se aventura pelas muitas regiões de Hyrule, desde as cavernas vulcânicas da Montanha da Morte até as águas traiçoeiras do Domínio de Zora. Antes de completar esta missão épica, você mergulhará em masmorras mortais, coletará armas de grande poder e aprenderá os feitiços necessários para conquistar a força mais irresistível de todos os tempos. * O enredo imersivo e os ambientes atraem os jogadores para um incrível mundo 3D. * Viagem no tempo permite que você jogue como Link em diferentes fases de sua vida. * Novos recursos de jogabilidade incluem um sistema de segmentação exclusivo e perspectivas de 1ª e 3ª pessoa. * Até três jogos podem ser salvos simultaneamente na memória!', '655ba8adde7ff.jpg', '1998-11-21', 'Nintendo EAD', 2, 4.4, '655ba8adde808.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbnoticias`
+-- Estrutura para tabela `tbnoticias`
 --
 
 CREATE TABLE `tbnoticias` (
@@ -143,7 +109,7 @@ CREATE TABLE `tbnoticias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbnoticias`
+-- Despejando dados para a tabela `tbnoticias`
 --
 
 INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLancNoticia`, `dataModfcNoticia`, `capaNoticia`) VALUES
@@ -152,7 +118,7 @@ INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLan
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbplataforma`
+-- Estrutura para tabela `tbplataforma`
 --
 
 CREATE TABLE `tbplataforma` (
@@ -161,7 +127,7 @@ CREATE TABLE `tbplataforma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbplataforma`
+-- Despejando dados para a tabela `tbplataforma`
 --
 
 INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
@@ -196,7 +162,7 @@ INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbtrailer`
+-- Estrutura para tabela `tbtrailer`
 --
 
 CREATE TABLE `tbtrailer` (
@@ -209,7 +175,7 @@ CREATE TABLE `tbtrailer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbuser`
+-- Estrutura para tabela `tbuser`
 --
 
 CREATE TABLE `tbuser` (
@@ -224,7 +190,7 @@ CREATE TABLE `tbuser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbuser`
+-- Despejando dados para a tabela `tbuser`
 --
 
 INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`, `dataNascUser`, `sobrenomeUser`, `cpfUser`) VALUES
@@ -232,29 +198,17 @@ INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`
 (2, 'Felaipe', 'fefeh_02', 'fefefzinho@hotmail.com.br', '14dontyodnaodjhr', '1970-01-01', 'Felaix', '154.789.620-31');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `tbbackground`
---
-ALTER TABLE `tbbackground`
-  ADD PRIMARY KEY (`idBackground`);
-
---
--- Indexes for table `tbclassificacao`
---
-ALTER TABLE `tbclassificacao`
-  ADD PRIMARY KEY (`idClassificacao`);
-
---
--- Indexes for table `tbgenero`
+-- Índices de tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Indexes for table `tbjogo`
+-- Índices de tabela `tbjogo`
 --
 ALTER TABLE `tbjogo`
   ADD PRIMARY KEY (`idJogo`),
@@ -263,77 +217,65 @@ ALTER TABLE `tbjogo`
   ADD KEY `capaJogo` (`capaJogo`);
 
 --
--- Indexes for table `tbnoticias`
+-- Índices de tabela `tbnoticias`
 --
 ALTER TABLE `tbnoticias`
   ADD PRIMARY KEY (`idNoticia`);
 
 --
--- Indexes for table `tbplataforma`
+-- Índices de tabela `tbplataforma`
 --
 ALTER TABLE `tbplataforma`
   ADD PRIMARY KEY (`idPlataforma`);
 
 --
--- Indexes for table `tbtrailer`
+-- Índices de tabela `tbtrailer`
 --
 ALTER TABLE `tbtrailer`
   ADD PRIMARY KEY (`idTrailer`);
 
 --
--- Indexes for table `tbuser`
+-- Índices de tabela `tbuser`
 --
 ALTER TABLE `tbuser`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `tbbackground`
---
-ALTER TABLE `tbbackground`
-  MODIFY `idBackground` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbclassificacao`
---
-ALTER TABLE `tbclassificacao`
-  MODIFY `idClassificacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `tbgenero`
+-- AUTO_INCREMENT de tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
   MODIFY `idGenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `tbjogo`
+-- AUTO_INCREMENT de tabela `tbjogo`
 --
 ALTER TABLE `tbjogo`
-  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tbnoticias`
+-- AUTO_INCREMENT de tabela `tbnoticias`
 --
 ALTER TABLE `tbnoticias`
   MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbplataforma`
+-- AUTO_INCREMENT de tabela `tbplataforma`
 --
 ALTER TABLE `tbplataforma`
   MODIFY `idPlataforma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `tbtrailer`
+-- AUTO_INCREMENT de tabela `tbtrailer`
 --
 ALTER TABLE `tbtrailer`
   MODIFY `idTrailer` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbuser`
+-- AUTO_INCREMENT de tabela `tbuser`
 --
 ALTER TABLE `tbuser`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
