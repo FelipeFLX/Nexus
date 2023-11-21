@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilmeOn - Adm</title>
+  <title>Jogos - Adm</title>
   <link rel="short icon" href="./../../img/site/logo.png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
       <div class="col-md-10 p-4 borber">
         <div class="row align-items-center mb-4">
           <div class="col fs-3 fw-semibold">
-            Lista de Usuário
+            Lista de Jogos
           </div>
           <div class="col text-end ">
             <a class="btn btn-success px-3" role="button" aria-disabled="true" href="resgister.php"><i

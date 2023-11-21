@@ -133,7 +133,7 @@ class JogoDao
 
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $resultado['nomeGenero'];
+        return $resultado['classificacao'];
     }
     public static function getPlataforma($plataforma)
     {
@@ -154,36 +154,69 @@ class JogoDao
 
         return $resultado['nomePlataforma'];
     }
-    public static function update($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $capaJogo)
-    {
-        try {
-            $conexao = new Conexao();
-            $pdo = $conexao->getPDO();
-        } catch (PDOException $e) {
-            echo "Erro na conexão: " . $e->getMessage();
-        }
-
-        $sql_code = "UPDATE tbjogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoPrincipalJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento, capaJogo = :capaJogo WHERE idJogo = :id";
-
-        $stmt = $pdo->prepare($sql_code);
-
-        $stmt->bindParam(":id", $id);
-        $stmt->bindParam(":nome", $nome);
-        $stmt->bindParam(":preco", $preco);
-        $stmt->bindParam(":plataforma", $plataforma);
-        $stmt->bindParam(":genero", $genero);
-        $stmt->bindParam(":descricao", $descricao);
-        $stmt->bindParam(":dataLancamento", $dataLancamento);
-        $stmt->bindParam(":capaJogo", $capaJogo);
-
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            return "Valores atualizados com sucesso!";
-        } else {
-            return "Erro na atualização de dados.";
-        }
+    public static function update($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $nota, $capaJogo, $logo)
+{
+    try {
+        $conexao = new Conexao();
+        $pdo = $conexao->getPDO();
+    } catch (PDOException $e) {
+        echo "Erro na conexão: " . $e->getMessage();
     }
+
+    $sql_code = "UPDATE tbjogo SET nomeJogo = :nome, precoJogo = :preco, plataformaJogo = :plataforma, generoPrincipalJogo = :genero, descJogo = :descricao, dataLancamentoJogo = :dataLancamento";
+
+    // Condição 1: capaJogo e logo estão preenchidos
+    if (!empty($capaJogo) && !empty($logo)) {
+        $sql_code .= ", capaJogo = :capaJogo, logoJogo = :logo";
+    }
+    // Condição 2: Somente capaJogo está preenchido
+    elseif (!empty($capaJogo) && empty($logo)) {
+        $sql_code .= ", capaJogo = :capaJogo";
+    }
+    // Condição 3: Somente logo está preenchido
+    elseif (empty($capaJogo) && !empty($logo)) {
+        $sql_code .= ", logoJogo = :logo";
+    }
+    
+    $sql_code .= ", subgeneroJogo = :subgenero, desenvolvedoraJogo = :desenvolvedora, classificacaoJogo = :classificacao, notaJogo = :nota WHERE idJogo = :id";
+
+    $stmt = $pdo->prepare($sql_code);
+
+    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(":nome", $nome);
+    $stmt->bindParam(":preco", $preco);
+    $stmt->bindParam(":plataforma", $plataforma);
+    $stmt->bindParam(":genero", $genero);
+    $stmt->bindParam(":descricao", $descricao);
+    $stmt->bindParam(":dataLancamento", $dataLancamento);
+    $stmt->bindParam(":subgenero", $subgenero);
+    $stmt->bindParam(":desenvolvedora", $desenvolvedora);
+    $stmt->bindParam(":classificacao", $classificacao);
+    $stmt->bindParam(":nota", $nota);
+
+    // Condição 1: capaJogo e logo estão preenchidos
+    if (!empty($capaJogo) && !empty($logo)) {
+        $stmt->bindParam(":capaJogo", $capaJogo);
+        $stmt->bindParam(":logo", $logo);
+    }
+    // Condição 2: Somente capaJogo está preenchido
+    elseif (!empty($capaJogo) && empty($logo)) {
+        $stmt->bindParam(":capaJogo", $capaJogo);
+    }
+    // Condição 3: Somente logo está preenchido
+    elseif (empty($capaJogo) && !empty($logo)) {
+        $stmt->bindParam(":logo", $logo);
+    }
+
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        return "Valores atualizados com sucesso!";
+    } else {
+        return "Erro na atualização de dados.";
+    }
+}
+
     public static function updateSemCapa($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento)
     {
         try {

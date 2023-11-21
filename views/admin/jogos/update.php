@@ -169,6 +169,9 @@
                           16 => "Visual Novel",
                           17 => "Roguelike",
                           18 => "MMORPG",
+                          19 => "Casual",
+                          20 => "Shooter",
+                          0 => "Nenhuma das opções"
                       ];
 
                       foreach ($generos as $value => $genero) {

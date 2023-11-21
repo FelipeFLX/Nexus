@@ -45,7 +45,7 @@
         <div class="ficTec">
             <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> e <?php echo JogoDao::getGenero($jogo['subgeneroJogo']); ?></p>
             <p class="borderText">Avaliações: <?php echo $jogo['notaJogo'] ?></p>
-            <p>Classificação indicativa: <?php if($jogo['classificacaoJogo'] == "1"){echo 'Livre';} else {echo JogoDao::getClassificacao($jogo['classificacaoJogo'] . " anos"); }?></p> 
+            <p>Classificação indicativa: <?php if($jogo['classificacaoJogo'] == "1"){echo 'Livre';} else {echo JogoDao::getClassificacao($jogo['classificacaoJogo']) . " anos"; }?></p> 
         </div>
         <div class="ladoAlado">
             <div class="carrosel">

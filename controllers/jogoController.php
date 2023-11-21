@@ -19,15 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $capaJogo = $_FILES['capaJogo'];
             $logoJogo = $_FILES['logoJogo'];
         
-            $extencao = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
-            $nome = uniqid();
-            $capaName = $nome . "." . $extencao;
+            $extensaoCapa = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
+            $nomeCapa = uniqid();
+            $capaName = $nomeCapa . "." . $extensaoCapa;
             $diretorioCapa = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/capaJogos/' . $capaName;
 
-            $extencao = pathinfo($logoJogo['name'], PATHINFO_EXTENSION);
-            $nome = uniqid();
-            $logoName = $nome . "." . $extencao;
+            // Adicione esta linha para obter a extensão do logoJogo
+            $extensaoLogo = pathinfo($logoJogo['name'], PATHINFO_EXTENSION);
+            $nomeLogo = uniqid();
+            $logoName = $nomeLogo . "." . $extensaoLogo;
             $diretorioLogo = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/logoJogos/' . $logoName;
+
 
             if (!is_dir(dirname($diretorioLogo))) {
                 echo "O diretório de destino não é válido.";
@@ -41,6 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "<pre>";
                     print_r(error_get_last());
                     echo "</pre>";
+
+                    echo $diretorioCapa . "<br>";
+                    echo $diretorioLogo;
                 }
             }
 
@@ -51,37 +56,100 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nomeJogo = $_POST['nomeJogo'];
                 $preco = $_POST['preco'];
                 $plataforma = $_POST['plataforma'];
-                $genero = $_POST['genero'];
+                $desenvolvedora = $_POST['desenvolvedora'];
+                $nota = $_POST['nota'];
                 $descJogo = $_POST['descJogo'];
+                $genero = $_POST['genero'];
+                $tipo = $_POST['tipo'];
+                $classificacao = $_POST['classificacao'];
                 $dataLancamento = $_POST['dataLancamento'];
                 $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
                 $capaJogo = $_FILES['capaJogo'];
-
-                var_dump($capaJogo);
-
-                if ($capaJogo['name'] == '' || $capaJogo['name'] == null) {
-                    JogoDao::updateSemCapa($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento);
-                } else {
-                    // Verifica se o arquivo foi enviado corretamente
-                if ($capaJogo['error'] == UPLOAD_ERR_OK) {
-                    $diretorio = 'C:\xampp\htdocs\Nexus\public\img\capaJogos\ ';
-                    
-                    $extensao = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
-                    $nome = uniqid();
-                    $imgName = $nome . "." . $extensao;
-                    $diretorioCompleto = $diretorio . $imgName;
+                $logoJogo = $_FILES['logoJogo'];
             
-                    $upload = move_uploaded_file($capaJogo["tmp_name"], $diretorioCompleto);
+                // Condição 1: capaJogo e logo estão preenchidos
+                if (!empty($capaJogo['name']) && !empty($logoJogo['name'])) {
+                    $extensaoCapa = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
+                    $nomeCapa = uniqid();
+                    $capaName = $nomeCapa . "." . $extensaoCapa;
+                    $diretorioCapa = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/capaJogos/' . $capaName;
             
-                    if ($upload) {
-                        JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $diretorioCompleto);
+                    $extensaoLogo = pathinfo($logoJogo['name'], PATHINFO_EXTENSION);
+                    $nomeLogo = uniqid();
+                    $logoName = $nomeLogo . "." . $extensaoLogo;
+                    $diretorioLogo = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/logoJogos/' . $logoName;
+            
+                    if (!is_dir(dirname($diretorioLogo))) {
+                        echo "O diretório de destino não é válido.";
+                        echo $diretorioCapa;
+                    } else {
+                        if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
+                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, $capaName, $logoName);
+                            header("Location: /Nexus/views/admin/jogos/index.php");
+                        } else {
+                            echo "Erro ao mover os arquivos.";
+                            echo "<pre>";
+                            print_r(error_get_last());
+                            echo "</pre>";
+            
+                            echo $diretorioCapa . "<br>";
+                            echo $diretorioLogo;
+                        }
                     }
-                } else {
-                    JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $diretorioCompleto);
                 }
+                // Condição 2: Somente capaJogo está preenchido
+                elseif (!empty($capaJogo['name']) && empty($logoJogo['name'])) {
+                    $extensaoCapa = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
+                    $nomeCapa = uniqid();
+                    $capaName = $nomeCapa . "." . $extensaoCapa;
+                    $diretorioCapa = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/capaJogos/' . $capaName;
+            
+                    if (!is_dir(dirname($diretorioCapa))) {
+                        echo "O diretório de destino não é válido.";
+                        echo $diretorioCapa;
+                    } else {
+                        if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa)) {
+                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, $capaName, null);
+                            header("Location: /Nexus/views/admin/jogos/index.php");
+                        } else {
+                            echo "Erro ao mover o arquivo.";
+                            echo "<pre>";
+                            print_r(error_get_last());
+                            echo "</pre>";
+            
+                            echo $diretorioCapa;
+                        }
+                    }
                 }
-                
-                header("Location: /Nexus/views/admin/jogos/index.php");
+                // Condição 3: Somente logo está preenchido
+                elseif (empty($capaJogo['name']) && !empty($logoJogo['name'])) {
+                    $extensaoLogo = pathinfo($logoJogo['name'], PATHINFO_EXTENSION);
+                    $nomeLogo = uniqid();
+                    $logoName = $nomeLogo . "." . $extensaoLogo;
+                    $diretorioLogo = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/logoJogos/' . $logoName;
+            
+                    if (!is_dir(dirname($diretorioLogo))) {
+                        echo "O diretório de destino não é válido.";
+                        echo $diretorioLogo;
+                    } else {
+                        if (move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
+                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, null, $logoName);
+                            header("Location: /Nexus/views/admin/jogos/index.php");
+                        } else {
+                            echo "Erro ao mover o arquivo.";
+                            echo "<pre>";
+                            print_r(error_get_last());
+                            echo "</pre>";
+            
+                            echo $diretorioLogo;
+                        }
+                    }
+                }
+                // Condição 4: Nenhum está preenchido
+                else {
+                    JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, null, null);
+                    header("Location: /Nexus/views/admin/jogos/index.php");
+                }
                 break;
         case 'DELETE':
                 $idJogo = $_POST['idJogo'];

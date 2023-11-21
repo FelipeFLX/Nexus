@@ -133,6 +133,10 @@
                       <option value="16">Visual Novel</option>
                       <option value="17">Roguelike</option>
                       <option value="18">MMORPG</option>
+                      <option value="19">Casual</option>
+                      <option value="20">Shooter</option>
+                      <option value="">Nenhuma das opções</option>
+
                     </select>
                   </div>
                   <div class="col-md-2">
