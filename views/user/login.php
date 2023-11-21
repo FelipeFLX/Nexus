@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION['login'])) {
+        header('Location: /Nexus/views/home/index.php');
+    } 
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

@@ -11,8 +11,13 @@
 </head>
 
 <body>
-    <?php
-    include '../componentes/headerNotLog.php';
+<?php
+    session_start();
+    if (!isset($_SESSION['login']) || $_SESSION['login'] == '') {
+        include '../componentes/headerNotLog.php';
+    } else {
+        include '../componentes/headerLog.php';
+    }
     ?>
 
     <?php

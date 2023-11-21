@@ -24,9 +24,14 @@
     <title><?php echo $jogo['nomeJogo']; ?></title>
 </head>
 
-<body>
+<body>  
     <?php
-    include '../componentes/headerNotLog.php';
+    session_start();
+    if (!isset($_SESSION['login']) || $_SESSION['login'] == '') {
+        include '../componentes/headerNotLog.php';
+    } else {
+        include '../componentes/headerLog.php';
+    }
     ?>
     <div class="navbar2">
             <div class="pesquisar">

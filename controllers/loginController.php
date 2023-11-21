@@ -38,20 +38,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             // Verificando se o usuário está autenticado
             if ($login) {
-                header('Location: ../../Nexus/views/user/login.php?login=yes');
+                session_start();
+                $_SESSION['id'] = $_POST['idUser'];
+                $_SESSION['nome'] = $_POST['nomeUser'];
+                $_SESSION['sobrenome'] = $_POST['sobrenomeUser'];
+                $_SESSION['nick'] = $_POST['nickUser'];
+                $_SESSION['email'] = $_POST['emailUser'];
+                $_SESSION['login'] = "yes";
+
+                header('Location: ../../Nexus/views/home/index.php');
             } else {
                 // Redirecionando para a página de login
                 header('Location: ../../Nexus/views/user/login.php?login=no');
             }
             break;
-            break;
+
+        case 'LOGOUT':
+            session_start(); 
+            $_SESSION = array(); 
+            session_destroy();
+
+            header('Location: ../../Nexus/views/home/index.php');
         
         default:
             # code...
             break;
     }
-    // Cadastro de usuário
-
-    // Variaveis do formulário de login
     
 }
