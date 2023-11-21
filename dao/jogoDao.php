@@ -37,6 +37,31 @@ class JogoDao
             return "Erro na inserção de dados.";
         }
     }
+    public static function insertBackground($id, $background)
+    {
+        try {
+            $conexao = new Conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "INSERT INTO tbbackground (idJogo, pathBackground) VALUES (:id, :background)";
+
+        $stmt = $pdo->prepare($sql_code);
+
+        $stmt->bindParam(":id", $id);
+        $stmt->bindParam(":background", $background);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return "Valores inseridos com sucesso!";
+        } else {
+            return "Erro na inserção de dados.";
+        }
+    }
+
 
     public static function getAll()
     {
@@ -67,6 +92,24 @@ class JogoDao
         $sql_code = "SELECT * FROM tbjogo WHERE idJogo = :id";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $resultado;
+    }
+    public static function getByIdByName($nome)
+    {
+        try {
+            $conexao = new Conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "SELECT idJogo FROM tbjogo WHERE nomeJogo = :nome";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->bindParam(":nome", $nome);
         $stmt->execute();
 
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);

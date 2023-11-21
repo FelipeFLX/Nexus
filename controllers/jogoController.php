@@ -49,6 +49,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
 
+            if (!empty($_FILES['backgroundJogo']['name'][0])) {
+                $files = $_FILES['backgroundJogo'];
+        
+                // Itera sobre cada arquivo
+                for ($i = 0; $i < count($files['name']); $i++) {
+                    $fileName = $files['name'][$i];
+                    $fileTmpName = $files['tmp_name'][$i];
+                    $fileType = $files['type'][$i];
+                    $fileSize = $files['size'][$i];
+                    $fileError = $files['error'][$i];
+        
+                    // Aqui você pode processar e salvar cada arquivo como necessário
+                    $extensaoLogo = pathinfo( $files['name'][$i], PATHINFO_EXTENSION);
+                    $nomeLogo = uniqid();
+                    $backgroundName = $nomeLogo . "." . $extensaoLogo;
+                    $diretorioLogo = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/logoJogos/' . $backgroundName;
+
+                    JogoDao::insertBackground(JogoDao::getByIdByName($nomeJogo), $backgroundName);
+                }
+            }
+
             break;
 
             case 'UPDATE':

@@ -154,14 +154,16 @@
                     <label for="email" class="col-form-label">Data de lançamento:</label>
                     <input type="date" class="form-control" name="dataLancamento" maxlength="100" id="email" required>
                   </div> 
-                <div class="row mt-5">
-                  <div class="col-md-3">
-                    <input type="file" id="imagemInput" name="capaJogo" accept="image/* " class="custom-file-input">
+                  <input type="file" id="backgroundJogo" name="backgroundJogo[]" accept="image/jpeg, image/png">
+                  <div class=" col-md-9">
+                  <div class="row mt-5">
+                    <div class="col-md-3">
+                      <input type="file" id="imagemInputCapa" name="capaJogo" accept="image/* " class="custom-file-input">
+                    </div>
+                    <div class="col-md-3">
+                      <input type="file" id="imagemInputLogo" name="logoJogo" accept="image/* " class="custom-file-input">
+                    </div>
                   </div>
-                  <div class="col-md-3">
-                    <input type="file" id="imagemInput" name="logoJogo" accept="image/* " class="custom-file-input">
-                  </div>
-                </div>
                 <div class=" text-end p-3">
                   <a class=" btn btn-primary px-3" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
                   <input type="submit" class=" btn btn-success" value="Salvar" name="acao">
@@ -178,35 +180,7 @@
   </script>
   <!-- Para usar Mascara  -->
   <script type="text/javascript" src="./../../js/jquery.mask.min.js"></script>
-  <script type="text/javascript" src="./../../js/personalizar.js"></script>
-  <script>
-    // Obtém os elementos do input de imagem e da pré-visualização
-    var imagemInput = document.getElementById('imagemInput');
-    var imagemPreview = document.getElementById('imagemPreview');
-
-    // Adiciona um ouvinte de eventos para o input de imagem
-    imagemInput.addEventListener('change', function() {
-      var file = imagemInput.files[0];
-
-      // Verifica se um arquivo foi selecionado
-      if (file) {
-        var reader = new FileReader();
-
-        // Define uma função para executar quando o arquivo for lido
-        reader.onload = function(e) {
-          imagemPreview.src = e.target.result;
-          imagemPreview.style.display = 'block'; // Exibe a pré-visualização
-        };
-
-        // Lê o arquivo como uma URL de dados
-        reader.readAsDataURL(file);
-      } else {
-        // Se nenhum arquivo for selecionado, esconde a pré-visualização
-        imagemPreview.style.display = 'none';
-      }
-    });
-  </script>
-
+  <script type="text/javascript" src="./../../js/personalizar.js"></script> 
 </body>
 
 </html>
