@@ -31,7 +31,7 @@
             <p>Perfil</p>
             <p>Minhas Compras</p>
             <form action="../../controllers/loginController.php" method="post">
-              <input type="submit" name="option" value="LOGOUT">Sair</input>
+              <p><button style="background-color: transparent; border: none; color: white;" type="submit" name="option" value="LOGOUT">Sair</button></p>
             </form>
         </div>
       </div>

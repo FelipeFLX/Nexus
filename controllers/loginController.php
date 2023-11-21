@@ -22,11 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             userDao::insert($nome, $nick, $email, $senha, $formattedDtnasc, $sobrenome, $cpf);
         
             // Verificando se o usuário está autenticado
-            if (isset($_SESSION['usuario'])) {
-                header('Location: ../../Nexus/controllers/cadastroController.php');
+            if (isset($_SESSION['login'])) {
+                header('Location: /Nexus/views/home/index.php');
             } else {
                 // Redirecionando para a página de login
-                header('Location: ../../Nexus/controllers/cadastroController.php');
+                header('Location: /Nexus/views/user/login.php');
             }
 
         case 'READ':
@@ -46,10 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['email'] = $_POST['emailUser'];
                 $_SESSION['login'] = "yes";
 
-                header('Location: ../../Nexus/views/home/index.php');
+                header('Location: /Nexus/views/home/index.php');
             } else {
                 // Redirecionando para a página de login
-                header('Location: ../../Nexus/views/user/login.php?login=no');
+                header('Location: /Nexus/views/user/login.php?login=no');
             }
             break;
 
