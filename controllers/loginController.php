@@ -46,7 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['email'] = $_POST['emailUser'];
                 $_SESSION['login'] = "yes";
 
-                header('Location: /Nexus/views/home/index.php');
+                if ($_POST['link'] == 'cadastro.php') {
+                    header('Location: /Nexus/views/home/index.php');
+                } else {
+                    header('Location: /Nexus/views/home/' . $_POST['link']);
+                }
             } else {
                 // Redirecionando para a página de login
                 header('Location: /Nexus/views/user/login.php?login=no');
@@ -58,7 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION = array(); 
             session_destroy();
 
-            header('Location: ../../Nexus/views/home/index.php');
+            $link = $_POST['link'];
+
+            header('Location: /Nexus/views/home/' . $link);
         
         default:
             # code...

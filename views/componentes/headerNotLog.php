@@ -23,9 +23,12 @@
         </div>'
     </div>
     <div class="lado3">
+    <form action="/Nexus/views/user/login.php" method="post">
+        <input type="hidden" name="link" value="<?php echo basename($_SERVER['PHP_SELF']) ?>">
         <div class="profile-img">
           <button style="background-color: transparent; border: none"><a href="/Nexus/views/user/login.php"><img src="/Nexus/public/img/Perfil/perfil.png" alt="Imagem" class="dropdown-image"></a></button>
         </div>
+    </form>
       <div class="profile-img ms-2">
         <button style="background-color: transparent; border: none"><a href="/Nexus/views/user/login.php"><img src="/Nexus/public/img/Logo/carrinho.png" alt="Imagem" class="dropdown-image"></a></button>
         </div>

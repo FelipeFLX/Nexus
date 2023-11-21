@@ -31,6 +31,7 @@
             <p>Perfil</p>
             <p>Minhas Compras</p>
             <form action="../../controllers/loginController.php" method="post">
+              <input type="hidden" name="link" value="<?php echo basename($_SERVER['PHP_SELF']) ?>">
               <p><button style="background-color: transparent; border: none; color: white;" type="submit" name="option" value="LOGOUT">Sair</button></p>
             </form>
         </div>
