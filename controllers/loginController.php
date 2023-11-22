@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Verificando se o usuário está autenticado
             if ($login) {
                 session_start();
-                $_SESSION['id'] = $_POST['idUser'];
-                $_SESSION['nome'] = $_POST['nomeUser'];
-                $_SESSION['sobrenome'] = $_POST['sobrenomeUser'];
-                $_SESSION['nick'] = $_POST['nickUser'];
-                $_SESSION['email'] = $_POST['emailUser'];
+                $_SESSION['id'] = $login['idUser'];
+                $_SESSION['nome'] = $login['nomeUser'];
+                $_SESSION['sobrenome'] = $login['sobrenomeUser'];
+                $_SESSION['nick'] = $login['nickUser'];
+                $_SESSION['email'] = $login['emailUser'];
                 $_SESSION['login'] = "yes";
 
                 if ($_POST['link'] == 'cadastro.php') {

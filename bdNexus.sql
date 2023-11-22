@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Nov-2023 às 21:39
+-- Tempo de geração: 22/11/2023 às 02:00
 -- Versão do servidor: 10.4.28-MariaDB
--- versão do PHP: 8.2.4
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,30 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbclassificacao`
---
-
-CREATE TABLE `tbclassificacao` (
-  `idClassificacao` int(11) NOT NULL,
-  `classificacao` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `tbclassificacao`
---
-
-INSERT INTO `tbclassificacao` (`idClassificacao`, `classificacao`) VALUES
-(1, 'Livre'),
-(2, '10'),
-(3, '12'),
-(4, '14'),
-(5, '16'),
-(6, '18');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tbgenero`
+-- Estrutura para tabela `tbgenero`
 --
 
 CREATE TABLE `tbgenero` (
@@ -56,7 +33,7 @@ CREATE TABLE `tbgenero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbgenero`
+-- Despejando dados para a tabela `tbgenero`
 --
 
 INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
@@ -84,7 +61,7 @@ INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbjogo`
+-- Estrutura para tabela `tbjogo`
 --
 
 CREATE TABLE `tbjogo` (
@@ -104,7 +81,7 @@ CREATE TABLE `tbjogo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbjogo`
+-- Despejando dados para a tabela `tbjogo`
 --
 
 INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, `plataformaJogo`, `descJogo`, `capaJogo`, `dataLancamentoJogo`, `desenvolvedoraJogo`, `subgeneroJogo`, `notaJogo`, `logoJogo`, `classificacaoJogo`) VALUES
@@ -121,7 +98,7 @@ INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbnoticias`
+-- Estrutura para tabela `tbnoticias`
 --
 
 CREATE TABLE `tbnoticias` (
@@ -134,7 +111,7 @@ CREATE TABLE `tbnoticias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbnoticias`
+-- Despejando dados para a tabela `tbnoticias`
 --
 
 INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLancNoticia`, `dataModfcNoticia`, `capaNoticia`) VALUES
@@ -143,7 +120,7 @@ INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLan
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbplataforma`
+-- Estrutura para tabela `tbplataforma`
 --
 
 CREATE TABLE `tbplataforma` (
@@ -152,7 +129,7 @@ CREATE TABLE `tbplataforma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbplataforma`
+-- Despejando dados para a tabela `tbplataforma`
 --
 
 INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
@@ -187,7 +164,7 @@ INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbtrailer`
+-- Estrutura para tabela `tbtrailer`
 --
 
 CREATE TABLE `tbtrailer` (
@@ -200,7 +177,7 @@ CREATE TABLE `tbtrailer` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbuser`
+-- Estrutura para tabela `tbuser`
 --
 
 CREATE TABLE `tbuser` (
@@ -215,7 +192,7 @@ CREATE TABLE `tbuser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbuser`
+-- Despejando dados para a tabela `tbuser`
 --
 
 INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`, `dataNascUser`, `sobrenomeUser`, `cpfUser`) VALUES
@@ -227,19 +204,13 @@ INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`
 --
 
 --
--- Índices para tabela `tbclassificacao`
---
-ALTER TABLE `tbclassificacao`
-  ADD PRIMARY KEY (`idClassificacao`);
-
---
--- Índices para tabela `tbgenero`
+-- Índices de tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Índices para tabela `tbjogo`
+-- Índices de tabela `tbjogo`
 --
 ALTER TABLE `tbjogo`
   ADD PRIMARY KEY (`idJogo`),
@@ -248,38 +219,32 @@ ALTER TABLE `tbjogo`
   ADD KEY `capaJogo` (`capaJogo`);
 
 --
--- Índices para tabela `tbnoticias`
+-- Índices de tabela `tbnoticias`
 --
 ALTER TABLE `tbnoticias`
   ADD PRIMARY KEY (`idNoticia`);
 
 --
--- Índices para tabela `tbplataforma`
+-- Índices de tabela `tbplataforma`
 --
 ALTER TABLE `tbplataforma`
   ADD PRIMARY KEY (`idPlataforma`);
 
 --
--- Índices para tabela `tbtrailer`
+-- Índices de tabela `tbtrailer`
 --
 ALTER TABLE `tbtrailer`
   ADD PRIMARY KEY (`idTrailer`);
 
 --
--- Índices para tabela `tbuser`
+-- Índices de tabela `tbuser`
 --
 ALTER TABLE `tbuser`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
-
---
--- AUTO_INCREMENT de tabela `tbclassificacao`
---
-ALTER TABLE `tbclassificacao`
-  MODIFY `idClassificacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbgenero`

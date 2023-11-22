@@ -1,6 +1,6 @@
 <?php
-require_once("../config/Conexao.php");
-class userDao
+require_once(__DIR__ . "/../config/Conexao.php");
+class UserDao
 {
     public static function insert($nome, $nick, $email, $senha, $dataNasc, $sobrenome, $cpf)
     {

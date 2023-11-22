@@ -1,5 +1,7 @@
 <?php
     require_once('../../dao/jogoDao.php');
+    require_once('../../dao/comentarioDao.php');
+    require_once('../../dao/userDao.php');
 
     $id = $_GET['id'];
     if ($id == null) {
@@ -10,6 +12,7 @@
     }
 
     $jogo = JogoDao::getById($id);
+    $comentarios = ComentarioDao::getAll($id);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -98,56 +101,68 @@
         </div>
         <div class="formAva">
             <h3 class="subTitu">Jogue e compartilhe! Sua avaliação é valiosa para outros jogadores.</h3>
-            <form>
+            <form action="../../controllers/comentarioController.php" method="POST" >
+                <input type="hidden" name="idJogo" value="<?php echo $id ?>">
+                <input type="hidden" name="idUser" value="<?php echo $_SESSION['id'] ?>">
                 <div class="ladoAlado2">
                     <div>
                         <p class="textAva">Avaliação:</p>
                     </div>
                     <div class="avaliacao">
-                        <input type="radio" id="estrela5" name="estrela" value="5">
+                        <input type="radio" id="estrela5" name="nota" value="5">
                         <label for="estrela5">&#9733;</label>
-                        <input type="radio" id="estrela4" name="estrela" value="4">
+                        <input type="radio" id="estrela4" name="nota" value="4">
                         <label for="estrela4">&#9733;</label>
-                        <input type="radio" id="estrela3" name="estrela" value="3">
+                        <input type="radio" id="estrela3" name="nota" value="3">
                         <label for="estrela3">&#9733;</label>
-                        <input type="radio" id="estrela2" name="estrela" value="2">
+                        <input type="radio" id="estrela2" name="nota" value="2">
                         <label for="estrela2">&#9733;</label>
-                        <input type="radio" id="estrela1" name="estrela" value="1">
+                        <input type="radio" id="estrela1" name="nota" value="1">
                         <label for="estrela1">&#9733;</label>
                     </div>
                 </div>
-                <p class="textAva">Comentário:</p>
-                <textarea id="mensagem" name="mensagem" rows="4"  required></textarea>
-                <button type="submit" class="botaoEnviar">Enviar</button>
-            </form>
+                    <p class="textAva">Comentário:</p>
+                    <textarea id="mensagem" name="comentario" rows="4" maxlength="100" required></textarea>
+                    <button type="submit" class="botaoEnviar" name="option" value="INSERT">Enviar</button>
+                </form>
         </div>
         <h3 class="subTitu2">Comentarios</h3>
         <section id="testimonials">
+            <?php if ($comentarios == null) {
+                echo "<br><h1>Sem comentários...</h1>";
+                echo '<h5>Seja o primeiro(a) a comentar!</h5><br>';
+            } ?>
+            <?php foreach($comentarios as $comentario): ?>
+            <?php $userInfo = UserDao::selectId($comentario['idUser']); ?>
             <div class="testimonial-box-container">
-                <div class="testimonial-box">
-                    <div class="box-top">
-                        <div class="profile">
-                            <div class="profile-img">
-                                <img src="/Nexus/public/img/Perfil/mhPerfil.jpg" />
+                    <div class="testimonial-box">
+                        <div class="box-top">
+                            <div class="profile">
+                                <div class="profile-img">
+                                    <img src="/Nexus/public/img/Perfil/mhPerfil.jpg" />
+                                </div>
+                                <div class="name-user">
+                                    <strong><?php echo $userInfo['nomeUser'] . " " . $userInfo['sobrenomeUser'];  ?></strong>
+                                    <span>@<?php echo $userInfo['nickUser'] ?></span>
+                                </div>
                             </div>
-                            <div class="name-user">
-                                <strong>Matheus Henrique</strong>
-                                <span>@tyran15</span>
+                            <div class="reviews">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
                             </div>
                         </div>
-                        <div class="reviews">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                        <div class="client-comment">
+                            <p><?php echo $comentario['comentarioUser'] ?></p>
                         </div>
-                    </div>
-                    <div class="client-comment">
-                        <p>Muito legal o joguinho, gostei muito, parabens aos desenvolvedores, jogarei mais vezes, recomendarei aos meus amigos❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</p>
+                        <div class="name-user">
+                            <span><?php echo date('d/m/Y H:i', strtotime($comentario['dataPostagem'])); ?></span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach?>
     </div>
     <?php
     include '../componentes/rodape.php';

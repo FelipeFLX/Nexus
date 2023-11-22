@@ -13,7 +13,7 @@
 <header>
   <div class="ladoAlado3">
     <div class="ladoAladoHeader">
-  '    <button style="background-color: transparent; border: none;"><a href="index.php"><img src="/Nexus/public/img/Logo/Logo Nexus Icone.png" alt="Logo" width="70" height="alto" class="imagem"></a></button>
+  '    <button style="background-color: transparent; border: none;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Logo Nexus Icone.png" alt="Logo" width="70" height="alto" class="imagem"></a></button>
         <div class="menu">
           <ul>
             <li><a href="/Nexus/views/home/jogos.php">Loja de Jogos</a></li>
