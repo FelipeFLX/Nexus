@@ -103,7 +103,7 @@
             <h3 class="subTitu">Jogue e compartilhe! Sua avaliação é valiosa para outros jogadores.</h3>
             <form action="../../controllers/comentarioController.php" method="POST" >
                 <input type="hidden" name="idJogo" value="<?php echo $id ?>">
-                <input type="hidden" name="idUser" value="<?php echo $_SESSION['id'] ?>">
+                <input type="hidden" name="idUser" value="<?php if ( !isset($_SESSION['id'])) { echo "";} else echo $_SESSION['id'] ?>">
                 <div class="ladoAlado2">
                     <div>
                         <p class="textAva">Avaliação:</p>
@@ -147,11 +147,12 @@
                                 </div>
                             </div>
                             <div class="reviews">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <?php
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        $classeEstrela = ($i <= $comentario['notaUser']) ? 'fas fa-star' : 'far fa-star';
+                                        echo '<i class="' . $classeEstrela . ' fa-star"></i>';
+                                    }
+                                ?>
                             </div>
                         </div>
                         <div class="client-comment">

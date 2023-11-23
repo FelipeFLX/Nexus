@@ -20,7 +20,7 @@
     <button style="background-color: transparent; border: none; display: block; margin: 0 auto;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a></button>
         <h3 class="titulo">Login</h3>
         <form action="../../controllers/loginController.php" method="post">
-        <input type="hidden" name="link" value="<?php echo $_POST['link'] ?>">
+        <input type="hidden" name="link" value="<?php if ($_POST['link'] == null) { echo ''; } else{ echo $_POST['link'];} ?>">
          <input type="hidden" name="option" value="READ">
         <div class="form-flutuante">
                 <input type="email" class="form-controle inputs" id="email" name="email" maxlength="100" required>

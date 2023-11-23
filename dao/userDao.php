@@ -68,11 +68,9 @@ class UserDao
         $stmt->bindParam(":id", $id);
         $stmt->execute();
 
-        if ($stmt->rowCount() > 0) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } else {
-            return false;
-        }
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $user;
     }
 
     public static function selectAccount($email, $senha)
