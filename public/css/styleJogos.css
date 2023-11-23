@@ -32,8 +32,8 @@ body{
 .ficTec{
     display: flex;
     justify-content: space-between;
-    width: 47%;
-    margin-bottom: 3rem;
+    width: 40%;
+    margin-bottom: 2rem;
 }
 
 .ficTec p{
@@ -51,7 +51,6 @@ body{
 }
 
 .compraJogo{
-
     width: 30%;
     padding: 2rem;
     border-radius: 10px;
@@ -76,7 +75,7 @@ body{
     width: 100%;
     background-color: white;
     border-radius: 7px;
-    height: 10%;
+    max-height: 10%;
 }
 
 .botaoCompra p{
@@ -92,7 +91,7 @@ body{
     background-color: transparent;
     border: 3px solid white;
     border-radius: 7px;
-    height: 10%;
+    max-height: 10%;
 }
 
 .botaoFav p{

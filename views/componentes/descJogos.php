@@ -24,6 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/Nexus/public/css/styleJogos.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title><?php echo $jogo['nomeJogo']; ?></title>
 </head>
 
@@ -51,7 +52,7 @@
     <div class="jogos-container">
         <h1 class="titu-jogos"><?php echo $jogo['nomeJogo'] ?></h1>
         <div class="ficTec">
-            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> e <?php echo JogoDao::getGenero($jogo['subgeneroJogo']); ?></p>
+            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> <?php if (!$jogo['subgeneroJogo'] == 0) { echo "e " . $jogo['subgeneroJogo']; } echo JogoDao::getGenero($jogo['subgeneroJogo']); ?></p>
             <p class="borderText">Avaliações: <?php echo $jogo['notaJogo'] ?></p>
             <p>Classificação indicativa: <?php if($jogo['classificacaoJogo'] == "1"){echo 'Livre';} else {echo JogoDao::getClassificacao($jogo['classificacaoJogo']) . " anos"; }?></p> 
         </div>
@@ -59,21 +60,13 @@
             <div class="carrosel">
                 <div id="carouselExampleSlidesOnly" class="carousel slide carrosel-container" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="/Nexus/public/img/Banners/mirage2.jpg" class="d-block w-100" alt="...">
+                    <?php $firstImage = true; ?>
+                    <?php foreach (JogoDao::getBackgrounds($id) as $backgroundImage): ?>
+                        <div class="carousel-item <?php echo $firstImage ? 'active' : ''; ?>">
+                            <img src="../../public/img/backgroundJogos/<?php echo $backgroundImage; ?>" class="d-block w-100" alt="...">
                         </div>
-                        <div class="carousel-item">
-                        <img src="/Nexus/public/img/Banners/mirage1.webp" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="/Nexus/public/img/Banners/mirage3.webp" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="/Nexus/public/img/Banners/mirage4.webp" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="/Nexus/public/img/Banners/mirage5.webp" class="d-block w-100" alt="...">
-                        </div>
+                        <?php $firstImage = false; ?>
+                    <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="textDesc">
@@ -81,7 +74,7 @@
                 </div>
             </div>
             <div class="compraJogo">
-                <img src="../../public/img/logoJogos/<?php echo $jogo['logoJogo']; ?>" alt="..." width="180" height="auto">
+                <img src="../../public/img/logoJogos/<?php echo $jogo['logoJogo']; ?>" alt="..." width="250" height="auto">
                 <p class="textPreco"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
                 <button class="botaoCompra"><p>Comprar <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></p></button>
                 <button class="botaoFav"><p>Lista de desejos <i class="fa-regular fa-bookmark" style="color: #ffffff;"></i></p></button>
@@ -163,6 +156,13 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        new bootstrap.Carousel(document.getElementById('carouselExampleSlidesOnly'), {
+                            interval: 2000 // Adjust the interval as needed
+                        });
+                    });
+                </script>
             <?php endforeach?>
     </div>
     <?php

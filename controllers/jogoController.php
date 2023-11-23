@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
                     JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, $capaName, $logoName);
-                    header("Location: /Nexus/views/admin/jogos/index.php");
                 } else {
                     echo "Erro ao mover o arquivo.";
                     echo "<pre>";
@@ -62,11 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
                     // Aqui você pode processar e salvar cada arquivo como necessário
                     $extensaoLogo = pathinfo( $files['name'][$i], PATHINFO_EXTENSION);
-                    $nomeLogo = uniqid();
-                    $backgroundName = $nomeLogo . "." . $extensaoLogo;
-                    $diretorioLogo = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/logoJogos/' . $backgroundName;
+                    $nomeBackground = uniqid();
+                    $backgroundName = $nomeBackground . "." . $extensaoLogo;
+                    $diretorioBackground = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/backgroundJogos/' . $backgroundName;
 
-                    JogoDao::insertBackground(JogoDao::getByIdByName($nomeJogo), $backgroundName);
+                    if (move_uploaded_file($fileTmpName, $diretorioBackground)) {
+                        JogoDao::insertBackground(JogoDao::getByIdByName($nomeJogo), $backgroundName);
+                        header("Location: /Nexus/views/admin/jogos/index.php");
+                    }
+                    
                 }
             }
 

@@ -112,10 +112,11 @@ class JogoDao
         $stmt->bindParam(":nome", $nome);
         $stmt->execute();
 
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        $idJogo = $stmt->fetch(PDO::FETCH_COLUMN, 0);
 
-        return $resultado;
+        return $idJogo;
     }
+    
     public static function getByGenero($genero)
     {
         try {
@@ -196,6 +197,29 @@ class JogoDao
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $resultado['nomePlataforma'];
+    }
+    public static function getBackgrounds($id)
+    {
+        $backgroundImages = [];
+
+        try {
+            $conexao = new Conexao();
+            $pdo = $conexao->getPDO();
+
+            $sql_code = "SELECT pathBackground FROM tbbackground WHERE idJogo = :id";
+            $stmt = $pdo->prepare($sql_code);
+            $stmt->bindParam(":id", $id);
+
+            $stmt->execute();
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $backgroundImages[] = $row['pathBackground'];
+            }
+        } catch (PDOException $e) {
+            echo "Error connecting to database: " . $e->getMessage();
+        }
+
+        return $backgroundImages;
     }
     public static function update($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $nota, $capaJogo, $logo)
 {
