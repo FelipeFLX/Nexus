@@ -52,7 +52,7 @@
     <div class="jogos-container">
         <h1 class="titu-jogos"><?php echo $jogo['nomeJogo'] ?></h1>
         <div class="ficTec">
-            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> <?php if (!$jogo['subgeneroJogo'] == 0) { echo "e " . $jogo['subgeneroJogo']; } echo JogoDao::getGenero($jogo['subgeneroJogo']); ?></p>
+            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> <?php if (!$jogo['subgeneroJogo'] == 0) { echo "e " . JogoDao::getGenero($jogo['subgeneroJogo']); } ?></p>
             <p class="borderText">Avaliações: <?php echo $jogo['notaJogo'] ?></p>
             <p>Classificação indicativa: <?php if($jogo['classificacaoJogo'] == "1"){echo 'Livre';} else {echo JogoDao::getClassificacao($jogo['classificacaoJogo']) . " anos"; }?></p> 
         </div>
@@ -119,7 +119,7 @@
                     <button type="submit" class="botaoEnviar" name="option" value="INSERT">Enviar</button>
                 </form>
         </div>
-        <h3 class="subTitu2">Comentarios</h3>
+        <h3 class="subTitu2">Comentários</h3>
         <section id="testimonials">
             <?php if ($comentarios == null) {
                 echo "<br><h1>Sem comentários...</h1>";
@@ -156,13 +156,6 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        new bootstrap.Carousel(document.getElementById('carouselExampleSlidesOnly'), {
-                            interval: 2000 // Adjust the interval as needed
-                        });
-                    });
-                </script>
             <?php endforeach?>
     </div>
     <?php
