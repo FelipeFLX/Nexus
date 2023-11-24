@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <?php session_start(); if (!isset($_SESSION['login']) || $_SESSION['login'] == ''): ?>
+        <?php if (!isset($_SESSION['login']) || $_SESSION['login'] == ''): ?>
         
         <?php else: ?>
             <div class="formAva">
@@ -128,7 +128,7 @@
             <?php if ($comentarios == null) {
                 echo "<br><h1>Sem comentários...</h1>";
                 echo '<h5>Seja o primeiro(a) a comentar!</h5><br>';
-                session_start(); if (!isset($_SESSION['login']) || $_SESSION['login'] == ''){
+                if (!isset($_SESSION['login']) || $_SESSION['login'] == ''){
                    echo "<a href='/Nexus/views/user/login.php'><button href type='button' class='btn btn-outline-primary'>Faça login</button></a>";
                 }
 

@@ -174,6 +174,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, null, null);
                     header("Location: /Nexus/views/admin/jogos/index.php");
                 }
+
+                if (!empty($_FILES['backgroundJogo']['name'][0])) {
+                    $files = $_FILES['backgroundJogo'];
+            
+                    // Itera sobre cada arquivo
+                    for ($i = 0; $i < count($files['name']); $i++) {
+                        $fileName = $files['name'][$i];
+                        $fileTmpName = $files['tmp_name'][$i];
+                        $fileType = $files['type'][$i];
+                        $fileSize = $files['size'][$i];
+                        $fileError = $files['error'][$i];
+            
+                        // Aqui você pode processar e salvar cada arquivo como necessário
+                        $extensaoLogo = pathinfo( $files['name'][$i], PATHINFO_EXTENSION);
+                        $nomeBackground = uniqid();
+                        $backgroundName = $nomeBackground . "." . $extensaoLogo;
+                        $diretorioBackground = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/backgroundJogos/' . $backgroundName;
+    
+                        if (move_uploaded_file($fileTmpName, $diretorioBackground)) {
+                            JogoDao::insertBackground(JogoDao::getByIdByName($nomeJogo), $backgroundName);
+                            header("Location: /Nexus/views/admin/jogos/index.php");
+                        }
+                        
+                    }
+                }
+
                 break;
         case 'DELETE':
                 $idJogo = $_POST['idJogo'];

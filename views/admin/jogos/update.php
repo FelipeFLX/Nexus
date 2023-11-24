@@ -171,7 +171,7 @@
                           18 => "MMORPG",
                           19 => "Casual",
                           20 => "Shooter",
-                          0 => "Nenhuma das opções"
+                          21 => "Nenhuma das opções"
                       ];
 
                       foreach ($generos as $value => $genero) {
@@ -207,7 +207,11 @@
                     <label for="email" class="col-form-label">Data de lançamento:</label>
                     <input type="date" class="form-control" name="dataLancamento" maxlength="100" value="<?php echo $jogo['dataLancamentoJogo'] ?>" id="email" required>
                   </div>
-
+                  <div>
+                    <input type="file" id="backgroundJogo" name="backgroundJogo[]" accept="image/jpeg, image/png">
+                    <input type="file" id="backgroundJogo" name="backgroundJogo[]" accept="image/jpeg, image/png">
+                    <input type="file" id="backgroundJogo" name="backgroundJogo[]" accept="image/jpeg, image/png"> 
+                  </div>
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-3">

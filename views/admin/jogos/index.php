@@ -60,8 +60,21 @@
                   <td class="align-middle"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></td>
                   <td class="align-middle"><?php echo jogoDao::getPlataforma($jogo['plataformaJogo']); ?></td>
                   <td class="align-middle"><?php echo jogoDao::getGenero($jogo['generoPrincipalJogo']); ?></td>
-                  <td class="align-middle"><?php echo jogoDao::getGenero($jogo['subgeneroJogo']); ?></td>
-                  <td class="align-middle"><?php echo date('d/m/Y', strtotime($jogo['dataLancamentoJogo'])); ?></td>
+                  <?php $subgeneroJogo = jogoDao::getGenero($jogo['subgeneroJogo']); ?>
+                  <td class="align-middle">
+                       <?php
+                         if (!isset($jogo['subgeneroJogo'])) {
+                             echo '';
+                         } else {
+                             $genero = jogoDao::getGenero($jogo['subgeneroJogo']);
+                             if (!isset($genero)) {
+                                 echo '';
+                             } else {
+                                 echo $genero;
+                             }
+                         }
+                       ?>
+                   </td>                  <td class="align-middle"><?php echo date('d/m/Y', strtotime($jogo['dataLancamentoJogo'])); ?></td>
                   <td class="align-middle text-center">
                     <form action="./update.php" method="POST">
                       <input type="hidden" name="idJogo" value="<?php echo $jogo['idJogo'];?>">
