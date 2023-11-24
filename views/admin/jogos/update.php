@@ -49,7 +49,7 @@
                 <div class="row">
                   <div class="col-md-4 mb-4">
                     <label for="nome" class="col-form-label">Nome do Jogo:</label>
-                    <input type="text" class="form-control" name="nomeJogo" value="<?php echo $jogo['nomeJogo'] ?>" maxlength="50">
+                    <input type="text" class="form-control" name="nomeJogo" value="<?php echo $jogo['nomeJogo'] ?>" maxlength="75">
                   </div>
                   <div class="col-md-1 mb-3">
                     <label for="sobrenome" class="col-form-label">Preço:</label>
@@ -171,7 +171,7 @@
                           18 => "MMORPG",
                           19 => "Casual",
                           20 => "Shooter",
-                          0 => "Nenhuma das opções"
+                          21 => "Nenhuma das opções"
                       ];
 
                       foreach ($generos as $value => $genero) {
@@ -207,7 +207,11 @@
                     <label for="email" class="col-form-label">Data de lançamento:</label>
                     <input type="date" class="form-control" name="dataLancamento" maxlength="100" value="<?php echo $jogo['dataLancamentoJogo'] ?>" id="email" required>
                   </div>
-
+                  <div>
+                    <input type="file" id="backgroundJogo" name="backgroundJogo[]" accept="image/jpeg, image/png">
+                    <input type="file" id="backgroundJogo" name="backgroundJogo[]" accept="image/jpeg, image/png">
+                    <input type="file" id="backgroundJogo" name="backgroundJogo[]" accept="image/jpeg, image/png"> 
+                  </div>
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-3">

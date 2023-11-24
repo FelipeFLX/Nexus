@@ -49,6 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($_POST['link'] == 'cadastro.php') {
                     header('Location: /Nexus/views/home/index.php');
                 } else {
+                    if ($_POST['link'] == 'descJogos.php') {
+                        # code...
+                    }
                     header('Location: /Nexus/views/home/' . $_POST['link']);
                 }
             } else {

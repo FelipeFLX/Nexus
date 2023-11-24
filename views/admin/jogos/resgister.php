@@ -135,7 +135,7 @@
                       <option value="18">MMORPG</option>
                       <option value="19">Casual</option>
                       <option value="20">Shooter</option>
-                      <option value="">Nenhuma das opções</option>
+                      <option value="21">Nenhuma das opções</option>
 
                     </select>
                   </div>

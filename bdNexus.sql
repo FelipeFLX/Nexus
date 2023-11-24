@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Nov-2023 às 21:33
+-- Tempo de geração: 24-Nov-2023 às 19:17
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -40,7 +40,26 @@ CREATE TABLE `tbbackground` (
 INSERT INTO `tbbackground` (`idBackgroud`, `idJogo`, `pathBackground`) VALUES
 (1, 36, '655fa72e1f457.png'),
 (2, 36, '655fa72e26434.png'),
-(3, 36, '655fa72e2e251.jpg');
+(3, 36, '655fa72e2e251.jpg'),
+(4, 37, '6560d7f06dacf.jpg'),
+(5, 37, '6560d7f06f96d.jpg'),
+(6, 37, '6560d7f071085.jpg'),
+(7, 4, '6560dfb042361.png'),
+(8, 3, '6560e4c1051e9.jpg'),
+(9, 3, '6560e4c106c26.jpg'),
+(10, 3, '6560e4c107d8c.jpg'),
+(11, 2, '6560e54fbd5f9.jpg'),
+(12, 5, '6560e5c81625f.png'),
+(13, 5, '6560e5c8178cc.png'),
+(14, 5, '6560e5c81ecf4.jpg'),
+(15, 7, '6560e66eafee1.png'),
+(16, 7, '6560e66eb2eea.jpg'),
+(17, 8, '6560e6bf6074d.jpg'),
+(18, 8, '6560e6bf62163.jpg'),
+(19, 8, '6560e6bf632ca.jpg'),
+(20, 13, '6560e754053d6.png'),
+(21, 13, '6560e7540671b.jpg'),
+(22, 13, '6560e75407a4b.jpg');
 
 -- --------------------------------------------------------
 
@@ -90,7 +109,8 @@ INSERT INTO `tbcomentario` (`idComentario`, `idUser`, `idJogo`, `comentarioUser`
 (3, 1, 3, 'Adorei!!!!', 1, '2023-11-23 14:26:31'),
 (4, 1, 5, 'gostei muito do jogo, gameplay nota 10/10', 5, '2023-11-23 14:33:33'),
 (5, 1, 5, 'muito ruim', 1, '2023-11-23 14:34:06'),
-(6, 1, 36, 'Jogo lixo!!!', 1, '2023-11-23 17:18:53');
+(6, 1, 36, 'Jogo lixo!!!', 1, '2023-11-23 17:18:53'),
+(7, 1, 2, 'Adoro anões!!!!', 5, '2023-11-24 15:15:59');
 
 -- --------------------------------------------------------
 
@@ -127,7 +147,8 @@ INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
 ('Roguelike', 17),
 ('MMORPG', 18),
 ('Casual', 19),
-('Shooter', 20);
+('Shooter', 20),
+('', 21);
 
 -- --------------------------------------------------------
 
@@ -162,8 +183,9 @@ INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, 
 (5, 'God of War', 50.00, 1, 2, 'Este jogo de ação/aventura/combate faz uso poderoso do mundo sombrio e imaginativo da mitologia da Grécia Antiga, onde os reinos do mortal e do divino colidem em uma atmosfera generalizada de força bruta e violência. Jogando como Kratos, ao longo do jogo os jogadores empunharão lâminas duplas presas ao seu corpo por longas correntes, armas que simbolizam este mundo cruel ao qual ele está preso e o destino do qual procura escapar. Apresentando uma hora de sequências cinematográficas e um sistema de combate profundo que incorpora ações sensíveis ao contexto e uma extensa gama de combos, GOD OF WAR leva os jogadores através de vários ambientes que os farão lutar contra inimigos ferozes, balançar em cordas, escalar penhascos de montanhas, nadar em rios. e deslizando pelas tirolesas. O resultado é uma aventura única e emocionante pela mitologia grega.', '655cfa3eb0fb1.jpg', '2005-05-22', 'SCE Santa Mônica', 2, 4.6, '655bed07c7600.png', 6),
 (7, 'The Legend of Zelda: Majora\'s Mask', 15.00, 1, 10, 'A nova aventura épica de Link o leva ao mundo místico de Termina, onde relógios sempre presentes contam as horas até que uma lua ameaçadora caia do céu. Quando seu cavalo e Ocarina são roubados por uma figura estranha e mascarada, Link embarca em uma missão urgente para resolver o mistério da lua, salvar o mundo da destruição e encontrar o caminho de volta à pacífica terra de Hyrule! * Link se transforma diante de seus olhos – Mais de 20 máscaras mágicas dão a Link poderes e habilidades que ele nunca teve antes! Veja-o se transformar em uma infeliz criança Deku, um poderoso herói Goron e um lendário guitarrista Zora. * Corrida contra o tempo - Personagens e eventos fluem com as horas do dia. Defina seu próprio horário e até altere o próprio tempo em uma corrida para parar a lua e salvar o mundo! * Ambientes panorâmicos! Batalhas de ação poderosas! Personagens e eventos totalmente interativos! Experimente lindas paisagens renderizadas, enxames de inimigos atacantes e um mundo profundo e envolvente de maravilhas com o poder do N64 Expansion Pak.', '655bf636b3b86.png', '2000-04-27', 'Nintendo EAD', 2, 4.8, '655bf0399dd67.png', 1),
 (8, 'The Binding of Isaac: Repentance', 68.00, 1, 23, 'Experimente o clássico moderno, The Binding of Isaac, como você nunca viu antes. É um jogo grande demais para ser chamado de sequência: Repentance leva Isaac a novos patamares de aventura em masmorras roguelike, enquanto o garoto corajoso desce ao porão para seu maior desafio até agora! A nova missão de Isaac leva-o a lugares desconhecidos onde ele nunca esteve, repletos de novos inimigos e chefes horríveis, combinações de armas com as quais você nunca sinergizou antes e itens que ele nunca viu... terrores profanos de seus sonhos mais loucos e piores pesadelos!', '655cfa578809e.jpg', '2021-03-31', 'Edmundo McMillen, Nicalis', 20, 4.3, '655bf1f256cdc.png', 4),
-(13, 'The Witcher III: Wild Hunt: Game of the Year Editi', 150.00, 1, 23, 'Play the most polished and complete version of the most awarded game of 2015 - The Witcher 3: Wild Hunt – Game of the Year Edition. Now available with all expansions and additional content. Become a professional monster slayer and embark on an adventure of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world adventure along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests. Features: Play as a Highly Trained Monster Slayer for Hire Trained from early childhood and mutated to have superhuman skills, strength, and reflexes, witchers are a socially ostracized counterbalance to the monster-infested world in which they live. - Gruesomely destroy foes as a professional monster hunter armed with a range of upgradeable weapons, mutating potions, and combat magic. - Hunt down a wide variety of exotic monsters, from savage beasts prowling mountain passes to cunning supernatural predators lurking in the shadowy back alleys of densely populated cities. - Invest your rewards to upgrade your weaponry and buy custom armor, or spend them on horse races, card games, fist fighting and other pleasures life brings. Track Down the Child of Prophecy in a Morally Ambiguous Fantasy Open World - Built for endless adventure, the massive open world of The Witcher sets new standards in terms of size, depth and complexity. - Traverse a fantastical open world: explore forgotten ruins, caves and shipwrecks, trade with merchants and dwarven smiths in cities, and hunt across open plains, amidst mountains and at sea. - In a time of war, track down the child of prophecy, a living weapon of great power whose coming was foretold in ancient elven legends. Make choices that go beyond good and evil and face their far-reaching consequences. Game of the Year Edition The Witcher 3: Wild Hunt Game of the Year Edition brings together the base game and all the additional content released to date. - Includes the Hearts of Stone and Blood & Wine expansions, which offer a massive 50 hours of additional storytelling as well as new features and new areas that expand the explorable world by over a third! - Affords access to all additional content released so far, including weapons, armor, side quests, game modes and new GWENT cards! - Features all technical and visual updates as well as a new user interface completely redesigned on the basis of feedback from members of the Witcher Community.', '655d14b02d3b3.png', '2016-08-30', 'CD Projekt RED', 3, 4.9, '655d14b02d3b8.png', 6),
-(36, 'Fortnite', 0.00, 1, 23, 'Fortnite é um videogame online desenvolvido pela Epic Games e lançado em 2017. Ele está disponível em três versões distintas de modo de jogo que compartilham a mesma jogabilidade geral e mecanismo de jogo: Fortnite: Save the World, um jogo cooperativo de tiro e sobrevivência para até quatro jogadores para lutar contra criaturas parecidas com zumbis e defender objetos com fortificações que possam construir; Fortnite Battle Royale, um jogo Battle Royale gratuito em que até 100 jogadores lutam para ser a última pessoa sobrevivente; e Fortnite Creative, em que os jogadores têm total liberdade para criar mundos e arenas de batalha. Save the World e Battle Royale foram lançados em 2017 como títulos de acesso antecipado, enquanto Creative foi lançado em 6 de dezembro de 2018. [. . . ] Fortnite Battle Royale é um jogo jogador contra jogador para até 100 jogadores, permitindo que se jogue sozinho, em dupla ou em esquadrão (geralmente composto por três ou quatro jogadores). Jogadores desarmados são lançados de um \"ônibus de batalha\" que cruza o mapa do jogo. Ao pousar, eles devem procurar armas, itens, recursos e até veículos enquanto tentam permanecer vivos e atacar e eliminar outros jogadores. Ao longo de uma rodada, a área segura do mapa diminui de tamanho devido à chegada de uma tempestade tóxica; jogadores fora desse limite sofrem danos e podem ser eliminados se não conseguirem evacuar rapidamente. Isso força os jogadores restantes a espaços mais apertados e incentiva os encontros entre os jogadores. O último jogador, dupla ou esquadrão restante é o vencedor. Fortnite: Save the World é um jogo cooperativo jogador versus ambiente, com quatro jogadores colaborando para um objetivo comum em várias missões. O jogo se passa depois que uma tempestade aparece em toda a Terra, fazendo com que 98% da população desapareça e os sobreviventes sejam atacados por \"cascas\" semelhantes a zumbis. Os jogadores assumem o papel de comandantes de abrigos, coletando recursos, salvando sobreviventes e defendendo equipamentos que ajudam a coletar dados sobre a tempestade ou a rechaçá-la. Nas missões, os jogadores recebem uma série de itens do jogo, que incluem personagens heróis, esquemas de armas e armadilhas e sobreviventes, todos os quais podem ser aumentados através da experiência adquirida para melhorar seus atributos. Fortnite Creative é um modo de jogo sandbox, semelhante ao Minecraft, pois os jogadores têm total liberdade para gerar tudo o que está dentro do jogo em uma ilha e podem criar jogos como arenas de batalha, pistas de corrida, desafios de plataforma e muito mais.', '655fa72e1e2b5.png', '2017-07-25', 'Epic Games', 0, 3.0, '655fa72e1e2b8.png', 3);
+(13, 'The Witcher III: Wild Hunt: Game of the Year Edition', 150.00, 1, 23, 'Play the most polished and complete version of the most awarded game of 2015 - The Witcher 3: Wild Hunt – Game of the Year Edition. Now available with all expansions and additional content. Become a professional monster slayer and embark on an adventure of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world adventure along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests. Features: Play as a Highly Trained Monster Slayer for Hire Trained from early childhood and mutated to have superhuman skills, strength, and reflexes, witchers are a socially ostracized counterbalance to the monster-infested world in which they live. - Gruesomely destroy foes as a professional monster hunter armed with a range of upgradeable weapons, mutating potions, and combat magic. - Hunt down a wide variety of exotic monsters, from savage beasts prowling mountain passes to cunning supernatural predators lurking in the shadowy back alleys of densely populated cities. - Invest your rewards to upgrade your weaponry and buy custom armor, or spend them on horse races, card games, fist fighting and other pleasures life brings. Track Down the Child of Prophecy in a Morally Ambiguous Fantasy Open World - Built for endless adventure, the massive open world of The Witcher sets new standards in terms of size, depth and complexity. - Traverse a fantastical open world: explore forgotten ruins, caves and shipwrecks, trade with merchants and dwarven smiths in cities, and hunt across open plains, amidst mountains and at sea. - In a time of war, track down the child of prophecy, a living weapon of great power whose coming was foretold in ancient elven legends. Make choices that go beyond good and evil and face their far-reaching consequences. Game of the Year Edition The Witcher 3: Wild Hunt Game of the Year Edition brings together the base game and all the additional content released to date. - Includes the Hearts of Stone and Blood & Wine expansions, which offer a massive 50 hours of additional storytelling as well as new features and new areas that expand the explorable world by over a third! - Affords access to all additional content released so far, including weapons, armor, side quests, game modes and new GWENT cards! - Features all technical and visual updates as well as a new user interface completely redesigned on the basis of feedback from members of the Witcher Community.', '655d14b02d3b3.png', '2016-08-30', 'CD Projekt RED', 3, 4.9, '655d14b02d3b8.png', 6),
+(36, 'Fortnite', 0.00, 1, 23, 'Fortnite é um videogame online desenvolvido pela Epic Games e lançado em 2017. Ele está disponível em três versões distintas de modo de jogo que compartilham a mesma jogabilidade geral e mecanismo de jogo: Fortnite: Save the World, um jogo cooperativo de tiro e sobrevivência para até quatro jogadores para lutar contra criaturas parecidas com zumbis e defender objetos com fortificações que possam construir; Fortnite Battle Royale, um jogo Battle Royale gratuito em que até 100 jogadores lutam para ser a última pessoa sobrevivente; e Fortnite Creative, em que os jogadores têm total liberdade para criar mundos e arenas de batalha. Save the World e Battle Royale foram lançados em 2017 como títulos de acesso antecipado, enquanto Creative foi lançado em 6 de dezembro de 2018. [. . . ] Fortnite Battle Royale é um jogo jogador contra jogador para até 100 jogadores, permitindo que se jogue sozinho, em dupla ou em esquadrão (geralmente composto por três ou quatro jogadores). Jogadores desarmados são lançados de um \"ônibus de batalha\" que cruza o mapa do jogo. Ao pousar, eles devem procurar armas, itens, recursos e até veículos enquanto tentam permanecer vivos e atacar e eliminar outros jogadores. Ao longo de uma rodada, a área segura do mapa diminui de tamanho devido à chegada de uma tempestade tóxica; jogadores fora desse limite sofrem danos e podem ser eliminados se não conseguirem evacuar rapidamente. Isso força os jogadores restantes a espaços mais apertados e incentiva os encontros entre os jogadores. O último jogador, dupla ou esquadrão restante é o vencedor. Fortnite: Save the World é um jogo cooperativo jogador versus ambiente, com quatro jogadores colaborando para um objetivo comum em várias missões. O jogo se passa depois que uma tempestade aparece em toda a Terra, fazendo com que 98% da população desapareça e os sobreviventes sejam atacados por \"cascas\" semelhantes a zumbis. Os jogadores assumem o papel de comandantes de abrigos, coletando recursos, salvando sobreviventes e defendendo equipamentos que ajudam a coletar dados sobre a tempestade ou a rechaçá-la. Nas missões, os jogadores recebem uma série de itens do jogo, que incluem personagens heróis, esquemas de armas e armadilhas e sobreviventes, todos os quais podem ser aumentados através da experiência adquirida para melhorar seus atributos. Fortnite Creative é um modo de jogo sandbox, semelhante ao Minecraft, pois os jogadores têm total liberdade para gerar tudo o que está dentro do jogo em uma ilha e podem criar jogos como arenas de batalha, pistas de corrida, desafios de plataforma e muito mais.', '655fa72e1e2b5.png', '2017-07-25', 'Epic Games', 21, 3.0, '655fa72e1e2b8.png', 3),
+(37, 'The Elder Scrolls V: Skyrim: Special Edition', 0.00, 1, 23, 'Vencedor de mais de 200 prêmios de Jogo do Ano, Skyrim Special Edition dá vida à fantasia épica com detalhes impressionantes. A edição especial inclui o jogo aclamado pela crítica e complementos com recursos totalmente novos, como arte e efeitos remasterizados, raios divinos volumétricos, profundidade de campo dinâmica, reflexos no espaço da tela e muito mais.', '6560d7f06b448.png', '2016-10-27', 'Bethesda Game Studios', 1, 1.9, '6560d7f06b44c.png', 6);
 
 -- --------------------------------------------------------
 
@@ -338,7 +360,7 @@ ALTER TABLE `tbuser`
 -- AUTO_INCREMENT de tabela `tbbackground`
 --
 ALTER TABLE `tbbackground`
-  MODIFY `idBackgroud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idBackgroud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `tbclassificacao`
@@ -350,19 +372,19 @@ ALTER TABLE `tbclassificacao`
 -- AUTO_INCREMENT de tabela `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
-  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
-  MODIFY `idGenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idGenero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `tbjogo`
 --
 ALTER TABLE `tbjogo`
-  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `tbnoticias`
