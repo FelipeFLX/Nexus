@@ -17,10 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $senha = $_POST['senha'];
             $dtnasc = $_POST['dtnasc'];
             $formattedDtnasc = date('Y-m-d', strtotime(str_replace('/', '-', $dtnasc)));
+            $fotoPerfil = $_FILES['imagem'];
+
+            $extensao = pathinfo($fotoPerfil['name'], PATHINFO_EXTENSION);
+            $nomeAvatar = uniqid();
+            $avatarName = $nomeAvatar . "." . $extensao;
+            $diretorioAvatar = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/avatarUser/' . $avatarName;
         
             // Instanciando a classe do daoUser e incrementando dados no banco de dados
-            userDao::insert($nome, $nick, $email, $senha, $formattedDtnasc, $sobrenome, $cpf);
-        
+            if (move_uploaded_file($fotoPerfil["tmp_name"], $diretorioAvatar)){
+            userDao::insert($nome, $nick, $email, $senha, $formattedDtnasc, $sobrenome, $cpf, $avatarName);
+            }
+
             // Verificando se o usuário está autenticado
             if (isset($_SESSION['login'])) {
                 header('Location: /Nexus/views/home/index.php');
@@ -44,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['sobrenome'] = $login['sobrenomeUser'];
                 $_SESSION['nick'] = $login['nickUser'];
                 $_SESSION['email'] = $login['emailUser'];
+                $_SESSION['avatar'] = $login['avatarUser'];
                 $_SESSION['login'] = "yes";
 
                 if ($_POST['link'] == 'cadastro.php') {

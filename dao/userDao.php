@@ -2,7 +2,7 @@
 require_once(__DIR__ . "/../config/Conexao.php");
 class UserDao
 {
-    public static function insert($nome, $nick, $email, $senha, $dataNasc, $sobrenome, $cpf)
+    public static function insert($nome, $nick, $email, $senha, $dataNasc, $sobrenome, $cpf, $avatar)
     {
 
         try {
@@ -12,7 +12,7 @@ class UserDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbuser (nomeUser, nickUser, emailUser, senhaUser, dataNascUser, sobrenomeUser, cpfUser) VALUES (:nome, :nick, :email, :senha, :dataNasc, :sobrenome, :cpf)";
+        $sql_code = "INSERT INTO tbuser (nomeUser, nickUser, emailUser, senhaUser, dataNascUser, sobrenomeUser, cpfUser, avatarUser) VALUES (:nome, :nick, :email, :senha, :dataNasc, :sobrenome, :cpf, :avatar)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -23,6 +23,7 @@ class UserDao
         $stmt->bindParam(":dataNasc", $dataNasc);
         $stmt->bindParam(":sobrenome", $sobrenome);
         $stmt->bindParam(":cpf", $cpf);
+        $stmt->bindParam(":avatar", $avatar);
 
         $stmt->execute();
 

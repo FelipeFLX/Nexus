@@ -15,7 +15,7 @@
     <div class="form-container">
     <button style="background-color: transparent; border: none; display: block; margin: 0 auto;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a></button>
         <h3 class="titulo">Cadastro</h3>
-        <form action="../../controllers/loginController.php" method="post" class="needs-validation" novalidate>
+        <form action="../../controllers/loginController.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             <input type="hidden" name="option" value="INSERT">
             <div class="form-linha">
                 <div class="form-grupo">
@@ -105,6 +105,7 @@
         <a class="link" href="./login.php">Já tem uma conta?</a>
     </div>
     <script src="./validacaoCampos.js"></script>
+    
 </body>
 
 </html>

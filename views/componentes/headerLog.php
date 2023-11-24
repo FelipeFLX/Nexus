@@ -25,7 +25,7 @@
     <div class="lado3">
       <div class="dropdown">
         <div class="profile-img">
-          <img src="/Nexus/public/img/Perfil/mhPerfil.jpg" alt="Imagem" class="dropdown-image">
+          <img src="/Nexus/public/img/avatarUser/<?php echo $_SESSION['avatar']; ?>" alt="Imagem" class="dropdown-image">
         </div>
         <div class="dropdown-content">
             <p>Perfil</p>
