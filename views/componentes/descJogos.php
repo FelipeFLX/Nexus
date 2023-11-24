@@ -92,7 +92,10 @@
                 </div>
             </div>
         </div>
-        <div class="formAva">
+        <?php session_start(); if (!isset($_SESSION['login']) || $_SESSION['login'] == ''): ?>
+        
+        <?php else: ?>
+            <div class="formAva">
             <h3 class="subTitu">Jogue e compartilhe! Sua avaliação é valiosa para outros jogadores.</h3>
             <form action="../../controllers/comentarioController.php" method="POST" >
                 <input type="hidden" name="idJogo" value="<?php echo $id ?>">
@@ -119,11 +122,16 @@
                     <button type="submit" class="botaoEnviar" name="option" value="INSERT">Enviar</button>
                 </form>
         </div>
+        <?php endif ?>
         <h3 class="subTitu2">Comentários</h3>
         <section id="testimonials">
             <?php if ($comentarios == null) {
                 echo "<br><h1>Sem comentários...</h1>";
                 echo '<h5>Seja o primeiro(a) a comentar!</h5><br>';
+                session_start(); if (!isset($_SESSION['login']) || $_SESSION['login'] == ''){
+                   echo "<a href='/Nexus/views/user/login.php'><button href type='button' class='btn btn-outline-primary'>Faça login</button></a>";
+                }
+
             } ?>
             <?php foreach($comentarios as $comentario): ?>
             <?php $userInfo = UserDao::selectId($comentario['idUser']); ?>
