@@ -163,3 +163,7 @@ button{
 .form-grupo-senha{
   width: 39%;
 }
+
+.btn-close span{
+  color: #ffffff;
+}
