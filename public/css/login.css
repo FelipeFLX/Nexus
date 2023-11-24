@@ -167,3 +167,7 @@ button{
 .btn-close span{
   color: #ffffff;
 }
+
+.btn-close{
+  font-size: 40px;
+}

@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../public/css/login.css">
-    <script src="Script JS/script.js"></script>
+    <script src="../../public/js/script.js"></script>
     <title>Nexus</title>
 </head>
 <body>
@@ -84,18 +84,23 @@
                 <div class="modal-dialog">
                     <div class="modal-content" style="background-color: #111113;">
                     <div class="modal-header" style="background-color: #111113;">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: white;">Para deixar sua experiência mais interativa adicone uma foto de perfil!</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: white;">Mostre sua identidade gamer!</h1>
+                        <button type="button" class="btn-close d-flex align-items-center" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body" style="background-color: #111113;">
+                    <div class="mb-3 text-center">
+                        <h5 style="color: white;">Selecione uma imagem:</h5>
+                        <label for="imagem" style="display: block;"><img id="imagem-preview" src="../../public/img/Logo/camera.png" alt="Preview da imagem" style="max-width: 100%; max-height: 200px; border-radius: 50%;"></label>
+                        <input type="file" id="imagem" name="imagem" accept="image/*" style="display: none;" onchange="previewImage()">
+                        <label for="imagem" id="imagem-label" class="btn mt-3" style="color: white; background-color: #a926f1; border-color: #a926f1;">Escolher Imagem</label>
+                    </div>
                     </div>
                     <div class="modal-footer" style="background-color: #111113;">
-                        <button class="botao mb-3" type="submit">Cadastrar</button>
+                        <button class="botao" type="submit">Cadastrar</button>
                     </div>
                     </div>
                 </div>
             </div>
-            
         </form>
         <a class="link" href="./login.php">Já tem uma conta?</a>
     </div>

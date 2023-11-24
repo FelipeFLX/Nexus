@@ -91,3 +91,21 @@ estrelas.forEach((estrela) => {
     console.log('Avaliação:', estrela.value);
   });
 });
+
+function previewImage() {
+    var input = document.getElementById('imagem');
+    var preview = document.getElementById('imagem-preview');
+    var label = document.getElementById('imagem-label');
+
+    preview.style.display = 'block';
+
+    var file = input.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        preview.src = e.target.result;
+        preview.style.margin = 'auto';
+    };
+
+    reader.readAsDataURL(file);
+}
