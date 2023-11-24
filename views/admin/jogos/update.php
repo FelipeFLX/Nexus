@@ -49,7 +49,7 @@
                 <div class="row">
                   <div class="col-md-4 mb-4">
                     <label for="nome" class="col-form-label">Nome do Jogo:</label>
-                    <input type="text" class="form-control" name="nomeJogo" value="<?php echo $jogo['nomeJogo'] ?>" maxlength="50">
+                    <input type="text" class="form-control" name="nomeJogo" value="<?php echo $jogo['nomeJogo'] ?>" maxlength="75">
                   </div>
                   <div class="col-md-1 mb-3">
                     <label for="sobrenome" class="col-form-label">Preço:</label>
