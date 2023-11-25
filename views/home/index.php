@@ -49,25 +49,22 @@
         ?>
         <h1 id="noticias" class="titulo">Notícias</h1>
         <div class="noticias">
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-                <img src="/Nexus/public/img/Noticias/nitendo.jpg" class="card-img-top" alt="Imagem Noticia">
-                <div class="card-body">
-                    <h5 class="card-title t-cor">Nintendo quer localizar todos os jogos em PT-BR futuramente</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Nintendo</h6>
-                    <p class="card-text t-cor">O passado da Nintendo mostra que a empresa sempre teve uma proximidade com o público brasileiro.</p>
-                    <a href="https://g1.globo.com/ce/ceara/noticia/2023/09/23/pokemon-go-jogadores-se-reunem-em-encontros-anos-apos-o-lancamento-e-amizade-vira-grande-motor-do-jogo.ghtml" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
-                </div>
-            </div>
-            <?php foreach($Noticias as $noticia): ?>
-            <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
+            <?php foreach ($Noticias as $noticia): ?>
+                <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
                 <img src="/Nexus/public/img/capaNoticias/ <?php echo $noticia['capaNoticia']?>" class="card-img-top" alt="Imagem Noticia">
-                <div class="card-body">
-                    <h5 class="card-title t-cor"></h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Nintendo</h6>
-                    <p class="card-text t-cor"><?php echo $noticia['textoNoticia']?></p>
-                    <a href="https://g1.globo.com/ce/ceara/noticia/2023/09/23/pokemon-go-jogadores-se-reunem-em-encontros-anos-apos-o-lancamento-e-amizade-vira-grande-motor-do-jogo.ghtml" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $noticia['temaNoticia']?></h6>
+                        <h5 class="card-title t-cor"><?php echo $noticia['tituloNoticia']?></h5>
+                        <?php
+                            // Divide o textoNoticia em palavras
+                            $palavras = explode(' ', $noticia['textoNoticia']);
+                            
+                            // Seleciona apenas as primeiras 20 palavras
+                            $textoLimitado = implode(' ', array_slice($palavras, 0, 40));
+                        ?>
+                        <p class="card-text t-cor"><?php echo $textoLimitado; ?></p>
+                    </div>
                 </div>
-            </div>
             <?php endforeach ?>
         </div>
         <h1 id="novidades" class="titulo">Novidades</h1>

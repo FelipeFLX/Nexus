@@ -21,7 +21,7 @@
         <h3 class="titulo">Login</h3>
         <form action="../../controllers/loginController.php" method="post">
         <input type="hidden" name="link" value="<?php if ($_POST['link'] == '' || !isset($_POST['link'])) { echo ''; } else{ echo $_POST['link'];} ?>">
-         <input type="hidden" name="option" value="READ">
+        <input type="hidden" name="option" value="READ">
         <div class="form-flutuante">
                 <input type="email" class="form-controle inputs" id="email" name="email" maxlength="100" required>
                 <label for="email" class="label-texto">Email</label>

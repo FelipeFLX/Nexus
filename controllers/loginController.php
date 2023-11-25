@@ -59,12 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header('Location: /Nexus/views/home/index.php');
                 } else {
                     if ($_POST['link'] == 'descJogos.php') {
-                        # code...
+                        header('Location: /Nexus/views/home/index.php');
+                    } else {
+                        header('Location: /Nexus/views/home/' . $_POST['link']);
                     }
-                    header('Location: /Nexus/views/home/' . $_POST['link']);
                 }
             } else {
-                // Redirecionando para a página de login
                 header('Location: /Nexus/views/user/login.php?login=no');
             }
             break;
@@ -74,9 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION = array(); 
             session_destroy();
 
-            $link = $_POST['link'];
-
-            header('Location: /Nexus/views/home/' . $link);
+            if ($_POST['link'] == 'descJogos.php') {
+                header('Location: /Nexus/views/home/index.php');
+            } else {
+                header('Location: /Nexus/views/home/' . $_POST['link']);
+            }
         
         default:
             # code...

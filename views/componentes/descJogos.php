@@ -79,7 +79,7 @@
                     <?php $firstImage = true; ?>
                     <?php foreach (JogoDao::getBackgrounds($id) as $backgroundImage): ?>
                         <div class="carousel-item <?php echo $firstImage ? 'active' : ''; ?>">
-                            <img src="../../public/img/backgroundJogos/<?php echo $backgroundImage; ?>" class="d-block w-100" alt="...">
+                            <img src="../../public/img/backgroundJogos/<?php echo $backgroundImage; ?>" class="d-block w-100" alt="..." width="1000" height="500">
                         </div>
                         <?php $firstImage = false; ?>
                     <?php endforeach; ?>

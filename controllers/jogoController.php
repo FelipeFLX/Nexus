@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $preco = $_POST['preco'];
             $plataforma = $_POST['plataforma'];
             $desenvolvedora = $_POST['desenvolvedora'];
-            $nota = $_POST['nota'];
             $descJogo = $_POST['descJogo'];
             $genero = $_POST['genero'];
             $tipo = $_POST['tipo'];
@@ -36,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo $diretorioCapa;
             } else {
                 if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
-                    JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, $capaName, $logoName);
+                    JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $logoName);
                 } else {
                     echo "Erro ao mover o arquivo.";
                     echo "<pre>";
@@ -132,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo $diretorioCapa;
                     } else {
                         if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa)) {
-                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, $capaName, null);
+                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, null);
                             header("Location: /Nexus/views/admin/jogos/index.php");
                         } else {
                             echo "Erro ao mover o arquivo.";
@@ -156,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo $diretorioLogo;
                     } else {
                         if (move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
-                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, null, $logoName);
+                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, null, $logoName);
                             header("Location: /Nexus/views/admin/jogos/index.php");
                         } else {
                             echo "Erro ao mover o arquivo.";
@@ -170,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 // Condição 4: Nenhum está preenchido
                 else {
-                    JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, null, null);
+                    JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, null, null);
                     header("Location: /Nexus/views/admin/jogos/index.php");
                 }
 

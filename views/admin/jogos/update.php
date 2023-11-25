@@ -102,10 +102,6 @@
                     <label for="nome" class="col-form-label">Desenvolvedora:</label>
                     <input type="text" class="form-control" name="desenvolvedora" value="<?php echo $jogo['desenvolvedoraJogo'] ?>" maxlength="50">
                   </div>
-                  <div class="col-md-1 mb-4">
-                    <label for="nome" class="col-form-label">Nota:</label>
-                    <input type="text" class="form-control" name="nota" value="<?php echo $jogo['notaJogo'] ?>" maxlength="50">
-                  </div>
                   <div class="col-md-6">
                     <label for="floatingTextarea2">Descrição do Jogo:</label>
                     <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"><?php echo $jogo['descJogo'] ?></textarea>

@@ -10,7 +10,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilmeOn - Adm</title>
+  <title>Noticias - Adm</title>
   <link rel="short icon" href="./../../img/site/logo.png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
       <div class="col-md-10 p-4 borber">
         <div class="row align-items-center mb-4">
           <div class="col fs-3 fw-semibold">
-            Lista de Usuário
+            Lista de Noticias
           </div>
           <div class="col text-end ">
             <a class="btn btn-success px-3" role="button" aria-disabled="true" href="resgister.php"><i
@@ -43,8 +43,9 @@
             <thead>
               <tr>
                 <th class="col-md-1">ID</th>
-                <th class="col-md-2">Titulo</th>
-                <th class="col-md-6">Data</th>
+                <th class="col-md-4">Titulo</th>
+                <th class="col-md-2">Tema</th>
+                <th class="col-md-1">Data</th>
                 <th class="text-center col-md-1">Alterar</th>
                 <th class="text-center col-md-1">Excluir</th>
               </tr>
@@ -54,7 +55,8 @@
                 <tr>
                   <td class="align-middle"><?php echo $Noticia['idNoticia']; ?></td>
                   <td class="align-middle"><?php echo $Noticia['tituloNoticia']; ?></td>
-                  <td class="align-middle"><?php echo date('d/m/Y H:i:s', strtotime($Noticia['dataModfcNoticia'])); ?></td>
+                  <td class="align-middle"><?php echo $Noticia['temaNoticia']; ?></td>
+                  <td class="align-middle"><?php echo date('d/m/Y H:i', strtotime($Noticia['dataModfcNoticia'])); ?></td>
                   <td class="align-middle text-center">
                     <form action="./update.php" method="POST">
                       <input type="hidden" name="idNoticia" value="<?php echo $Noticia['idNoticia'];?>">
@@ -87,7 +89,7 @@
           <form action="../../../controllers/noticiasController.php" method="post">
             <input type="hidden" class="form-control" id="idDeletar" name="option" value="DELETE">
             <input type="hidden" name="idNoticia" value="<?php echo $Noticia['idNoticia'];?>">
-            <p>Tem certeza que deseja excluir a notícia selecionada?</p>
+            <p>Tem certeza que deseja excluir <?php echo $Noticia['tituloNoticia'];?></p>
             <div class="text-end">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Não</button>
               <button type="submit" class="btn btn-primary ms-3" value="DELETE" name="option">Sim</button>
