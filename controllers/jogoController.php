@@ -81,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $preco = $_POST['preco'];
                 $plataforma = $_POST['plataforma'];
                 $desenvolvedora = $_POST['desenvolvedora'];
-                $nota = $_POST['nota'];
                 $descJogo = $_POST['descJogo'];
                 $genero = $_POST['genero'];
                 $tipo = $_POST['tipo'];
@@ -108,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo $diretorioCapa;
                     } else {
                         if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
-                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $nota, $capaName, $logoName);
+                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $logoName);
                             header("Location: /Nexus/views/admin/jogos/index.php");
                         } else {
                             echo "Erro ao mover os arquivos.";

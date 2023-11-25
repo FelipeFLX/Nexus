@@ -3,7 +3,7 @@ require_once(__DIR__ . "/../config/Conexao.php");
 
 class JogoDao
 {
-    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $nota, $capaJogo, $logo)
+    public static function insert($nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $capaJogo, $logo)
     {
         try {
             $conexao = new Conexao();
@@ -12,7 +12,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbjogo (nomeJogo, precoJogo, plataformaJogo, generoPrincipalJogo, descJogo, dataLancamentoJogo, subgeneroJogo, desenvolvedoraJogo, classificacaoJogo, notaJogo, capaJogo, logoJogo) VALUES (:nome, :preco, :plataforma, :generoPrincipal, :descricao, :dataLancamento, :subgenero, :desenvolvedora, :classificacao, :nota, :capaJogo, :logo)";
+        $sql_code = "INSERT INTO tbjogo (nomeJogo, precoJogo, plataformaJogo, generoPrincipalJogo, descJogo, dataLancamentoJogo, subgeneroJogo, desenvolvedoraJogo, classificacaoJogo, capaJogo, logoJogo) VALUES (:nome, :preco, :plataforma, :generoPrincipal, :descricao, :dataLancamento, :subgenero, :desenvolvedora, :classificacao, :capaJogo, :logo)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -26,7 +26,6 @@ class JogoDao
         $stmt->bindParam(":desenvolvedora", $desenvolvedora);
         $stmt->bindParam(":classificacao", $classificacao);
         $stmt->bindParam(":capaJogo", $capaJogo);
-        $stmt->bindParam(":nota", $nota);
         $stmt->bindParam(":logo", $logo);
 
         $stmt->execute();
@@ -245,7 +244,7 @@ class JogoDao
 
         return $backgroundImages;
     }
-    public static function update($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $nota, $capaJogo, $logo)
+    public static function update($id, $nome, $preco, $plataforma, $genero, $descricao, $dataLancamento, $subgenero, $desenvolvedora, $classificacao, $capaJogo, $logo)
     {
         try {
             $conexao = new Conexao();
@@ -269,7 +268,7 @@ class JogoDao
             $sql_code .= ", logoJogo = :logo";
         }
         
-        $sql_code .= ", subgeneroJogo = :subgenero, desenvolvedoraJogo = :desenvolvedora, classificacaoJogo = :classificacao, notaJogo = :nota WHERE idJogo = :id";
+        $sql_code .= ", subgeneroJogo = :subgenero, desenvolvedoraJogo = :desenvolvedora, classificacaoJogo = :classificacao WHERE idJogo = :id";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -283,7 +282,6 @@ class JogoDao
         $stmt->bindParam(":subgenero", $subgenero);
         $stmt->bindParam(":desenvolvedora", $desenvolvedora);
         $stmt->bindParam(":classificacao", $classificacao);
-        $stmt->bindParam(":nota", $nota);
 
         // Condição 1: capaJogo e logo estão preenchidos
         if (!empty($capaJogo) && !empty($logo)) {

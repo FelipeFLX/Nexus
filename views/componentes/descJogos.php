@@ -53,7 +53,23 @@
         <h1 class="titu-jogos"><?php echo $jogo['nomeJogo'] ?></h1>
         <div class="ficTec">
             <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> <?php if (!$jogo['subgeneroJogo'] == 0) { echo "e " . JogoDao::getGenero($jogo['subgeneroJogo']); } ?></p>
-            <p class="borderText">Avaliações: <?php echo $jogo['notaJogo'] ?></p>
+            <p class="borderText">Avaliações: <?php 
+                $avaliacoes = ComentarioDao::getAll($id);
+                $totalAvaliacoes = 0; // Inicializa a variável
+                $quantidadeAvaliacoes = 0; // Inicializa a variável
+                
+                foreach ($avaliacoes as $avaliacao) {
+                    $totalAvaliacoes += $avaliacao['notaUser']; // Ajusta a variável conforme necessário
+                    $quantidadeAvaliacoes++;
+                }
+                
+                if ($quantidadeAvaliacoes > 0) {
+                    $media = $totalAvaliacoes / $quantidadeAvaliacoes;
+                    echo number_format($media, 1);
+                } else {
+                    echo "0.0";
+                }
+            ?></p>
             <p>Classificação indicativa: <?php if($jogo['classificacaoJogo'] == "1"){echo 'Livre';} else {echo JogoDao::getClassificacao($jogo['classificacaoJogo']) . " anos"; }?></p> 
         </div>
         <div class="ladoAlado">
