@@ -57,7 +57,7 @@
                   <td class="align-middle"><?php echo $Noticia['tituloNoticia']; ?></td>
                   <td class="align-middle"><?php echo $Noticia['temaNoticia']; ?></td>
                   <td class="align-middle"><?php echo date('d/m/Y H:i', strtotime($Noticia['dataModfcNoticia'])); ?></td>
-                  <td class="align-middle text-center">
+                  <td class="text-center align-middle">
                     <form action="./update.php" method="POST">
                       <input type="hidden" name="idNoticia" value="<?php echo $Noticia['idNoticia'];?>">
                       <input type="hidden" value="UPDATE" name="option">
@@ -65,7 +65,7 @@
                     </form>
                   </td>
                   <td class="text-center align-middle">
-                    <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $Noticia['idNoticia']; ?>)">
+                    <button class="dropdown-item" data-id="<?php echo $Noticia['idNoticia']; ?>" onclick="confirmarExclusao(this)">
                       <i class="fas fa-trash-alt fa-lg text-danger"></i>
                     </button>
                   </td>
@@ -82,14 +82,14 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header bg-danger text-white">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Usuário</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Notícia</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="../../../controllers/noticiasController.php" method="post">
-            <input type="hidden" class="form-control" id="idDeletar" name="option" value="DELETE">
-            <input type="hidden" name="idNoticia" value="<?php echo $Noticia['idNoticia'];?>">
-            <p>Tem certeza que deseja excluir <?php echo $Noticia['tituloNoticia'];?></p>
+            <input type="hidden" class="form-control" name="option" value="DELETE">
+            <input type="hidden" name="idNoticia" id="idNoticiaExcluir" value="">
+            <p>Tem certeza que deseja excluir a notícia com ID <span id="idNoticiaExcluirDisplay"></span>?</p>
             <div class="text-end">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Não</button>
               <button type="submit" class="btn btn-primary ms-3" value="DELETE" name="option">Sim</button>
@@ -106,9 +106,13 @@
   <script src='../../js/personalizar.js'></script>
 
   <script>
-    function confirmarExclusao(idJogo) {
-      // Preenche o campo de idDeletar no modal
-      document.getElementById('idDeletar').value = idJogo;
+    function confirmarExclusao(element) {
+      // Get the ID from the data-id attribute
+      const idNoticia = element.getAttribute('data-id');
+
+      // Preenche o campo de idNoticia no formulário dentro do modal
+      document.getElementById('idNoticiaExcluir').value = idNoticia;
+      document.getElementById('idNoticiaExcluirDisplay').innerText = idNoticia;
 
       // Abre o modal de exclusão
       var modal = new bootstrap.Modal(document.getElementById('modalExcluir'));

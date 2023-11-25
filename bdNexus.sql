@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/11/2023 às 19:21
+-- Tempo de geração: 25/11/2023 às 20:27
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -210,10 +210,10 @@ CREATE TABLE `tbnoticias` (
 --
 
 INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLancNoticia`, `dataModfcNoticia`, `capaNoticia`, `temaNoticia`) VALUES
-(1, 'Pokémon GO', 'Jogadores se reúnem anos após o lançamento e amizade vira grande motor de jogo Pokémon GO Comunidade de jogadores do Ceará foi considerada mais engajada do Brasil em agosto pela empresa desenvolvedora do jogo.', '2023-11-25 14:32:09', '2023-11-25 14:32:09', '65622f999352b.jpg', 'Nintendo'),
 (3, 'Jogos da gigante japonesa sofrem críticas pela falta de localização para português do Brasil regularmente.', 'Jogos da gigante japonesa sofrem críticas pela falta de localização para português do Brasil regularmente.', '2023-11-25 14:47:20', '2023-11-25 15:10:57', '656233288ad0e.webp', 'Nintendo'),
 (4, 'Nintendo quer localizar todos os jogos em PT-BR futuramente', 'O passado da Nintendo mostra que a empresa sempre teve uma proximidade com o público brasileiro.', '2023-11-25 14:52:43', '2023-11-25 15:11:53', '6562346b233f2.jpg', 'Nintendo'),
-(5, 'Hyrule fica gigante em fan-film de The Legend of Zelda Ocarina of Time em traços do Studio Ghibli', 'A viagem de link', '2023-11-25 15:18:28', '2023-11-25 15:18:56', '65623a740fbce.webp', 'Nintendo');
+(5, 'Hyrule fica gigante em fan-film de The Legend of Zelda Ocarina of Time em traços do Studio Ghibli', 'A viagem de link', '2023-11-25 15:18:28', '2023-11-25 15:18:56', '65623a740fbce.webp', 'Nintendo'),
+(6, 'Pokemon GO', 'Jogadores se reúnem anos após o lançamento e amizade vira grande motor de jogo Pokémon GO Comunidade de jogadores do Ceará foi considerada mais engajada do Brasil em agosto pela empresa desenvolvedora do jogo.\r\n\r\n', '2023-11-25 16:25:16', '2023-11-25 16:25:16', '65624a1ca9bba.jpg', 'Nintendo');
 
 -- --------------------------------------------------------
 
@@ -397,7 +397,7 @@ ALTER TABLE `tbjogo`
 -- AUTO_INCREMENT de tabela `tbnoticias`
 --
 ALTER TABLE `tbnoticias`
-  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbplataforma`
