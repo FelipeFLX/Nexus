@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Tempo de geração: 26/11/2023 às 01:48
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
-=======
--- Tempo de geração: 25/11/2023 às 20:27
+-- Tempo de geração: 26/11/2023 às 16:06
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
->>>>>>> d493e5765211c44b6022f38adfea49fdeb1e3f85
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -273,10 +267,20 @@ INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
 
 CREATE TABLE `tbtrailer` (
   `idTrailer` int(11) NOT NULL,
-  `tituloTrailer` varchar(50) NOT NULL,
+  `tituloTrailer` varchar(255) NOT NULL,
   `linkTrailer` varchar(255) NOT NULL,
-  `dataTrailer` date NOT NULL
+  `dataTrailer` date NOT NULL,
+  `capaTrailer` varchar(85) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbtrailer`
+--
+
+INSERT INTO `tbtrailer` (`idTrailer`, `tituloTrailer`, `linkTrailer`, `dataTrailer`, `capaTrailer`) VALUES
+(1, 'Jujutsu Kaisen Cursed Clash - Official Release Date Trailer', 'https://www.youtube.com/embed/ke83VI012jE', '2023-11-26', ''),
+(3, 'LORDS OF THE FALLEN - Official Launch Trailer | Out October 13th on PC, PS5 & Xbox Series X|S', 'https://www.youtube.com/embed/Gkfip4T13bQ', '2023-11-26', ''),
+(5, 'The Alters - All By Myselves | Official Game Trailer', 'https://www.youtube.com/embed/Xt1VEgUxTMQ', '2023-11-26', '');
 
 -- --------------------------------------------------------
 
@@ -302,8 +306,7 @@ CREATE TABLE `tbuser` (
 
 INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`, `dataNascUser`, `sobrenomeUser`, `cpfUser`, `avatarUser`) VALUES
 (1, 'Matheus', 'Tyran15', 'mh15122006@gmail.com', '1234rewqa', '2006-12-15', 'Henrique', '111.111.111-11', '656133eb1238a.jpg'),
-(2, 'Felaipe', 'fefeh_02', 'fefefzinho@hotmail.com.br', '14dontyodnaodjhr', '1970-01-01', 'Felaix', '154.789.620-31', ''),
-(6, 'Felipe', 'FelipeFLX', 'felipe@gmail.com', '123', '2006-04-20', 'Felix', '154.768.545-25', '6562227f6dbcb.png');
+(2, 'Felaipe', 'fefeh_02', 'fefefzinho@hotmail.com.br', '14dontyodnaodjhr', '1970-01-01', 'Felaix', '154.789.620-31', '');
 
 --
 -- Índices para tabelas despejadas
@@ -416,13 +419,13 @@ ALTER TABLE `tbplataforma`
 -- AUTO_INCREMENT de tabela `tbtrailer`
 --
 ALTER TABLE `tbtrailer`
-  MODIFY `idTrailer` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTrailer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbuser`
 --
 ALTER TABLE `tbuser`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

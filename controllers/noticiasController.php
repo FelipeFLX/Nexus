@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($capa['name'] == '' || $capa['name'] == null) {
                     NoticiasDao::updateSemCapa($id, $titulo, $tema, $texto, $datetime);
                 } else {
-                    $diretorio = 'C:\xampp\htdocs\Nexus\public\img\capaNoticias\ ';
+                    $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/capaNoticias/' . $capaName;
                     
                     $extensao = pathinfo($capa['name'], PATHINFO_EXTENSION);
                     $nome = uniqid();

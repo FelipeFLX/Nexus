@@ -1,7 +1,9 @@
 <?php
   require_once('../../dao/noticiasDao.php');
+  require_once('../../dao/trailerDao.php');
 
   $Noticias = NoticiasDao::getAll();
+  $trailers = TrailerDao::getAll();
 ?>
 
 <!DOCTYPE html>
@@ -63,24 +65,23 @@
                             $textoLimitado = implode(' ', array_slice($palavras, 0, 40));
                         ?>
                         <p class="card-text t-cor"><?php echo $textoLimitado; ?></p>
+                        <p class="card-text t-cor"><?php echo date('d/m/Y H:i', strtotime($noticia['dataModfcNoticia'])); ?></p>
                     </div>
                 </div>
             <?php endforeach ?>
         </div>
         <h1 id="novidades" class="titulo">Novidades</h1>
         <div class="container-trailer">
-            <div class="trailers">
-                <a href="https://www.youtube.com/watch?v=o604zywV14Q&t" target="_blank"><img src="/Nexus/public/img/Trailers/jujutsu.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
-                <p class="t-trailer">Jujutsu Kaisen Cursed Clash - Official Release Date Trailer</p>
-            </div>
-            <div class="trailers">
-                <a href="https://www.youtube.com/watch?v=Xt1VEgUxTMQ" target="_blank"><img src="/Nexus/public/img/Trailers/aders.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
-                <p class="t-trailer">The Alters - All By Myselves | Official Game Trailer</p>
-            </div>
-            <div class="trailers">
-                <a href="https://www.youtube.com/watch?v=Gkfip4T13bQ" target="_blank"><img src="/Nexus/public/img/Trailers/lof.jpg" alt="Título do Vídeo" width="380" height="auto"></a>
-                <p class="t-trailer">LORDS OF THE FALLEN - Official Launch Trailer | Out October 13th on PC, PS5 & Xbox Series X|S</p>
-            </div>
+            <?php foreach($trailers as $trailer): ?>
+                <div class="trailers">
+                <?php
+                    $larguraOriginal = 1280;
+                    $alturaOriginal = 720;
+                ?>
+                    <iframe width="380" height="<?php echo 380 * ($alturaOriginal / $larguraOriginal); ?>" src="<?php echo $trailer['linkTrailer'] ?>" frameborder="0" allowfullscreen></iframe>
+                    <p class="t-trailer"><?php echo $trailer['tituloTrailer']; ?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
     <?php
