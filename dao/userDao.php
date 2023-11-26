@@ -45,11 +45,10 @@ class UserDao
 
         $sql_code = "SELECT * FROM tbuser";
         $stmt = $pdo->prepare($sql_code);
-        $stmt->bindParam(":id", $id);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else {
             return false;
         }

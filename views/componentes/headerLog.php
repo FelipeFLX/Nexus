@@ -10,37 +10,38 @@
     <title>Nexus</title>
 </head>
 <body>
-<header>
-  <div class="ladoAlado3">
-    <div class="ladoAladoHeader">
-  '    <button style="background-color: transparent; border: none;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Logo Nexus Icone.png" alt="Logo" width="70" height="alto" class="imagem"></a></button>
-        <div class="menu">
-          <ul>
-            <li><a href="/Nexus/views/home/jogos.php">Loja de Jogos</a></li>
-            <li><a href="/Nexus/views/home/contato.php">Suporte</a></li>
-            <li><a href="/Nexus/views/home/sobre.php">Sobre</a></li>
-          </ul>
-        </div>'
-    </div>
-    <div class="lado3">
-      <div class="dropdown">
-        <div class="profile-img">
-          <img src="/Nexus/public/img/avatarUser/<?php echo $_SESSION['avatar']; ?>" alt="Imagem" class="dropdown-image">
+    <header>
+        <div class="ladoAlado3">
+            <div class="ladoAladoHeader">
+                <button style="background-color: transparent; border: none;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Logo Nexus Icone.png" alt="Logo" width="70" height="alto" class="imagem"></a></button>
+                <div class="menu">
+                    <ul>
+                        <li><a href="/Nexus/views/home/jogos.php">Loja de Jogos</a></li>
+                        <li><a href="/Nexus/views/home/contato.php">Suporte</a></li>
+                        <li><a href="/Nexus/views/home/sobre.php">Sobre</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lado3">
+                <div class="dropdown">
+                    <div class="profile-img">
+                        <img src="/Nexus/public/img/avatarUser/<?php echo $_SESSION['avatar']; ?>" alt="Imagem" class="dropdown-image">
+                    </div>
+                    <div class="dropdown-content">
+                        <p>Perfil</p>
+                        <p>Minhas Compras</p>
+                        <form action="../../controllers/loginController.php" method="post">
+                            <input type="hidden" name="link" value="<?php echo basename($_SERVER['PHP_SELF']) ?>">
+                            <input type="hidden" name="id" value="<?php echo $id ?>" >
+                            <p><button style="background-color: transparent; border: none; color: white;" type="submit" name="option" value="LOGOUT">Sair</button></p>
+                        </form>
+                    </div>
+                </div>
+                <div class="profile-img ms-2">
+                    <img src="/Nexus/public/img/Logo/carrinho.png" alt="Imagem" class="dropdown-image">
+                </div>
+            </div>
         </div>
-        <div class="dropdown-content">
-            <p>Perfil</p>
-            <p>Minhas Compras</p>
-            <form action="../../controllers/loginController.php" method="post">
-              <input type="hidden" name="link" value="<?php echo basename($_SERVER['PHP_SELF']) ?>">
-              <p><button style="background-color: transparent; border: none; color: white;" type="submit" name="option" value="LOGOUT">Sair</button></p>
-            </form>
-        </div>
-      </div>
-      <div class="profile-img ms-2">
-          <img src="/Nexus/public/img/Logo/carrinho.png" alt="Imagem" class="dropdown-image">
-        </div>
-    </div>
-  </div>
-</header>
+    </header>
 </body>
 </html>

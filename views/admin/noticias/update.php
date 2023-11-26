@@ -45,11 +45,15 @@
               </div>
               <div class=" col-md-9">
                 <div class="row">
-                  <div class="col-md-6 mb-4">
+                <div class="col-md-5 mb-4">
                     <label for="nome" class="col-form-label">Titulo notícia:</label>
-                    <input type="text" class="form-control" name="titulo" value="<?php echo $Noticia['tituloNoticia'] ?>">
+                    <input type="text" class="form-control" value="<?php echo $Noticia['tituloNoticia'] ?>"  name="titulo" maxlength="200">
                   </div>
-                  <div class="col-md-10">
+                  <div class="col-md-3 mb-4">
+                    <label for="nome" class="col-form-label">Tema:</label>
+                    <input type="text" class="form-control" name="tema" value="<?php echo $Noticia['temaNoticia'] ?>" maxlength="200">
+                  </div>
+                  <div class="col-md-8">
                     <label for="floatingTextarea2">Texto:</label>
                     <textarea class="form-control" name="texto" id="floatingTextarea2" style="height: 100px"><?php echo $Noticia['textoNoticia'] ?></textarea>
                   </div>

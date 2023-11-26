@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilmeOn - Adm</title>
+  <title>Notícias - Adm</title>
   <link rel="short icon" href="./../../img/site/logo.png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,11 +38,15 @@
               </div>
               <div class=" col-md-9">
                 <div class="row">
-                  <div class="col-md-6 mb-4">
+                  <div class="col-md-5 mb-4">
                     <label for="nome" class="col-form-label">Titulo notícia:</label>
-                    <input type="text" class="form-control" name="titulo" maxlength="50">
+                    <input type="text" class="form-control" name="titulo" maxlength="200">
                   </div>
-                  <div class="col-md-10">
+                  <div class="col-md-3 mb-4">
+                    <label for="nome" class="col-form-label">Tema:</label>
+                    <input type="text" class="form-control" name="tema" maxlength="200">
+                  </div>
+                  <div class="col-md-8">
                     <label for="floatingTextarea2">Texto:</label>
                     <textarea class="form-control" name="texto" id="floatingTextarea2" style="height: 100px"></textarea>
                   </div>

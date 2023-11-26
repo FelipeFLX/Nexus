@@ -3,7 +3,7 @@ require_once(__DIR__ . "/../config/Conexao.php");
 
 class NoticiasDao
 {
-    public static function insert($titulo, $texto, $dataLanc, $capa)
+    public static function insert($titulo, $tema, $texto, $dataLanc, $capa)
     {
         try {
             $conexao = new Conexao();
@@ -12,11 +12,12 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbnoticias (tituloNoticia, textoNoticia, dataLancNoticia, dataModfcNoticia, capaNoticia) VALUES (:titulo, :texto, :dataLanc, :dataModfc, :capa)";
+        $sql_code = "INSERT INTO tbnoticias (tituloNoticia, temaNoticia, textoNoticia, dataLancNoticia, dataModfcNoticia, capaNoticia) VALUES (:titulo, :tema, :texto, :dataLanc, :dataModfc, :capa)";
 
         $stmt = $pdo->prepare($sql_code);
 
         $stmt->bindParam(":titulo", $titulo);
+        $stmt->bindParam(":tema", $tema);
         $stmt->bindParam(":texto", $texto);
         $stmt->bindParam(":dataLanc", $dataLanc);
         $stmt->bindParam(":dataModfc", $dataLanc);
@@ -66,7 +67,7 @@ class NoticiasDao
 
         return $resultado;
     }
-    public static function update($id, $titulo, $texto, $dataModfc, $capa)
+    public static function update($id, $titulo, $tema, $texto, $dataModfc, $capa)
     {
         try {
             $conexao = new Conexao();
@@ -75,11 +76,12 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "UPDATE tbnoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc, capaNoticia = :capa WHERE idNoticia = :id";
+        $sql_code = "UPDATE tbnoticias SET tituloNoticia = :titulo, temaNoticia = :tema, textoNoticia = :texto, dataModfcNoticia = :dataModfc, capaNoticia = :capa WHERE idNoticia = :id";
         $stmt = $pdo->prepare($sql_code);
 
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":titulo", $titulo);
+        $stmt->bindParam(":tema", $tema);
         $stmt->bindParam(":texto", $texto);
         $stmt->bindParam(":dataModfc", $dataModfc);
         $stmt->bindParam(":capa", $capa);
@@ -92,7 +94,7 @@ class NoticiasDao
             return "Erro na atualização de dados.";
         }
     }
-    public static function updateSemCapa($id, $titulo, $texto, $dataModfc)
+    public static function updateSemCapa($id, $titulo, $tema, $texto, $dataModfc)
     {
         try {
             $conexao = new Conexao();
@@ -101,12 +103,13 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "UPDATE tbnoticias SET tituloNoticia = :titulo, textoNoticia = :texto, dataModfcNoticia = :dataModfc WHERE idNoticia = :id";
+        $sql_code = "UPDATE tbnoticias SET tituloNoticia = :titulo, temaNoticia = :tema, textoNoticia = :texto, dataModfcNoticia = :dataModfc WHERE idNoticia = :id";
 
         $stmt = $pdo->prepare($sql_code);
 
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":titulo", $titulo);
+        $stmt->bindParam(":tema", $tema);
         $stmt->bindParam(":texto", $texto);
         $stmt->bindParam(":dataModfc", $dataModfc);
 

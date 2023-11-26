@@ -81,10 +81,6 @@
                     <label for="nome" class="col-form-label">Desenvolvedora:</label>
                     <input type="text" class="form-control" name="desenvolvedora" maxlength="50">
                   </div>
-                  <div class="col-md-1 mb-4">
-                    <label for="nome" class="col-form-label">Nota:</label>
-                    <input type="text" class="form-control" name="nota" maxlength="50">
-                  </div>
                   <div class="col-md-6">
                     <label for="floatingTextarea2">Descrição do Jogo:</label>
                     <textarea class="form-control" name="descJogo" id="floatingTextarea2" style="height: 100px"></textarea>

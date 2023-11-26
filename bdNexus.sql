@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Tempo de geração: 26/11/2023 às 01:48
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
+=======
+-- Tempo de geração: 25/11/2023 às 20:27
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
+>>>>>>> d493e5765211c44b6022f38adfea49fdeb1e3f85
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +26,99 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bdnexus`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbbackground`
+--
+
+CREATE TABLE `tbbackground` (
+  `idBackgroud` int(11) NOT NULL,
+  `idJogo` int(11) NOT NULL,
+  `pathBackground` varchar(90) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbbackground`
+--
+
+INSERT INTO `tbbackground` (`idBackgroud`, `idJogo`, `pathBackground`) VALUES
+(1, 36, '655fa72e1f457.png'),
+(2, 36, '655fa72e26434.png'),
+(3, 36, '655fa72e2e251.jpg'),
+(4, 37, '6560d7f06dacf.jpg'),
+(5, 37, '6560d7f06f96d.jpg'),
+(6, 37, '6560d7f071085.jpg'),
+(7, 4, '6560dfb042361.png'),
+(8, 3, '6560e4c1051e9.jpg'),
+(9, 3, '6560e4c106c26.jpg'),
+(10, 3, '6560e4c107d8c.jpg'),
+(11, 2, '6560e54fbd5f9.jpg'),
+(12, 5, '6560e5c81625f.png'),
+(13, 5, '6560e5c8178cc.png'),
+(14, 5, '6560e5c81ecf4.jpg'),
+(15, 7, '6560e66eafee1.png'),
+(16, 7, '6560e66eb2eea.jpg'),
+(17, 8, '6560e6bf6074d.jpg'),
+(18, 8, '6560e6bf62163.jpg'),
+(19, 8, '6560e6bf632ca.jpg'),
+(20, 13, '6560e754053d6.png'),
+(21, 13, '6560e7540671b.jpg'),
+(22, 13, '6560e75407a4b.jpg'),
+(23, 38, '65613c396faa0.jpg'),
+(24, 38, '65613c3975685.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbclassificacao`
+--
+
+CREATE TABLE `tbclassificacao` (
+  `idClassificacao` int(11) NOT NULL,
+  `classificacao` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbclassificacao`
+--
+
+INSERT INTO `tbclassificacao` (`idClassificacao`, `classificacao`) VALUES
+(1, 'Livre'),
+(2, '10'),
+(3, '12'),
+(4, '14'),
+(5, '16'),
+(6, '18');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbcomentario`
+--
+
+CREATE TABLE `tbcomentario` (
+  `idComentario` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `idJogo` int(11) NOT NULL,
+  `comentarioUser` text NOT NULL,
+  `notaUser` int(11) NOT NULL,
+  `dataPostagem` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbcomentario`
+--
+
+INSERT INTO `tbcomentario` (`idComentario`, `idUser`, `idJogo`, `comentarioUser`, `notaUser`, `dataPostagem`) VALUES
+(1, 1, 8, 'Melhor jogo de todos os tempos!!', 5, '2023-11-23 14:06:44'),
+(2, 1, 3, 'Final lindo!!!', 5, '2023-11-23 14:17:53'),
+(3, 1, 3, 'Adorei!!!!', 1, '2023-11-23 14:26:31'),
+(4, 1, 5, 'gostei muito do jogo, gameplay nota 10/10', 5, '2023-11-23 14:33:33'),
+(5, 1, 5, 'muito ruim', 1, '2023-11-23 14:34:06'),
+(6, 1, 36, 'Jogo lixo!!!', 1, '2023-11-23 17:18:53'),
+(7, 1, 2, 'Adoro anões!!!!', 5, '2023-11-24 15:15:59');
 
 -- --------------------------------------------------------
 
@@ -94,7 +193,7 @@ INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, 
 (13, 'The Witcher III: Wild Hunt: Game of the Year Edition', 150.00, 1, 23, 'Play the most polished and complete version of the most awarded game of 2015 - The Witcher 3: Wild Hunt – Game of the Year Edition. Now available with all expansions and additional content. Become a professional monster slayer and embark on an adventure of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world adventure along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests. Features: Play as a Highly Trained Monster Slayer for Hire Trained from early childhood and mutated to have superhuman skills, strength, and reflexes, witchers are a socially ostracized counterbalance to the monster-infested world in which they live. - Gruesomely destroy foes as a professional monster hunter armed with a range of upgradeable weapons, mutating potions, and combat magic. - Hunt down a wide variety of exotic monsters, from savage beasts prowling mountain passes to cunning supernatural predators lurking in the shadowy back alleys of densely populated cities. - Invest your rewards to upgrade your weaponry and buy custom armor, or spend them on horse races, card games, fist fighting and other pleasures life brings. Track Down the Child of Prophecy in a Morally Ambiguous Fantasy Open World - Built for endless adventure, the massive open world of The Witcher sets new standards in terms of size, depth and complexity. - Traverse a fantastical open world: explore forgotten ruins, caves and shipwrecks, trade with merchants and dwarven smiths in cities, and hunt across open plains, amidst mountains and at sea. - In a time of war, track down the child of prophecy, a living weapon of great power whose coming was foretold in ancient elven legends. Make choices that go beyond good and evil and face their far-reaching consequences. Game of the Year Edition The Witcher 3: Wild Hunt Game of the Year Edition brings together the base game and all the additional content released to date. - Includes the Hearts of Stone and Blood & Wine expansions, which offer a massive 50 hours of additional storytelling as well as new features and new areas that expand the explorable world by over a third! - Affords access to all additional content released so far, including weapons, armor, side quests, game modes and new GWENT cards! - Features all technical and visual updates as well as a new user interface completely redesigned on the basis of feedback from members of the Witcher Community.', '655d14b02d3b3.png', '2016-08-30', 'CD Projekt RED', 3, '655d14b02d3b8.png', 6),
 (36, 'Fortnite', 0.00, 1, 23, 'Fortnite é um videogame online desenvolvido pela Epic Games e lançado em 2017. Ele está disponível em três versões distintas de modo de jogo que compartilham a mesma jogabilidade geral e mecanismo de jogo: Fortnite: Save the World, um jogo cooperativo de tiro e sobrevivência para até quatro jogadores para lutar contra criaturas parecidas com zumbis e defender objetos com fortificações que possam construir; Fortnite Battle Royale, um jogo Battle Royale gratuito em que até 100 jogadores lutam para ser a última pessoa sobrevivente; e Fortnite Creative, em que os jogadores têm total liberdade para criar mundos e arenas de batalha. Save the World e Battle Royale foram lançados em 2017 como títulos de acesso antecipado, enquanto Creative foi lançado em 6 de dezembro de 2018. [. . . ] Fortnite Battle Royale é um jogo jogador contra jogador para até 100 jogadores, permitindo que se jogue sozinho, em dupla ou em esquadrão (geralmente composto por três ou quatro jogadores). Jogadores desarmados são lançados de um \"ônibus de batalha\" que cruza o mapa do jogo. Ao pousar, eles devem procurar armas, itens, recursos e até veículos enquanto tentam permanecer vivos e atacar e eliminar outros jogadores. Ao longo de uma rodada, a área segura do mapa diminui de tamanho devido à chegada de uma tempestade tóxica; jogadores fora desse limite sofrem danos e podem ser eliminados se não conseguirem evacuar rapidamente. Isso força os jogadores restantes a espaços mais apertados e incentiva os encontros entre os jogadores. O último jogador, dupla ou esquadrão restante é o vencedor. Fortnite: Save the World é um jogo cooperativo jogador versus ambiente, com quatro jogadores colaborando para um objetivo comum em várias missões. O jogo se passa depois que uma tempestade aparece em toda a Terra, fazendo com que 98% da população desapareça e os sobreviventes sejam atacados por \"cascas\" semelhantes a zumbis. Os jogadores assumem o papel de comandantes de abrigos, coletando recursos, salvando sobreviventes e defendendo equipamentos que ajudam a coletar dados sobre a tempestade ou a rechaçá-la. Nas missões, os jogadores recebem uma série de itens do jogo, que incluem personagens heróis, esquemas de armas e armadilhas e sobreviventes, todos os quais podem ser aumentados através da experiência adquirida para melhorar seus atributos. Fortnite Creative é um modo de jogo sandbox, semelhante ao Minecraft, pois os jogadores têm total liberdade para gerar tudo o que está dentro do jogo em uma ilha e podem criar jogos como arenas de batalha, pistas de corrida, desafios de plataforma e muito mais.', '655fa72e1e2b5.png', '2017-07-25', 'Epic Games', 21, '655fa72e1e2b8.png', 3),
 (37, 'The Elder Scrolls V: Skyrim: Special Edition', 0.00, 1, 23, 'Vencedor de mais de 200 prêmios de Jogo do Ano, Skyrim Special Edition dá vida à fantasia épica com detalhes impressionantes. A edição especial inclui o jogo aclamado pela crítica e complementos com recursos totalmente novos, como arte e efeitos remasterizados, raios divinos volumétricos, profundidade de campo dinâmica, reflexos no espaço da tela e muito mais.', '6560d7f06b448.png', '2016-10-27', 'Bethesda Game Studios', 1, '6560d7f06b44c.png', 6),
-(38, 'A Lenda de Zelda: Ocarina of Time', 7.99, 1, 10, 'Ganondorf, o malvado Rei dos Ladrões, está em movimento, ameaçando a pacífica terra de Hyrule. Ele está determinado a roubar seu caminho para o lendário Reino Sagrado na esperança de aproveitar o poder da mítica Triforce. Como o jovem herói Link, é seu destino frustrar os esquemas malignos de Ganondorf. Navi, sua fada guardiã, irá guiá-lo enquanto você se aventura pelas muitas regiões de Hyrule, desde as cavernas vulcânicas da Montanha da Morte até as águas traiçoeiras do Domínio de Zora. Antes de completar esta missão épica, você mergulhará em masmorras mortais, coletará armas de grande poder e aprenderá os feitiços necessários para conquistar a força mais irresistível de todos os tempos. * O enredo imersivo e os ambientes atraem os jogadores para um incrível mundo 3D. * Viagem no tempo permite que você jogue como Link em diferentes fases de sua vida. * Novos recursos de jogabilidade incluem um sistema de segmentação exclusivo e perspectivas de 1ª e 3ª pessoa. * Até três jogos podem ser salvos simultaneamente na memória!\r\n', '65613cb4658b6.jpg', '1998-11-21', 'Nintendo EAD', 2, '65613c396e843.png', 1);
+(38, 'The legend of Zelda: Ocarina of Time', 7.99, 1, 10, 'Ganondorf, o malvado Rei dos Ladrões, está em movimento, ameaçando a pacífica terra de Hyrule. Ele está determinado a roubar seu caminho para o lendário Reino Sagrado na esperança de aproveitar o poder da mítica Triforce. Como o jovem herói Link, é seu destino frustrar os esquemas malignos de Ganondorf. Navi, sua fada guardiã, irá guiá-lo enquanto você se aventura pelas muitas regiões de Hyrule, desde as cavernas vulcânicas da Montanha da Morte até as águas traiçoeiras do Domínio de Zora. Antes de completar esta missão épica, você mergulhará em masmorras mortais, coletará armas de grande poder e aprenderá os feitiços necessários para conquistar a força mais irresistível de todos os tempos. * O enredo imersivo e os ambientes atraem os jogadores para um incrível mundo 3D. * Viagem no tempo permite que você jogue como Link em diferentes fases de sua vida. * Novos recursos de jogabilidade incluem um sistema de segmentação exclusivo e perspectivas de 1ª e 3ª pessoa. * Até três jogos podem ser salvos simultaneamente na memória!\r\n', '65613cb4658b6.jpg', '1998-11-21', 'Nintendo EAD', 2, '65613c396e843.png', 1);
 
 -- --------------------------------------------------------
 
@@ -104,19 +203,23 @@ INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, 
 
 CREATE TABLE `tbnoticias` (
   `idNoticia` int(11) NOT NULL,
-  `tituloNoticia` varchar(50) NOT NULL,
+  `tituloNoticia` varchar(200) NOT NULL,
   `textoNoticia` text NOT NULL,
   `dataLancNoticia` datetime NOT NULL,
   `dataModfcNoticia` datetime NOT NULL,
-  `capaNoticia` varchar(255) NOT NULL
+  `capaNoticia` varchar(255) NOT NULL,
+  `temaNoticia` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tbnoticias`
 --
 
-INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLancNoticia`, `dataModfcNoticia`, `capaNoticia`) VALUES
-(1, 'Pokemon GO', 'Jogadores se reúnem anos após o lançamento e amizade vira grande motor de jogo\r\nPokemon GO\r\nComunidade de jogadores do Ceará foi considerada mais engajada do Brasil em agosto pela empresa desenvolvedora do jogo.', '2023-11-17 21:39:09', '2023-11-17 22:55:02', '6558197698072.jpg');
+INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLancNoticia`, `dataModfcNoticia`, `capaNoticia`, `temaNoticia`) VALUES
+(3, 'Jogos da gigante japonesa sofrem críticas pela falta de localização para português do Brasil regularmente.', 'Jogos da gigante japonesa sofrem críticas pela falta de localização para português do Brasil regularmente.', '2023-11-25 14:47:20', '2023-11-25 15:10:57', '656233288ad0e.webp', 'Nintendo'),
+(4, 'Nintendo quer localizar todos os jogos em PT-BR futuramente', 'O passado da Nintendo mostra que a empresa sempre teve uma proximidade com o público brasileiro.', '2023-11-25 14:52:43', '2023-11-25 15:11:53', '6562346b233f2.jpg', 'Nintendo'),
+(5, 'Hyrule fica gigante em fan-film de The Legend of Zelda Ocarina of Time em traços do Studio Ghibli', 'A viagem de link', '2023-11-25 15:18:28', '2023-11-25 15:18:56', '65623a740fbce.webp', 'Nintendo'),
+(6, 'Pokemon GO', 'Jogadores se reúnem anos após o lançamento e amizade vira grande motor de jogo Pokémon GO Comunidade de jogadores do Ceará foi considerada mais engajada do Brasil em agosto pela empresa desenvolvedora do jogo.\r\n\r\n', '2023-11-25 16:25:16', '2023-11-25 16:25:16', '65624a1ca9bba.jpg', 'Nintendo');
 
 -- --------------------------------------------------------
 
@@ -207,6 +310,24 @@ INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`
 --
 
 --
+-- Índices de tabela `tbbackground`
+--
+ALTER TABLE `tbbackground`
+  ADD PRIMARY KEY (`idBackgroud`);
+
+--
+-- Índices de tabela `tbclassificacao`
+--
+ALTER TABLE `tbclassificacao`
+  ADD PRIMARY KEY (`idClassificacao`);
+
+--
+-- Índices de tabela `tbcomentario`
+--
+ALTER TABLE `tbcomentario`
+  ADD PRIMARY KEY (`idComentario`);
+
+--
 -- Índices de tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
@@ -250,6 +371,24 @@ ALTER TABLE `tbuser`
 --
 
 --
+-- AUTO_INCREMENT de tabela `tbbackground`
+--
+ALTER TABLE `tbbackground`
+  MODIFY `idBackgroud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de tabela `tbclassificacao`
+--
+ALTER TABLE `tbclassificacao`
+  MODIFY `idClassificacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `tbcomentario`
+--
+ALTER TABLE `tbcomentario`
+  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT de tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
@@ -265,7 +404,7 @@ ALTER TABLE `tbjogo`
 -- AUTO_INCREMENT de tabela `tbnoticias`
 --
 ALTER TABLE `tbnoticias`
-  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbplataforma`

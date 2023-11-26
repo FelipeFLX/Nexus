@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch ($_POST['option']) {
         case 'CREATE':
             $titulo = $_POST['titulo'];
+            $tema = $_POST['tema'];
             $texto = $_POST['texto'];
 
             $timezone = new DateTimeZone('America/Sao_Paulo');
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upload = move_uploaded_file($capa["tmp_name"], $diretorio);
         
             if($upload){
-                NoticiasDao::insert($titulo, $texto, $datetime, $imgName);
+                NoticiasDao::insert($titulo, $tema, $texto, $datetime, $imgName);
             }
 
             header("Location: /Nexus/views/admin/noticias/index.php");
@@ -31,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case 'UPDATE':
                 $id = $_POST['idNoticia'];
                 $titulo = $_POST['titulo'];
+                $tema = $_POST['tema'];
                 $texto = $_POST['texto'];
     
                 $timezone = new DateTimeZone('America/Sao_Paulo');
@@ -40,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $capa = $_FILES['capaNoticia'];
 
                 if ($capa['name'] == '' || $capa['name'] == null) {
-                    NoticiasDao::updateSemCapa($id, $titulo, $texto, $datetime);
+                    NoticiasDao::updateSemCapa($id, $titulo, $tema, $texto, $datetime);
                 } else {
                     $diretorio = 'C:\xampp\htdocs\Nexus\public\img\capaNoticias\ ';
                     
@@ -52,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $upload = move_uploaded_file($capa["tmp_name"], $diretorioCompleto);
             
                     if ($upload) {
-                    NoticiasDao::update($id, $titulo, $texto, $datetime, $imgName);
+                    NoticiasDao::update($id, $titulo, $tema, $texto, $datetime, $imgName);
                     }
                 
                 }
