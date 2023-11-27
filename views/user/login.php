@@ -1,11 +1,12 @@
 <?php
-    session_start();
-    if (isset($_SESSION['login'])) {
-        header('Location: /Nexus/views/home/index.php');
-    } 
-    ?>
+session_start();
+if (isset($_SESSION['login'])) {
+    header('Location: /Nexus/views/home/index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,12 @@
 
 <body>
     <div class="form-container2">
-    <button style="background-color: transparent; border: none; display: block; margin: 0 auto;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a></button>
+        <button style="background-color: transparent; border: none; display: block; margin: 0 auto;"><a href="/Nexus/views/home/index.php"><img src="/Nexus/public/img/Logo/Nome-Logo.png" alt="imagem" width="200" height="auto" class="img-login"></a></button>
         <h3 class="titulo">Login</h3>
         <form action="../../controllers/loginController.php" method="post">
-        <input type="hidden" name="link" value="<?php echo isset($_POST['link']) ? htmlspecialchars($_POST['link']) : ''; ?>">
-        <input type="hidden" name="option" value="READ">
-        <div class="form-flutuante">
+            <input type="hidden" name="link" value="<?php echo isset($_POST['link']) ? htmlspecialchars($_POST['link']) : ''; ?>">
+            <input type="hidden" name="option" value="READ">
+            <div class="form-flutuante">
                 <input type="email" class="form-controle inputs" id="email" name="email" maxlength="100" required>
                 <label for="email" class="label-texto">Email</label>
             </div>
@@ -30,10 +31,42 @@
                 <input type="password" class="form-controle inputs" id="senha" name="senha" maxlength="35" required>
                 <label for="senha" class="label-texto">Senha</label>
             </div>
-            <button  class="botao mb-3" type="submit">Entrar</button>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="lembrarDeMim" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">Lembrar de mim</label>
+            </div>
+            <button class="botao mb-3" type="submit">Entrar</button>
         </form>
         <a class="link" href="./cadastro.php">Não tem uma conta?</a><br>
+        <div id="alert"></div>
     </div>
 </body>
+<script>
+    window.onload = function() {
+        const urlParam = new URLSearchParams(window.location.search);
+        var mensagemError = urlParam.get('mensagem');
+
+        if (mensagemError) {
+            const alert = document.getElementById('alert');
+
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger d-flex align-items-center';
+            alertDiv.setAttribute('role', 'alert');
+            alertDiv.style.marginTop = '20%';
+
+            alertDiv.textContent = mensagemError;
+
+            // Adiciona a classe de animação diretamente ao DOM
+            alertDiv.style.animation = 'fadeOut 1s ease-in-out';
+
+            alert.appendChild(alertDiv);
+
+            // Configura um temporizador para remover o alerta após o término da animação (1 segundo no exemplo)
+            setTimeout(function() {
+                alert.removeChild(alertDiv);
+            }, 4000);
+        }
+    };
+</script>
 
 </html>

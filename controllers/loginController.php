@@ -24,10 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nomeAvatar = uniqid();
             $avatarName = $nomeAvatar . "." . $extensao;
             $diretorioAvatar = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/avatarUser/' . $avatarName;
-        
+
             // Instanciando a classe do daoUser e incrementando dados no banco de dados
-            if (move_uploaded_file($fotoPerfil["tmp_name"], $diretorioAvatar)){
-            $UserDao->insert($nome, $nick, $email, $senha, $formattedDtnasc, $sobrenome, $cpf, $avatarName);
+            if (move_uploaded_file($fotoPerfil["tmp_name"], $diretorioAvatar)) {
+                $UserDao->insert($nome, $nick, $email, $senha, $formattedDtnasc, $sobrenome, $cpf, $avatarName);
             }
 
             // Verificando se o usuário está autenticado
@@ -41,13 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'READ':
             $email = addslashes($_POST['email']);
             $senha = addslashes($_POST['senha']);
-        
+            
             // Instanciando a classe do daoUser e incrementando dados no banco de dados
             $login = userDao::selectAccount($email, $senha);
-        
+            
             // Verificando se o usuário está autenticado
             if ($login) {
-                session_start();
+                // Inicia a sessão se ainda não estiver iniciada
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+            
                 $_SESSION['id'] = $login['idUser'];
                 $_SESSION['nome'] = $login['nomeUser'];
                 $_SESSION['sobrenome'] = $login['sobrenomeUser'];
@@ -55,24 +59,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['email'] = $login['emailUser'];
                 $_SESSION['avatar'] = $login['avatarUser'];
                 $_SESSION['login'] = "yes";
-
+            
+                if (isset($_POST['lembrarDeMim'])) {
+                    $tempoExpiracao = time() + 30 * 24 * 60 * 60;
+                    setcookie('lembrar_de_mim', 'yes', $tempoExpiracao, '/');
+                    setcookie('email', $email, $tempoExpiracao, '/');
+                    setcookie('senha', $senha, $tempoExpiracao, '/');
+                }
+            
                 if ($_POST['link'] == 'cadastro.php') {
                     header('Location: /Nexus/views/home/index.php');
                 } else {
-                    if ($_POST['link'] == 'descJogos.php') { 
+                    if ($_POST['link'] == 'descJogos.php') {
                         header('Location: /Nexus/views/home/index.php');
                     } else {
                         header('Location: /Nexus/views/home/' . $_POST['link']);
                     }
                 }
             } else {
-                header('Location: /Nexus/views/user/login.php?login=no');
+                $erro_mensagem = "Credenciais inválidas. Tente novamente.";
+                header('Location: /Nexus/views/user/login.php?mensagem=' . urlencode($erro_mensagem));
             }
             break;
 
         case 'LOGOUT':
-            session_start(); 
-            $_SESSION = array(); 
+            session_start();
+            $_SESSION = array();
             session_destroy();
 
             if ($_POST['link'] == 'descJogos.php') {
@@ -80,10 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 header('Location: /Nexus/views/home/' . $_POST['link']);
             }
-        
+
         default:
             # code...
             break;
     }
-    
 }
