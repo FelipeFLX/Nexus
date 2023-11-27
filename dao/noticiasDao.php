@@ -3,7 +3,7 @@ require_once(__DIR__ . "/../config/Conexao.php");
 
 class NoticiasDao
 {
-    public static function insert($titulo, $tema, $texto, $dataLanc, $capa)
+    public static function insert($titulo, $tema, $texto, $dataLanc, $capa, $link)
     {
         try {
             $conexao = new Conexao();
@@ -12,7 +12,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbnoticias (tituloNoticia, temaNoticia, textoNoticia, dataLancNoticia, dataModfcNoticia, capaNoticia) VALUES (:titulo, :tema, :texto, :dataLanc, :dataModfc, :capa)";
+        $sql_code = "INSERT INTO tbnoticias (tituloNoticia, temaNoticia, textoNoticia, dataLancNoticia, dataModfcNoticia, capaNoticia, linkNoticia) VALUES (:titulo, :tema, :texto, :dataLanc, :dataModfc, :capa, :link)";
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -22,6 +22,7 @@ class NoticiasDao
         $stmt->bindParam(":dataLanc", $dataLanc);
         $stmt->bindParam(":dataModfc", $dataLanc);
         $stmt->bindParam(":capa", $capa);
+        $stmt->bindParam(":link", $link);
 
         $stmt->execute();
 

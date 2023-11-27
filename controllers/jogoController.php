@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $classificacao = addslashes($_POST['classificacao']);
             $dataLancamento = addslashes($_POST['dataLancamento']);
             $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
-            $capaJogo = addslashes($_FILES['capaJogo']);
-            $logoJogo = addslashes($_FILES['logoJogo']);
+            $capaJogo = $_FILES['capaJogo'];
+            $logoJogo = $_FILES['logoJogo'];
         
             $extensaoCapa = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
             $nomeCapa = uniqid();

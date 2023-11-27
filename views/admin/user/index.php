@@ -63,7 +63,7 @@
                   <td class="align-middle"><?php echo $user['cpfUser']; ?></td>
                   <td class="align-middle"><?php echo date('d/m/Y', strtotime($user['dataNascUser'])); ?></td>
                   <td class="text-center align-middle">
-                    <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $user['idUser']; ?>, '<?php echo $user['nomeUser'] . " " . $user['sobrenomeUser']; ?>')">
+                    <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $user['idUser']; ?>, '<?php echo $user['nomeUser']; ?>')">
                       <i class="fas fa-trash-alt fa-lg text-danger"></i>
                     </button>
                   </td>
@@ -84,7 +84,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="../../../controllers/userController.php" method="post">
+          <form action="../../../controllers/loginController.php" method="post">
             <input type="hidden" class="form-control" name="option" value="DELETE">
             <input type="hidden" name="idUser" id="idUserDeletar" value="">
             <p id="nomeUsuario"> </p>

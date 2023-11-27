@@ -9,12 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $titulo = addslashes($_POST['titulo']);
             $tema = addslashes($_POST['tema']);
             $texto = addslashes($_POST['texto']);
+            $link = addslashes($_POST['link']);
 
             $timezone = new DateTimeZone('America/Sao_Paulo');
             $date = new DateTime('now', $timezone);
             $datetime = $date->format('Y-m-d H:i:s');
 
-            $capa = addslashes($_FILES['capaNoticia']);
+            $capa = $_FILES['capaNoticia'];
         
             $extencao = pathinfo($capa['name'], PATHINFO_EXTENSION);
             $nome = uniqid();
@@ -24,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upload = move_uploaded_file($capa["tmp_name"], $diretorio);
         
             if($upload){
-                $NoticiasDao->insert($titulo, $tema, $texto, $datetime, $imgName);
+                $NoticiasDao->insert($titulo, $tema, $texto, $datetime, $imgName, $link);
             }
 
             header("Location: /Nexus/views/admin/noticias/index.php");
@@ -35,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $titulo = addslashes($_POST['titulo']);
                 $tema = addslashes($_POST['tema']);
                 $texto = addslashes($_POST['texto']);
+                $link = addslashes($_POST['link']);
     
                 $timezone = new DateTimeZone('America/Sao_Paulo');
                 $date = new DateTime('now', $timezone);

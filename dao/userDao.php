@@ -101,5 +101,21 @@ class UserDao
 
     public static function delete($id)
     {
+        try {
+            $conexao = new Conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "DELETE FROM tbuser WHERE idUser = :id";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        $sql_code = "DELETE FROM tbcomentario WHERE idUser = :id";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     }
 }

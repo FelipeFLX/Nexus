@@ -57,7 +57,10 @@
                     <label for="floatingTextarea2">Texto:</label>
                     <textarea class="form-control" name="texto" id="floatingTextarea2" style="height: 100px"><?php echo $Noticia['textoNoticia'] ?></textarea>
                   </div>
-
+                  <div class="col-md-5 mb-4">
+                    <label for="nome" class="col-form-label">Link:</label>
+                    <input type="text" class="form-control" name="link" maxlength="200">
+                  </div>
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-3">

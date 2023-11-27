@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $senha = addslashes($_POST['senha']);
             $dtnasc = addslashes($_POST['dtnasc']);
             $formattedDtnasc = date('Y-m-d', strtotime(str_replace('/', '-', $dtnasc)));
-            $fotoPerfil = addslashes($_FILES['imagem']);
+            $fotoPerfil = $_FILES['imagem'];
 
             $extensao = pathinfo($fotoPerfil['name'], PATHINFO_EXTENSION);
             $nomeAvatar = uniqid();
@@ -41,17 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'READ':
             $email = addslashes($_POST['email']);
             $senha = addslashes($_POST['senha']);
-            
+
             // Instanciando a classe do daoUser e incrementando dados no banco de dados
-            $login = userDao::selectAccount($email, $senha);
-            
+            $login = $UserDao->selectAccount($email, $senha) ;
+
             // Verificando se o usuário está autenticado
             if ($login) {
                 // Inicia a sessão se ainda não estiver iniciada
                 if (session_status() == PHP_SESSION_NONE) {
                     session_start();
                 }
-            
+
                 $_SESSION['id'] = $login['idUser'];
                 $_SESSION['nome'] = $login['nomeUser'];
                 $_SESSION['sobrenome'] = $login['sobrenomeUser'];
@@ -59,14 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['email'] = $login['emailUser'];
                 $_SESSION['avatar'] = $login['avatarUser'];
                 $_SESSION['login'] = "yes";
-            
+
                 if (isset($_POST['lembrarDeMim'])) {
                     $tempoExpiracao = time() + 30 * 24 * 60 * 60;
                     setcookie('lembrar_de_mim', 'yes', $tempoExpiracao, '/');
                     setcookie('email', $email, $tempoExpiracao, '/');
                     setcookie('senha', $senha, $tempoExpiracao, '/');
                 }
-            
+
                 if ($_POST['link'] == 'cadastro.php') {
                     header('Location: /Nexus/views/home/index.php');
                 } else {
@@ -92,6 +92,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 header('Location: /Nexus/views/home/' . $_POST['link']);
             }
+
+        case 'DELETE':
+            $id = addslashes($_POST['idUser']);
+            $UserDao->delete($id);
+
+            header("Location: /Nexus/views/admin/user/index.php");
+            break;
 
         default:
             # code...
