@@ -2,21 +2,22 @@
 require_once("../dao/jogoDao.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $JogoDao = new JogoDao;
 
     switch ($_POST['option']) {
         case 'CREATE':
-            $nomeJogo = $_POST['nomeJogo'];
-            $preco = $_POST['preco'];
-            $plataforma = $_POST['plataforma'];
-            $desenvolvedora = $_POST['desenvolvedora'];
-            $descJogo = $_POST['descJogo'];
-            $genero = $_POST['genero'];
-            $tipo = $_POST['tipo'];
-            $classificacao = $_POST['classificacao'];
-            $dataLancamento = $_POST['dataLancamento'];
+            $nomeJogo = addslashes($_POST['nomeJogo']);
+            $preco = addslashes($_POST['preco']);
+            $plataforma = addslashes($_POST['plataforma']);
+            $desenvolvedora = addslashes($_POST['desenvolvedora']);
+            $descJogo = addslashes($_POST['descJogo']);
+            $genero = addslashes($_POST['genero']);
+            $tipo = addslashes($_POST['tipo']);
+            $classificacao = addslashes($_POST['classificacao']);
+            $dataLancamento = addslashes($_POST['dataLancamento']);
             $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
-            $capaJogo = $_FILES['capaJogo'];
-            $logoJogo = $_FILES['logoJogo'];
+            $capaJogo = addslashes($_FILES['capaJogo']);
+            $logoJogo = addslashes($_FILES['logoJogo']);
         
             $extensaoCapa = pathinfo($capaJogo['name'], PATHINFO_EXTENSION);
             $nomeCapa = uniqid();
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo $diretorioCapa;
             } else {
                 if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
-                    JogoDao::insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $logoName);
+                    $JogoDao->insert($nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $logoName);
                 } else {
                     echo "Erro ao mover o arquivo.";
                     echo "<pre>";
@@ -75,19 +76,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
 
             case 'UPDATE':
-                $idJogo = $_POST['idJogo'];
-                $nomeJogo = $_POST['nomeJogo'];
-                $preco = $_POST['preco'];
-                $plataforma = $_POST['plataforma'];
-                $desenvolvedora = $_POST['desenvolvedora'];
-                $descJogo = $_POST['descJogo'];
-                $genero = $_POST['genero'];
-                $tipo = $_POST['tipo'];
-                $classificacao = $_POST['classificacao'];
-                $dataLancamento = $_POST['dataLancamento'];
+                $idJogo = addslashes($_POST['idJogo']);
+                $nomeJogo = addslashes($_POST['nomeJogo']);
+                $preco = addslashes($_POST['preco']);
+                $plataforma = addslashes($_POST['plataforma']);
+                $desenvolvedora = addslashes($_POST['desenvolvedora']);
+                $descJogo = addslashes($_POST['descJogo']);
+                $genero = addslashes($_POST['genero']);
+                $tipo = addslashes($_POST['tipo']);
+                $classificacao = addslashes($_POST['classificacao']);
+                $dataLancamento = addslashes($_POST['dataLancamento']);
                 $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
-                $capaJogo = $_FILES['capaJogo'];
-                $logoJogo = $_FILES['logoJogo'];
+                $capaJogo = addslashes($_FILES['capaJogo']);
+                $logoJogo = addslashes($_FILES['logoJogo']);
             
                 // Condição 1: capaJogo e logo estão preenchidos
                 if (!empty($capaJogo['name']) && !empty($logoJogo['name'])) {
@@ -106,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo $diretorioCapa;
                     } else {
                         if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa) && move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
-                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $logoName);
+                            $JogoDao->update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, $logoName);
                             header("Location: /Nexus/views/admin/jogos/index.php");
                         } else {
                             echo "Erro ao mover os arquivos.";
@@ -131,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo $diretorioCapa;
                     } else {
                         if (move_uploaded_file($capaJogo["tmp_name"], $diretorioCapa)) {
-                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, null);
+                            $JogoDao->update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, $capaName, null);
                             header("Location: /Nexus/views/admin/jogos/index.php");
                         } else {
                             echo "Erro ao mover o arquivo.";
@@ -155,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo $diretorioLogo;
                     } else {
                         if (move_uploaded_file($logoJogo["tmp_name"], $diretorioLogo)) {
-                            JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, null, $logoName);
+                            $JogoDao->update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, null, $logoName);
                             header("Location: /Nexus/views/admin/jogos/index.php");
                         } else {
                             echo "Erro ao mover o arquivo.";
@@ -169,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 // Condição 4: Nenhum está preenchido
                 else {
-                    JogoDao::update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, null, null);
+                    $JogoDao->update($idJogo, $nomeJogo, $preco, $plataforma, $genero, $descJogo, $formattedDataLancamento, $tipo, $desenvolvedora, $classificacao, null, null);
                     header("Location: /Nexus/views/admin/jogos/index.php");
                 }
 
@@ -191,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $diretorioBackground = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/backgroundJogos/' . $backgroundName;
     
                         if (move_uploaded_file($fileTmpName, $diretorioBackground)) {
-                            JogoDao::insertBackground(JogoDao::getByIdByName($nomeJogo), $backgroundName);
+                            $JogoDao->insertBackground(JogoDao::getByIdByName($nomeJogo), $backgroundName);
                             header("Location: /Nexus/views/admin/jogos/index.php");
                         }
                         
@@ -200,9 +201,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 break;
         case 'DELETE':
-                $idJogo = $_POST['idJogo'];
+                $idJogo = addslashes($_POST['idJogo']);
                 var_dump($idJogo);
-                jogoDao::delete($idJogo);
+                $JogoDao->delete($idJogo);
 
                 header("Location: /Nexus/views/admin/jogos/index.php");
             break;

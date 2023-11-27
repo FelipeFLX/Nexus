@@ -6,18 +6,19 @@ require_once("../dao/userDao.php");
 
 // Requisição POST do servidor
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+    $UserDao = new UserDao;
+
     switch ($_POST['option']) {
         case 'INSERT':
-            $nome = $_POST['nome'];
-            $sobrenome = $_POST['sobrenome'];
-            $nick = $_POST['nick'];
-            $cpf = $_POST['cpf'];
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
-            $dtnasc = $_POST['dtnasc'];
+            $nome = addslashes($_POST['nome']);
+            $sobrenome = addslashes($_POST['sobrenome']);
+            $nick = addslashes($_POST['nick']);
+            $cpf = addslashes($_POST['cpf']);
+            $email = addslashes($_POST['email']);
+            $senha = addslashes($_POST['senha']);
+            $dtnasc = addslashes($_POST['dtnasc']);
             $formattedDtnasc = date('Y-m-d', strtotime(str_replace('/', '-', $dtnasc)));
-            $fotoPerfil = $_FILES['imagem'];
+            $fotoPerfil = addslashes($_FILES['imagem']);
 
             $extensao = pathinfo($fotoPerfil['name'], PATHINFO_EXTENSION);
             $nomeAvatar = uniqid();
@@ -26,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             // Instanciando a classe do daoUser e incrementando dados no banco de dados
             if (move_uploaded_file($fotoPerfil["tmp_name"], $diretorioAvatar)){
-            userDao::insert($nome, $nick, $email, $senha, $formattedDtnasc, $sobrenome, $cpf, $avatarName);
+            $UserDao->insert($nome, $nick, $email, $senha, $formattedDtnasc, $sobrenome, $cpf, $avatarName);
             }
 
             // Verificando se o usuário está autenticado
@@ -38,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
         case 'READ':
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
+            $email = addslashes($_POST['email']);
+            $senha = addslashes($_POST['senha']);
         
             // Instanciando a classe do daoUser e incrementando dados no banco de dados
             $login = userDao::selectAccount($email, $senha);
@@ -58,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($_POST['link'] == 'cadastro.php') {
                     header('Location: /Nexus/views/home/index.php');
                 } else {
-                    if ($_POST['link'] == 'descJogos.php') {
+                    if ($_POST['link'] == 'descJogos.php') { 
                         header('Location: /Nexus/views/home/index.php');
                     } else {
                         header('Location: /Nexus/views/home/' . $_POST['link']);

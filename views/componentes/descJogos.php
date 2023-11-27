@@ -156,7 +156,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                    <img src="/Nexus/public/img/Perfil/mhPerfil.jpg" />
+                                    <img src="/Nexus/public/img/avatarUser/<?php echo $userInfo['avatarUser']; ?>" />
                                 </div>
                                 <div class="name-user">
                                     <strong><?php echo $userInfo['nomeUser'] . " " . $userInfo['sobrenomeUser'];  ?></strong>

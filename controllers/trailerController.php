@@ -6,27 +6,26 @@ require_once("../dao/trailerDao.php");
 
 // Requisição POST do servidor
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $TrailerDao = new TrailerDao;
     
     switch ($_POST['option']) {
         case 'INSERT':
-            $titulo = $_POST['titulo'];
-            $link = $_POST['link'];
+            $titulo = addslashes($_POST['titulo']); //addslashes
+            $link = addslashes($_POST['link']);
 
             $timezone = new DateTimeZone('America/Sao_Paulo');
             $date = new DateTime('now', $timezone);
-            $datetime = $date->format('Y-m-d');     
-
-           
-            TrailerDao::insert($titulo, $link, $datetime);
+            $datetime = $date->format('Y-m-d');                
+            $TrailerDao->insert($titulo, $link, $datetime);
 
             header("Location: /Nexus/views/admin/trailers/index.php");
 
             break;
 
         case 'UPDATE':
-            $id = $_POST['id'];
-            $titulo = $_POST['titulo'];
-            $link = $_POST['link'];
+            $id = addslashes($_POST['id']);
+            $titulo = addslashes($_POST['titulo']);
+            $link = addslashes($_POST['link']);
 
             $timezone = new DateTimeZone('America/Sao_Paulo');
             $date = new DateTime('now', $timezone);
@@ -34,17 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $capa = $_FILES['capa'];
 
-            TrailerDao::update($id, $titulo, $link, $datetime);
+            $TrailerDao->update($id, $titulo, $link, $datetime);
             
             header("Location: /Nexus/views/admin/trailers/index.php");
 
              break;
 
             case 'DELETE':
-                $id = $_POST['id'];
-                TrailerDao::delete($id);
+                $id = addslashes($_POST['id']);
+                $TrailerDao->delete($id);
 
-                    header("Location: /Nexus/views/admin/trailers/index.php");
+                header("Location: /Nexus/views/admin/trailers/index.php");
                 break;
 
         default:

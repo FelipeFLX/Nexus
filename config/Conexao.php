@@ -1,6 +1,6 @@
 <?php
 
-class conexao
+class Conexao
 {
     private $pdo;
 

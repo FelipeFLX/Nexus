@@ -39,13 +39,14 @@ class TrailerDao
         }
 
         $sql_code = "SELECT * FROM tbtrailer";
-        $stmt = $pdo->prepare($sql_code);        
+        $stmt = $pdo->prepare($sql_code);
         $stmt->execute();
 
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $resultados;
     }
+
     public static function getById($id)
     {
         try {
@@ -64,6 +65,7 @@ class TrailerDao
 
         return $resultado;
     }
+    
     public static function update($id, $titulo, $link, $data)
     {
         try {
@@ -112,4 +114,3 @@ class TrailerDao
         }
     }
 }
-?>

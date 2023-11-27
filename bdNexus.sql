@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/11/2023 às 16:06
+-- Tempo de geração: 27/11/2023 às 14:54
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -112,7 +112,8 @@ INSERT INTO `tbcomentario` (`idComentario`, `idUser`, `idJogo`, `comentarioUser`
 (4, 1, 5, 'gostei muito do jogo, gameplay nota 10/10', 5, '2023-11-23 14:33:33'),
 (5, 1, 5, 'muito ruim', 1, '2023-11-23 14:34:06'),
 (6, 1, 36, 'Jogo lixo!!!', 1, '2023-11-23 17:18:53'),
-(7, 1, 2, 'Adoro anões!!!!', 5, '2023-11-24 15:15:59');
+(7, 1, 2, 'Adoro anões!!!!', 5, '2023-11-24 15:15:59'),
+(8, 6, 7, 'Jogo muito bom!\r\n', 5, '2023-11-26 23:13:22');
 
 -- --------------------------------------------------------
 
@@ -306,7 +307,8 @@ CREATE TABLE `tbuser` (
 
 INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`, `dataNascUser`, `sobrenomeUser`, `cpfUser`, `avatarUser`) VALUES
 (1, 'Matheus', 'Tyran15', 'mh15122006@gmail.com', '1234rewqa', '2006-12-15', 'Henrique', '111.111.111-11', '656133eb1238a.jpg'),
-(2, 'Felaipe', 'fefeh_02', 'fefefzinho@hotmail.com.br', '14dontyodnaodjhr', '1970-01-01', 'Felaix', '154.789.620-31', '');
+(2, 'Felaipe', 'fefeh_02', 'fefefzinho@hotmail.com.br', '14dontyodnaodjhr', '1970-01-01', 'Felaix', '154.789.620-31', ''),
+(6, 'User', 'User', 'email@email.com', '1', '2004-07-26', '', '222.222.222-22', '656364bc3ad3c.jpeg');
 
 --
 -- Índices para tabelas despejadas
@@ -389,7 +391,7 @@ ALTER TABLE `tbclassificacao`
 -- AUTO_INCREMENT de tabela `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
-  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbgenero`
@@ -425,7 +427,7 @@ ALTER TABLE `tbtrailer`
 -- AUTO_INCREMENT de tabela `tbuser`
 --
 ALTER TABLE `tbuser`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

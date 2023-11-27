@@ -2,18 +2,19 @@
 require_once("../dao/noticiasDao.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $NoticiasDao = new NoticiasDao;
 
     switch ($_POST['option']) {
         case 'CREATE':
-            $titulo = $_POST['titulo'];
-            $tema = $_POST['tema'];
-            $texto = $_POST['texto'];
+            $titulo = addslashes($_POST['titulo']);
+            $tema = addslashes($_POST['tema']);
+            $texto = addslashes($_POST['texto']);
 
             $timezone = new DateTimeZone('America/Sao_Paulo');
             $date = new DateTime('now', $timezone);
             $datetime = $date->format('Y-m-d H:i:s');
 
-            $capa = $_FILES['capaNoticia'];
+            $capa = addslashes($_FILES['capaNoticia']);
         
             $extencao = pathinfo($capa['name'], PATHINFO_EXTENSION);
             $nome = uniqid();
@@ -23,26 +24,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upload = move_uploaded_file($capa["tmp_name"], $diretorio);
         
             if($upload){
-                NoticiasDao::insert($titulo, $tema, $texto, $datetime, $imgName);
+                $NoticiasDao->insert($titulo, $tema, $texto, $datetime, $imgName);
             }
 
             header("Location: /Nexus/views/admin/noticias/index.php");
             break;
 
             case 'UPDATE':
-                $id = $_POST['idNoticia'];
-                $titulo = $_POST['titulo'];
-                $tema = $_POST['tema'];
-                $texto = $_POST['texto'];
+                $id = addslashes($_POST['idNoticia']);
+                $titulo = addslashes($_POST['titulo']);
+                $tema = addslashes($_POST['tema']);
+                $texto = addslashes($_POST['texto']);
     
                 $timezone = new DateTimeZone('America/Sao_Paulo');
                 $date = new DateTime('now', $timezone);
                 $datetime = $date->format('Y-m-d H:i:s');
 
-                $capa = $_FILES['capaNoticia'];
+                $capa = addslashes($_FILES['capaNoticia']);
 
                 if ($capa['name'] == '' || $capa['name'] == null) {
-                    NoticiasDao::updateSemCapa($id, $titulo, $tema, $texto, $datetime);
+                    $NoticiasDao->updateSemCapa($id, $titulo, $tema, $texto, $datetime);
                 } else {
                     $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Nexus/public/img/capaNoticias/' . $capaName;
                     
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $upload = move_uploaded_file($capa["tmp_name"], $diretorioCompleto);
             
                     if ($upload) {
-                    NoticiasDao::update($id, $titulo, $tema, $texto, $datetime, $imgName);
+                    $NoticiasDao->update($id, $titulo, $tema, $texto, $datetime, $imgName);
                     }
                 
                 }
@@ -62,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("Location: /Nexus/views/admin/noticias/index.php");
                 break;
         case 'DELETE':
-                $idNoticia = $_POST['idNoticia'];
-                NoticiasDao::delete($idNoticia);
+                $idNoticia = addslashes($_POST['idNoticia']);
+                $NoticiasDao->delete($idNoticia);
 
                 header("Location: /Nexus/views/admin/noticias/index.php");
             break;
