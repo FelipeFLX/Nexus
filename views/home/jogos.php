@@ -48,7 +48,7 @@
             </div>
             <?php foreach(jogoDao::getByGenero(2) as $jogo): ?>
             <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo $jogo['capaJogo']; ?>" alt="Imagem 1" >
+            <img src="../../public/img/capajogos/<?php echo $jogo['capaJogo']; ?>" alt="Imagem 1" width="300" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
                 <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>

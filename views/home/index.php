@@ -79,7 +79,7 @@
                     $larguraOriginal = 1280;
                     $alturaOriginal = 720;
                 ?>
-                    <iframe width="380" height="<?php echo 380 * ($alturaOriginal / $larguraOriginal); ?>" src="<?php echo $trailer['linkTrailer'] ?>" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="380" height="<?php echo 380 * ($alturaOriginal / $larguraOriginal); ?>" src="<?php echo str_replace("\\", "", $trailer['linkTrailer']) ?>" frameborder="0" allowfullscreen></iframe>
                     <p class="t-trailer"><?php echo $trailer['tituloTrailer']; ?></p>
                 </div>
             <?php endforeach; ?>

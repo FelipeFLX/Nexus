@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/11/2023 às 14:54
+-- Tempo de geração: 27-Nov-2023 às 21:28
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbbackground`
+-- Estrutura da tabela `tbbackground`
 --
 
 CREATE TABLE `tbbackground` (
@@ -34,7 +34,7 @@ CREATE TABLE `tbbackground` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbbackground`
+-- Extraindo dados da tabela `tbbackground`
 --
 
 INSERT INTO `tbbackground` (`idBackgroud`, `idJogo`, `pathBackground`) VALUES
@@ -61,12 +61,14 @@ INSERT INTO `tbbackground` (`idBackgroud`, `idJogo`, `pathBackground`) VALUES
 (21, 13, '6560e7540671b.jpg'),
 (22, 13, '6560e75407a4b.jpg'),
 (23, 38, '65613c396faa0.jpg'),
-(24, 38, '65613c3975685.jpeg');
+(24, 38, '65613c3975685.jpeg'),
+(25, 39, '6564d53845213.jpg'),
+(26, 39, '6564d5384c1b9.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbclassificacao`
+-- Estrutura da tabela `tbclassificacao`
 --
 
 CREATE TABLE `tbclassificacao` (
@@ -75,7 +77,7 @@ CREATE TABLE `tbclassificacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbclassificacao`
+-- Extraindo dados da tabela `tbclassificacao`
 --
 
 INSERT INTO `tbclassificacao` (`idClassificacao`, `classificacao`) VALUES
@@ -89,7 +91,7 @@ INSERT INTO `tbclassificacao` (`idClassificacao`, `classificacao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcomentario`
+-- Estrutura da tabela `tbcomentario`
 --
 
 CREATE TABLE `tbcomentario` (
@@ -102,7 +104,7 @@ CREATE TABLE `tbcomentario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbcomentario`
+-- Extraindo dados da tabela `tbcomentario`
 --
 
 INSERT INTO `tbcomentario` (`idComentario`, `idUser`, `idJogo`, `comentarioUser`, `notaUser`, `dataPostagem`) VALUES
@@ -113,12 +115,16 @@ INSERT INTO `tbcomentario` (`idComentario`, `idUser`, `idJogo`, `comentarioUser`
 (5, 1, 5, 'muito ruim', 1, '2023-11-23 14:34:06'),
 (6, 1, 36, 'Jogo lixo!!!', 1, '2023-11-23 17:18:53'),
 (7, 1, 2, 'Adoro anões!!!!', 5, '2023-11-24 15:15:59'),
-(8, 6, 7, 'Jogo muito bom!\r\n', 5, '2023-11-26 23:13:22');
+(12, 9, 2, 'Achei paia', 4, '2023-11-27 16:48:39'),
+(13, 9, 7, 'muito bommmaaanh õçõhçohhhnnn\r\n\r\n', 0, '2023-11-27 16:49:25'),
+(14, 9, 4, 'ssdsdasd', 4, '2023-11-27 16:50:14'),
+(15, 9, 39, 'Eu sou o Minecraft!', 5, '2023-11-27 17:26:11'),
+(16, 9, 39, 'Vou recomendar para o meu tio\r\n', 4, '2023-11-27 17:27:39');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbgenero`
+-- Estrutura da tabela `tbgenero`
 --
 
 CREATE TABLE `tbgenero` (
@@ -127,7 +133,7 @@ CREATE TABLE `tbgenero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbgenero`
+-- Extraindo dados da tabela `tbgenero`
 --
 
 INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
@@ -156,7 +162,7 @@ INSERT INTO `tbgenero` (`nomeGenero`, `idGenero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbjogo`
+-- Estrutura da tabela `tbjogo`
 --
 
 CREATE TABLE `tbjogo` (
@@ -175,7 +181,7 @@ CREATE TABLE `tbjogo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbjogo`
+-- Extraindo dados da tabela `tbjogo`
 --
 
 INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, `plataformaJogo`, `descJogo`, `capaJogo`, `dataLancamentoJogo`, `desenvolvedoraJogo`, `subgeneroJogo`, `logoJogo`, `classificacaoJogo`) VALUES
@@ -188,12 +194,13 @@ INSERT INTO `tbjogo` (`idJogo`, `nomeJogo`, `precoJogo`, `generoPrincipalJogo`, 
 (13, 'The Witcher III: Wild Hunt: Game of the Year Edition', 150.00, 1, 23, 'Play the most polished and complete version of the most awarded game of 2015 - The Witcher 3: Wild Hunt – Game of the Year Edition. Now available with all expansions and additional content. Become a professional monster slayer and embark on an adventure of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world adventure along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests. Features: Play as a Highly Trained Monster Slayer for Hire Trained from early childhood and mutated to have superhuman skills, strength, and reflexes, witchers are a socially ostracized counterbalance to the monster-infested world in which they live. - Gruesomely destroy foes as a professional monster hunter armed with a range of upgradeable weapons, mutating potions, and combat magic. - Hunt down a wide variety of exotic monsters, from savage beasts prowling mountain passes to cunning supernatural predators lurking in the shadowy back alleys of densely populated cities. - Invest your rewards to upgrade your weaponry and buy custom armor, or spend them on horse races, card games, fist fighting and other pleasures life brings. Track Down the Child of Prophecy in a Morally Ambiguous Fantasy Open World - Built for endless adventure, the massive open world of The Witcher sets new standards in terms of size, depth and complexity. - Traverse a fantastical open world: explore forgotten ruins, caves and shipwrecks, trade with merchants and dwarven smiths in cities, and hunt across open plains, amidst mountains and at sea. - In a time of war, track down the child of prophecy, a living weapon of great power whose coming was foretold in ancient elven legends. Make choices that go beyond good and evil and face their far-reaching consequences. Game of the Year Edition The Witcher 3: Wild Hunt Game of the Year Edition brings together the base game and all the additional content released to date. - Includes the Hearts of Stone and Blood & Wine expansions, which offer a massive 50 hours of additional storytelling as well as new features and new areas that expand the explorable world by over a third! - Affords access to all additional content released so far, including weapons, armor, side quests, game modes and new GWENT cards! - Features all technical and visual updates as well as a new user interface completely redesigned on the basis of feedback from members of the Witcher Community.', '655d14b02d3b3.png', '2016-08-30', 'CD Projekt RED', 3, '655d14b02d3b8.png', 6),
 (36, 'Fortnite', 0.00, 1, 23, 'Fortnite é um videogame online desenvolvido pela Epic Games e lançado em 2017. Ele está disponível em três versões distintas de modo de jogo que compartilham a mesma jogabilidade geral e mecanismo de jogo: Fortnite: Save the World, um jogo cooperativo de tiro e sobrevivência para até quatro jogadores para lutar contra criaturas parecidas com zumbis e defender objetos com fortificações que possam construir; Fortnite Battle Royale, um jogo Battle Royale gratuito em que até 100 jogadores lutam para ser a última pessoa sobrevivente; e Fortnite Creative, em que os jogadores têm total liberdade para criar mundos e arenas de batalha. Save the World e Battle Royale foram lançados em 2017 como títulos de acesso antecipado, enquanto Creative foi lançado em 6 de dezembro de 2018. [. . . ] Fortnite Battle Royale é um jogo jogador contra jogador para até 100 jogadores, permitindo que se jogue sozinho, em dupla ou em esquadrão (geralmente composto por três ou quatro jogadores). Jogadores desarmados são lançados de um \"ônibus de batalha\" que cruza o mapa do jogo. Ao pousar, eles devem procurar armas, itens, recursos e até veículos enquanto tentam permanecer vivos e atacar e eliminar outros jogadores. Ao longo de uma rodada, a área segura do mapa diminui de tamanho devido à chegada de uma tempestade tóxica; jogadores fora desse limite sofrem danos e podem ser eliminados se não conseguirem evacuar rapidamente. Isso força os jogadores restantes a espaços mais apertados e incentiva os encontros entre os jogadores. O último jogador, dupla ou esquadrão restante é o vencedor. Fortnite: Save the World é um jogo cooperativo jogador versus ambiente, com quatro jogadores colaborando para um objetivo comum em várias missões. O jogo se passa depois que uma tempestade aparece em toda a Terra, fazendo com que 98% da população desapareça e os sobreviventes sejam atacados por \"cascas\" semelhantes a zumbis. Os jogadores assumem o papel de comandantes de abrigos, coletando recursos, salvando sobreviventes e defendendo equipamentos que ajudam a coletar dados sobre a tempestade ou a rechaçá-la. Nas missões, os jogadores recebem uma série de itens do jogo, que incluem personagens heróis, esquemas de armas e armadilhas e sobreviventes, todos os quais podem ser aumentados através da experiência adquirida para melhorar seus atributos. Fortnite Creative é um modo de jogo sandbox, semelhante ao Minecraft, pois os jogadores têm total liberdade para gerar tudo o que está dentro do jogo em uma ilha e podem criar jogos como arenas de batalha, pistas de corrida, desafios de plataforma e muito mais.', '655fa72e1e2b5.png', '2017-07-25', 'Epic Games', 21, '655fa72e1e2b8.png', 3),
 (37, 'The Elder Scrolls V: Skyrim: Special Edition', 0.00, 1, 23, 'Vencedor de mais de 200 prêmios de Jogo do Ano, Skyrim Special Edition dá vida à fantasia épica com detalhes impressionantes. A edição especial inclui o jogo aclamado pela crítica e complementos com recursos totalmente novos, como arte e efeitos remasterizados, raios divinos volumétricos, profundidade de campo dinâmica, reflexos no espaço da tela e muito mais.', '6560d7f06b448.png', '2016-10-27', 'Bethesda Game Studios', 1, '6560d7f06b44c.png', 6),
-(38, 'The legend of Zelda: Ocarina of Time', 7.99, 1, 10, 'Ganondorf, o malvado Rei dos Ladrões, está em movimento, ameaçando a pacífica terra de Hyrule. Ele está determinado a roubar seu caminho para o lendário Reino Sagrado na esperança de aproveitar o poder da mítica Triforce. Como o jovem herói Link, é seu destino frustrar os esquemas malignos de Ganondorf. Navi, sua fada guardiã, irá guiá-lo enquanto você se aventura pelas muitas regiões de Hyrule, desde as cavernas vulcânicas da Montanha da Morte até as águas traiçoeiras do Domínio de Zora. Antes de completar esta missão épica, você mergulhará em masmorras mortais, coletará armas de grande poder e aprenderá os feitiços necessários para conquistar a força mais irresistível de todos os tempos. * O enredo imersivo e os ambientes atraem os jogadores para um incrível mundo 3D. * Viagem no tempo permite que você jogue como Link em diferentes fases de sua vida. * Novos recursos de jogabilidade incluem um sistema de segmentação exclusivo e perspectivas de 1ª e 3ª pessoa. * Até três jogos podem ser salvos simultaneamente na memória!\r\n', '65613cb4658b6.jpg', '1998-11-21', 'Nintendo EAD', 2, '65613c396e843.png', 1);
+(38, 'The legend of Zelda: Ocarina of Time', 7.99, 1, 10, 'Ganondorf, o malvado Rei dos Ladrões, está em movimento, ameaçando a pacífica terra de Hyrule. Ele está determinado a roubar seu caminho para o lendário Reino Sagrado na esperança de aproveitar o poder da mítica Triforce. Como o jovem herói Link, é seu destino frustrar os esquemas malignos de Ganondorf. Navi, sua fada guardiã, irá guiá-lo enquanto você se aventura pelas muitas regiões de Hyrule, desde as cavernas vulcânicas da Montanha da Morte até as águas traiçoeiras do Domínio de Zora. Antes de completar esta missão épica, você mergulhará em masmorras mortais, coletará armas de grande poder e aprenderá os feitiços necessários para conquistar a força mais irresistível de todos os tempos. * O enredo imersivo e os ambientes atraem os jogadores para um incrível mundo 3D. * Viagem no tempo permite que você jogue como Link em diferentes fases de sua vida. * Novos recursos de jogabilidade incluem um sistema de segmentação exclusivo e perspectivas de 1ª e 3ª pessoa. * Até três jogos podem ser salvos simultaneamente na memória!\r\n', '65613cb4658b6.jpg', '1998-11-21', 'Nintendo EAD', 2, '65613c396e843.png', 1),
+(39, 'Minecraft', 50.00, 2, 23, 'Uma versão do Minecraft: Pocket Edition que está disponível (gratuitamente) para todos os usuários existentes do Windows 10 que já possuem uma cópia do Minecraft padrão e também disponível para compra exclusivamente na Windows 10 App Store. Atualmente em Beta. Minecraft é um jogo sobre colocar blocos e embarcar em aventuras. Explore mundos gerados aleatoriamente e construa coisas incríveis, desde as casas mais simples até os castelos mais grandiosos. Jogue no Modo Criativo com recursos ilimitados ou explore profundamente no Modo Sobrevivência, criando armas e armaduras para afastar multidões perigosas. Faça tudo isso sozinho ou com amigos.', '6564d538440bb.jpg', '2009-11-18', 'Mojang', 13, '6564d538440bd.png', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbnoticias`
+-- Estrutura da tabela `tbnoticias`
 --
 
 CREATE TABLE `tbnoticias` (
@@ -203,23 +210,23 @@ CREATE TABLE `tbnoticias` (
   `dataLancNoticia` datetime NOT NULL,
   `dataModfcNoticia` datetime NOT NULL,
   `capaNoticia` varchar(255) NOT NULL,
-  `temaNoticia` varchar(200) NOT NULL
+  `temaNoticia` varchar(200) NOT NULL,
+  `linkNoticia` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbnoticias`
+-- Extraindo dados da tabela `tbnoticias`
 --
 
-INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLancNoticia`, `dataModfcNoticia`, `capaNoticia`, `temaNoticia`) VALUES
-(3, 'Jogos da gigante japonesa sofrem críticas pela falta de localização para português do Brasil regularmente.', 'Jogos da gigante japonesa sofrem críticas pela falta de localização para português do Brasil regularmente.', '2023-11-25 14:47:20', '2023-11-25 15:10:57', '656233288ad0e.webp', 'Nintendo'),
-(4, 'Nintendo quer localizar todos os jogos em PT-BR futuramente', 'O passado da Nintendo mostra que a empresa sempre teve uma proximidade com o público brasileiro.', '2023-11-25 14:52:43', '2023-11-25 15:11:53', '6562346b233f2.jpg', 'Nintendo'),
-(5, 'Hyrule fica gigante em fan-film de The Legend of Zelda Ocarina of Time em traços do Studio Ghibli', 'A viagem de link', '2023-11-25 15:18:28', '2023-11-25 15:18:56', '65623a740fbce.webp', 'Nintendo'),
-(6, 'Pokemon GO', 'Jogadores se reúnem anos após o lançamento e amizade vira grande motor de jogo Pokémon GO Comunidade de jogadores do Ceará foi considerada mais engajada do Brasil em agosto pela empresa desenvolvedora do jogo.\r\n\r\n', '2023-11-25 16:25:16', '2023-11-25 16:25:16', '65624a1ca9bba.jpg', 'Nintendo');
+INSERT INTO `tbnoticias` (`idNoticia`, `tituloNoticia`, `textoNoticia`, `dataLancNoticia`, `dataModfcNoticia`, `capaNoticia`, `temaNoticia`, `linkNoticia`) VALUES
+(1, 'BGS 2023 começa nesta quinta sem Xbox e PlayStation; veja passeio pelo evento', 'Brasil Game Show abre para o público geral a partir desta quinta-feira (12) e acontece no Expo Center Norte, em São Paulo, até o domingo (15) com jeito de começo do fim.', '2023-11-27 15:05:56', '2023-11-27 15:05:56', '6564da8461fdd.png', 'BGS', 'https://g1.globo.com/pop-arte/games/noticia/2023/10/12/bgs-2023-comeca-nesta-quinta-sem-xbox-e-playstation-veja-passeio-pelo-evento.ghtml'),
+(2, 'Pokémon GO: jogadores se reúnem em encontros anos após o lançamento e amizade vira grande motor do jogo', 'Comunidade de jogadores do Ceará foi considerada mais engajada do Brasil em agosto pela empresa desenvolvedora do jogo.', '2023-11-27 15:09:41', '2023-11-27 15:09:41', '6564db65f374d.png', 'Pokémon', 'https://g1.globo.com/ce/ceara/noticia/2023/09/23/pokemon-go-jogadores-se-reunem-em-encontros-anos-apos-o-lancamento-e-amizade-vira-grande-motor-do-jogo.ghtml'),
+(3, 'FC 24: 1º game pós-\'Fifa\' passa a usar partidas reais para recriar movimentos de jogadores', '\'Há alguns poucos anos não pensávamos que seria possível\', diz produtor Sam Rivera em entrevista ao g1. Jogo é lançado para público geral nesta sexta-feira (29).', '2023-11-27 16:56:31', '2023-11-27 17:10:15', '6564f46f784a1.png', 'FC 24', 'https://g1.globo.com/pop-arte/games/noticia/2023/09/29/fc-24-1o-game-pos-fifa-passa-a-usar-partidas-reais-para-recriar-movimentos-de-jogadores.ghtml');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbplataforma`
+-- Estrutura da tabela `tbplataforma`
 --
 
 CREATE TABLE `tbplataforma` (
@@ -228,7 +235,7 @@ CREATE TABLE `tbplataforma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbplataforma`
+-- Extraindo dados da tabela `tbplataforma`
 --
 
 INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
@@ -263,7 +270,7 @@ INSERT INTO `tbplataforma` (`idPlataforma`, `nomePlataforma`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtrailer`
+-- Estrutura da tabela `tbtrailer`
 --
 
 CREATE TABLE `tbtrailer` (
@@ -275,18 +282,19 @@ CREATE TABLE `tbtrailer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbtrailer`
+-- Extraindo dados da tabela `tbtrailer`
 --
 
 INSERT INTO `tbtrailer` (`idTrailer`, `tituloTrailer`, `linkTrailer`, `dataTrailer`, `capaTrailer`) VALUES
 (1, 'Jujutsu Kaisen Cursed Clash - Official Release Date Trailer', 'https://www.youtube.com/embed/ke83VI012jE', '2023-11-26', ''),
 (3, 'LORDS OF THE FALLEN - Official Launch Trailer | Out October 13th on PC, PS5 & Xbox Series X|S', 'https://www.youtube.com/embed/Gkfip4T13bQ', '2023-11-26', ''),
-(5, 'The Alters - All By Myselves | Official Game Trailer', 'https://www.youtube.com/embed/Xt1VEgUxTMQ', '2023-11-26', '');
+(5, 'The Alters - All By Myselves | Official Game Trailer', 'https://www.youtube.com/embed/Xt1VEgUxTMQ', '2023-11-26', ''),
+(6, 'Apex Legends - Official Kill Code Part 4 Trailer', 'https://www.youtube.com/embed/BCW7G_MOF-w', '2023-11-27', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbuser`
+-- Estrutura da tabela `tbuser`
 --
 
 CREATE TABLE `tbuser` (
@@ -302,44 +310,43 @@ CREATE TABLE `tbuser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbuser`
+-- Extraindo dados da tabela `tbuser`
 --
 
 INSERT INTO `tbuser` (`idUser`, `nomeUser`, `nickUser`, `emailUser`, `senhaUser`, `dataNascUser`, `sobrenomeUser`, `cpfUser`, `avatarUser`) VALUES
 (1, 'Matheus', 'Tyran15', 'mh15122006@gmail.com', '1234rewqa', '2006-12-15', 'Henrique', '111.111.111-11', '656133eb1238a.jpg'),
-(2, 'Felaipe', 'fefeh_02', 'fefefzinho@hotmail.com.br', '14dontyodnaodjhr', '1970-01-01', 'Felaix', '154.789.620-31', ''),
-(6, 'User', 'User', 'email@email.com', '1', '2004-07-26', '', '222.222.222-22', '656364bc3ad3c.jpeg');
+(9, 'Thomas', 'P4t0_M4ans027', 'email@email.com', 'pato', '2003-12-19', 'Turbano', '222.222.222-22', '6564f26c151e1.jpeg');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `tbbackground`
+-- Índices para tabela `tbbackground`
 --
 ALTER TABLE `tbbackground`
   ADD PRIMARY KEY (`idBackgroud`);
 
 --
--- Índices de tabela `tbclassificacao`
+-- Índices para tabela `tbclassificacao`
 --
 ALTER TABLE `tbclassificacao`
   ADD PRIMARY KEY (`idClassificacao`);
 
 --
--- Índices de tabela `tbcomentario`
+-- Índices para tabela `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
   ADD PRIMARY KEY (`idComentario`);
 
 --
--- Índices de tabela `tbgenero`
+-- Índices para tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Índices de tabela `tbjogo`
+-- Índices para tabela `tbjogo`
 --
 ALTER TABLE `tbjogo`
   ADD PRIMARY KEY (`idJogo`),
@@ -348,38 +355,38 @@ ALTER TABLE `tbjogo`
   ADD KEY `capaJogo` (`capaJogo`);
 
 --
--- Índices de tabela `tbnoticias`
+-- Índices para tabela `tbnoticias`
 --
 ALTER TABLE `tbnoticias`
   ADD PRIMARY KEY (`idNoticia`);
 
 --
--- Índices de tabela `tbplataforma`
+-- Índices para tabela `tbplataforma`
 --
 ALTER TABLE `tbplataforma`
   ADD PRIMARY KEY (`idPlataforma`);
 
 --
--- Índices de tabela `tbtrailer`
+-- Índices para tabela `tbtrailer`
 --
 ALTER TABLE `tbtrailer`
   ADD PRIMARY KEY (`idTrailer`);
 
 --
--- Índices de tabela `tbuser`
+-- Índices para tabela `tbuser`
 --
 ALTER TABLE `tbuser`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `tbbackground`
 --
 ALTER TABLE `tbbackground`
-  MODIFY `idBackgroud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idBackgroud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de tabela `tbclassificacao`
@@ -391,7 +398,7 @@ ALTER TABLE `tbclassificacao`
 -- AUTO_INCREMENT de tabela `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
-  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `tbgenero`
@@ -403,13 +410,13 @@ ALTER TABLE `tbgenero`
 -- AUTO_INCREMENT de tabela `tbjogo`
 --
 ALTER TABLE `tbjogo`
-  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idJogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `tbnoticias`
 --
 ALTER TABLE `tbnoticias`
-  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbplataforma`
@@ -421,13 +428,13 @@ ALTER TABLE `tbplataforma`
 -- AUTO_INCREMENT de tabela `tbtrailer`
 --
 ALTER TABLE `tbtrailer`
-  MODIFY `idTrailer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idTrailer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbuser`
 --
 ALTER TABLE `tbuser`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

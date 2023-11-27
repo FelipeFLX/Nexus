@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch ($_POST['option']) {
         case 'CREATE':
             $titulo = addslashes($_POST['titulo']);
-            $tema = addslashes($_POST['tema']);
-            $texto = addslashes($_POST['texto']);
+            $tema = $_POST['tema'];
+            $texto = $_POST['texto'];
             $link = addslashes($_POST['link']);
 
             $timezone = new DateTimeZone('America/Sao_Paulo');
@@ -33,16 +33,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             case 'UPDATE':
                 $id = addslashes($_POST['idNoticia']);
-                $titulo = addslashes($_POST['titulo']);
-                $tema = addslashes($_POST['tema']);
-                $texto = addslashes($_POST['texto']);
+                $titulo = $_POST['titulo'];
+                $tema = $_POST['tema'];
+                $texto = $_POST['texto'];
                 $link = addslashes($_POST['link']);
     
                 $timezone = new DateTimeZone('America/Sao_Paulo');
                 $date = new DateTime('now', $timezone);
                 $datetime = $date->format('Y-m-d H:i:s');
 
-                $capa = addslashes($_FILES['capaNoticia']);
+                $capa = $_FILES['capaNoticia'];
 
                 if ($capa['name'] == '' || $capa['name'] == null) {
                     $NoticiasDao->updateSemCapa($id, $titulo, $tema, $texto, $datetime);

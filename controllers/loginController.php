@@ -87,17 +87,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION = array();
             session_destroy();
 
-            if ($_POST['link'] == 'descJogos.php') {
-                header('Location: /Nexus/views/home/index.php');
-            } else {
-                header('Location: /Nexus/views/home/' . $_POST['link']);
-            }
+            header("Location: /Nexus/views/user/index.php");
+
+            break;
 
         case 'DELETE':
             $id = addslashes($_POST['idUser']);
             $UserDao->delete($id);
 
-            header("Location: /Nexus/views/admin/user/index.php");
+            header("Location: /Nexus/views/user/index.php");
             break;
 
         default:
