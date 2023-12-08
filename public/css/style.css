@@ -121,32 +121,6 @@ body{
     padding: 1rem 11.5rem;
 }
 
-@media screen and (max-width: 768px) {
-    .noticias{
-        grid-template-columns: repeat(2,1fr);
-        gap: 2rem;
-    }
-    .container-trailer{
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-}
-
-@media screen and (max-width: 426px) {
-    .container-imagem{
-        grid-template-columns: repeat(1,1fr);
-        gap: 2rem;
-    }
-    .noticias{
-        grid-template-columns: repeat(1,1fr);
-        gap: 2rem;
-    }
-    .container-trailer{
-        grid-template-columns: repeat(1, 1fr);
-        gap: 2rem;
-    }
-}
-
 .img-teste{
     text-align: center;
 }
@@ -206,4 +180,252 @@ body{
     align-items: center;
     text-align: center;
     margin: 0 10px;
+}
+
+/*Resposividade: Celular*/
+@media screen and (max-width: 321px) {
+    .container-imagem{
+        grid-template-columns: repeat(1,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding: 0.5rem;
+    }
+    .noticias{
+        grid-template-columns: repeat(1,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+    .container-trailer{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        margin: 0;
+        padding: 1rem;
+    }
+    .imagem-texto{
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .imagem-home{
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .ancoras{
+        width: 40%;
+        margin: 0;
+        margin-left: 1rem;
+        margin-top: 0.3rem;
+    }
+    .pesquisar{
+        width: 50%;
+        margin: 0;
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (min-width: 322px) {
+    .container-imagem{
+        grid-template-columns: repeat(1,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding: 3rem;
+    }
+    .noticias{
+        grid-template-columns: repeat(1,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+    .container-trailer{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        margin: 0;
+        padding: 1.5rem;
+    }
+    .imagem-texto{
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 280px;
+        height: auto;
+    }
+    .imagem-home{
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 330px;
+        height: auto;
+    }
+    .ancoras{
+        width: 40%;
+        margin: 0;
+        margin-left: 1rem;
+        margin-top: 1.3rem;
+    }
+    .pesquisar{
+        width: 50%;
+        margin: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+/*Responsividade: Tablet*/
+@media screen and (min-width: 426px) {
+    .container-imagem{
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding: 5.5rem;
+    }
+    .imagem-texto{
+        width: 250px;
+        height: auto;
+    }
+    
+    .imagem-home{
+        width: 300px;
+        height: auto;
+    }
+    .noticias{
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+    .container-trailer{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .ancoras{
+        width: 40%;
+        margin: 0;
+        margin-left: 1rem;
+        margin-top: 1.3rem;
+    }
+    .pesquisar{
+        width: 30%;
+        margin: 0;
+        margin-left: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+/*Responsividade: Laptop*/
+@media screen and (min-width: 769px) {
+    .container-imagem{
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+        margin: 0;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 5.5rem;
+    }
+    .imagem-texto{
+        width: 300px;
+        height: auto;
+    }
+    
+    .imagem-home{
+        width: 350px;
+        height: auto;
+    }
+    .noticias{
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 8.5rem;
+        padding-right: 8.5rem;
+    }
+    .container-trailer{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 6.5rem;
+        padding-right: 6.5rem;
+    }
+    .ancoras{
+        width: 40%;
+        margin: 0;
+        margin-left: 1rem;
+        margin-top: 1.3rem;
+    }
+    .pesquisar{
+        width: 30%;
+        margin: 0;
+        margin-left: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (min-width: 1026px) {
+    .noticias{
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 9.5rem;
+        padding-right: 9.5rem;
+    }
+    .container-trailer{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 7.5rem;
+        padding-right: 7.5rem;
+    }
+    .pesquisar{
+        width: 20%;
+        margin-left: 4rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .noticias{
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+    .container-trailer{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 8.5rem;
+        padding-right: 8.5rem;
+    }
+    .pesquisar{
+        width: 20%;
+        margin-left: 4rem;
+    }
+}
+
+@media screen and (min-width: 1426px) {
+    .noticias{
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 11.5rem;
+        padding-right: 11.5rem;
+    }
+    .container-trailer{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin: 0;
+        padding-left: 7.5rem;
+        padding-right: 7.5rem;
+    }
+    .pesquisar{
+        width: 20%;
+        margin-left: 4rem;
+    }
 }
