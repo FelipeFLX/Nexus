@@ -113,25 +113,28 @@
                       $generoSelecionado = $jogo['generoJogo']; 
 
                       $generos = [
-                          1 => "Ação",
-                          2 => "Aventura",
-                          3 => "RPG",
-                          4 => "Estratégia",
-                          5 => "Simulação",
-                          6 => "Esportes",
-                          7 => "Quebra-cabeças",
-                          8 => "Corrida",
-                          9 => "Luta",
-                          10 => "Terror",
-                          11 => "Jogo de ritmo",
-                          12 => "Card-Games",
-                          13 => "Sandbox",
-                          14 => "FPS",
-                          15 => "Plataforma",
-                          16 => "Visual Novel",
-                          17 => "Roguelike",
-                          18 => "MMORPG",
-                      ];
+                        1 => "Ação",
+                        2 => "Aventura",
+                        3 => "RPG",
+                        4 => "Estratégia",
+                        5 => "Simulação",
+                        6 => "Esportes",
+                        7 => "Quebra-cabeças",
+                        8 => "Corrida",
+                        9 => "Luta",
+                        10 => "Terror",
+                        11 => "Jogo de ritmo",
+                        12 => "Card-Games",
+                        13 => "FPS",
+                        14 => "Sandbox",
+                        15 => "Plataforma",
+                        16 => "Visual Novel",
+                        17 => "Roguelike",
+                        18 => "MMORPG",
+                        19 => "Casual",
+                        20 => "Shooter",
+                        21 => "Nenhuma das opções"
+                    ];
 
                       foreach ($generos as $value => $genero) {
                           $selected = ($generoSelecionado == $value) ? 'selected' : '';
@@ -159,8 +162,8 @@
                           10 => "Terror",
                           11 => "Jogo de ritmo",
                           12 => "Card-Games",
-                          13 => "Sandbox",
-                          14 => "FPS",
+                          13 => "FPS",
+                          14 => "Sandbox",
                           15 => "Plataforma",
                           16 => "Visual Novel",
                           17 => "Roguelike",

@@ -95,7 +95,7 @@ class JogoDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbjogo";
+        $sql_code = "SELECT * FROM tbjogo ORDER BY idJogo DESC";
         $stmt = $pdo->prepare($sql_code);        
         $stmt->execute();
 
@@ -120,6 +120,24 @@ class JogoDao
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $resultado;
+    }
+    public static function contAll()
+    {
+        try {
+            $conexao = new conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "SELECT COUNT(*) FROM tbjogo";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->execute();
+
+        $total = $stmt->fetchColumn();
+
+        // Retorne o total, ou false se não houver registros
+        return $total !== false ? $total : false;
     }
     public static function getByIdByName($nome)
     {
@@ -150,9 +168,10 @@ class JogoDao
         }
 
         
-        $sql_code = "SELECT * FROM tbjogo WHERE generoPrincipalJogo = :genero";
+        $sql_code = "SELECT * FROM tbjogo WHERE generoPrincipalJogo = :genero OR subgeneroJogo = :subgenero ORDER BY idJogo DESC";
         $stmt = $pdo->prepare($sql_code);
         $stmt->bindParam(":genero", $genero);
+        $stmt->bindParam(":subgenero", $genero);
         $stmt->execute();
 
 

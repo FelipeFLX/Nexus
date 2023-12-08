@@ -49,6 +49,7 @@
                 <th class="col-md-2">E-mail</th>
                 <th class="col-md-2">CPF</th>
                 <th class="col-md-3">Data de nascimento</th>
+                <th class="col-md-3 text-center">Admin</th>
                 <th class="text-center col-md-3">Excluir</th>
               </tr>
             </thead>
@@ -62,6 +63,7 @@
                   <td class="align-middle"><?php echo $user['emailUser']; ?></td>
                   <td class="align-middle"><?php echo $user['cpfUser']; ?></td>
                   <td class="align-middle"><?php echo date('d/m/Y', strtotime($user['dataNascUser'])); ?></td>
+                  <td class="align-middle"><?php echo ($user['isAdmin']) ? "Sim" : "Não"; ?></td>
                   <td class="text-center align-middle">
                     <button class="dropdown-item" onclick="confirmarExclusao(<?php echo $user['idUser']; ?>, '<?php echo $user['nomeUser']; ?>')">
                       <i class="fas fa-trash-alt fa-lg text-danger"></i>
@@ -84,7 +86,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="../../../controllers/loginController.php" method="post">
+          <form action="../../../controllers/userAdminController.php" method="post">
             <input type="hidden" class="form-control" name="option" value="DELETE">
             <input type="hidden" name="idUser" id="idUserDeletar" value="">
             <p id="nomeUsuario"> </p>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="/Nexus/public/js/script.js"></script>
     <title>Nexus</title>
 </head>
+
 <body>
     <header>
         <div class="ladoAlado3">
@@ -25,14 +27,19 @@
             <div class="lado3">
                 <div class="dropdown">
                     <div class="profile-img">
-                        <img src="/Nexus/public/img/avatarUser/<?php echo $_SESSION['avatar']; ?>" alt="Imagem" class="dropdown-image">
+                        <img src="/Nexus/public/img/avatarUser/<?php echo ($_SESSION['avatar']); ?>" alt="Imagem" class="dropdown-image">
                     </div>
                     <div class="dropdown-content">
                         <p>Perfil</p>
-                        <p>Minhas Compras</p>
+                        <?php if (isset($_SESSION['isAdmin'])) {
+                            echo '<a style="text-decoration: none;" href="/Nexus/views/admin/home/index.php"><p >Área ADM</p></a>';
+                        } else {
+                            echo "<p>Minhas Compras</p>";
+                        }
+                        ?>
                         <form action="../../controllers/loginController.php" method="post">
                             <input type="hidden" name="link" value="<?php echo basename($_SERVER['PHP_SELF']) ?>">
-                            <input type="hidden" name="id" value="<?php echo $id ?>" >
+                            <input type="hidden" name="id" value="<?php echo $id ?>">
                             <p><button style="background-color: transparent; border: none; color: white;" type="submit" name="option" value="LOGOUT">Sair</button></p>
                         </form>
                     </div>
@@ -44,4 +51,5 @@
         </div>
     </header>
 </body>
+
 </html>

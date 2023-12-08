@@ -100,8 +100,8 @@
                       <option value="10">Terror</option>
                       <option value="11">Jogo de ritmo</option>
                       <option value="12">Card-Games</option>
-                      <option value="13">Sandbox</option>
-                      <option value="14">FPS</option>
+                      <option value="13">FPS</option>
+                      <option value="14">Sandbox</option>
                       <option value="15">Plataforma</option>
                       <option value="16">Visual Novel</option>
                       <option value="17">Roguelike</option>
@@ -123,8 +123,8 @@
                       <option value="10">Terror</option>
                       <option value="11">Jogo de ritmo</option>
                       <option value="12">Card-Games</option>
-                      <option value="13">Sandbox</option>
-                      <option value="14">FPS</option>
+                      <option value="13">FPS</option>
+                      <option value="14">Sandbox</option>
                       <option value="15">Plataforma</option>
                       <option value="16">Visual Novel</option>
                       <option value="17">Roguelike</option>

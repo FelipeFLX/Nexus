@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/Nexus/public/css/style1.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
@@ -31,7 +31,7 @@
         <div class="carousel">
         <?php foreach($Jogos as $jogo): ?>
             <div onclick="abrirPagina(this)" data-url="../componentes/descJogos.php?id=<?php echo $jogo['idJogo'] ?>" style="cursor: pointer;">
-            <img src="../../public/img/capajogos/<?php echo $jogo['capaJogo']; ?>" alt="Imagem 1" >
+            <img src="../../public/img/capajogos/<?php echo $jogo['capaJogo']; ?>" alt="Imagem 1" width="275" >
                 <p class="game-title"><?php echo $jogo['nomeJogo']; ?></p>
                 <p class="game-price"><?php if($jogo['precoJogo'] == 0.00){echo 'Gratuito';} else {echo 'R$ ' . str_replace('.', ',', $jogo['precoJogo']); }?></p>
             </div>

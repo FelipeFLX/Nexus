@@ -1,0 +1,15 @@
+.icon {
+    width: 25%;
+}
+
+#card {
+    background-color: #a926f1;
+    color: white;
+    margin: 0 20px;
+    border-radius: 10px;
+}
+
+p{
+    font-size: x-large;
+    font-weight: bold;
+}

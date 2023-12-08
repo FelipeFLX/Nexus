@@ -31,10 +31,6 @@ if (isset($_SESSION['login'])) {
                 <input type="password" class="form-controle inputs" id="senha" name="senha" maxlength="35" required>
                 <label for="senha" class="label-texto">Senha</label>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="lembrarDeMim" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">Lembrar de mim</label>
-            </div>
             <button class="botao mb-3" type="submit">Entrar</button>
         </form>
         <a class="link" href="./cadastro.php">Não tem uma conta?</a><br>

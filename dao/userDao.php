@@ -2,9 +2,8 @@
 require_once(__DIR__ . "/../config/Conexao.php");
 class UserDao
 {
-    public static function insert($nome, $nick, $email, $senha, $dataNasc, $sobrenome, $cpf, $avatar)
+    public static function insert($nome, $nick, $email, $senha, $dataNasc, $sobrenome, $cpf, $avatar, $isAdmin)
     {
-
         try {
             $conexao = new conexao();
             $pdo = $conexao->getPDO();
@@ -12,7 +11,11 @@ class UserDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "INSERT INTO tbuser (nomeUser, nickUser, emailUser, senhaUser, dataNascUser, sobrenomeUser, cpfUser, avatarUser) VALUES (:nome, :nick, :email, :senha, :dataNasc, :sobrenome, :cpf, :avatar)";
+        if ($isAdmin) {
+            $sql_code = "INSERT INTO tbuser (nomeUser, nickUser, emailUser, senhaUser, dataNascUser, sobrenomeUser, cpfUser, avatarUser, isAdmin) VALUES (:nome, :nick, :email, :senha, :dataNasc, :sobrenome, :cpf, :avatar, 1)";
+        } else {
+            $sql_code = "INSERT INTO tbuser (nomeUser, nickUser, emailUser, senhaUser, dataNascUser, sobrenomeUser, cpfUser, avatarUser) VALUES (:nome, :nick, :email, :senha, :dataNasc, :sobrenome, :cpf, :avatar)";
+        }
 
         $stmt = $pdo->prepare($sql_code);
 
@@ -33,6 +36,7 @@ class UserDao
             echo "Erro na inserção de dados.";
         }
     }
+
 
     public static function selectAll()
     {
@@ -93,6 +97,24 @@ class UserDao
         } else {
             return false;
         }
+    }
+
+    public static function contAll()
+    {
+        try {
+            $conexao = new conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "SELECT COUNT(*) FROM tbuser";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->execute();
+
+        $total = $stmt->fetchColumn();
+
+        return $total !== false ? $total : false;
     }
 
     public static function update($id, $username)

@@ -87,8 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $classificacao = addslashes($_POST['classificacao']);
                 $dataLancamento = addslashes($_POST['dataLancamento']);
                 $formattedDataLancamento = date('Y-m-d', strtotime(str_replace('/', '-', $dataLancamento)));
-                $capaJogo = addslashes($_FILES['capaJogo']);
-                $logoJogo = addslashes($_FILES['logoJogo']);
+                $capaJogo = $_FILES['capaJogo'];
+                $logoJogo = $_FILES['logoJogo'];
             
                 // Condição 1: capaJogo e logo estão preenchidos
                 if (!empty($capaJogo['name']) && !empty($logoJogo['name'])) {
@@ -200,6 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 break;
+                
         case 'DELETE':
                 $idJogo = addslashes($_POST['idJogo']);
                 var_dump($idJogo);

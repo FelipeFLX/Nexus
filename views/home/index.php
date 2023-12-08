@@ -1,9 +1,9 @@
 <?php
-  require_once('../../dao/noticiasDao.php');
-  require_once('../../dao/trailerDao.php');
+require_once('../../dao/noticiasDao.php');
+require_once('../../dao/trailerDao.php');
 
-  $Noticias = NoticiasDao::getAll();
-  $trailers = TrailerDao::getAll();
+$Noticias = NoticiasDao::getAll();
+$trailers = TrailerDao::getAll();
 ?>
 
 <!DOCTYPE html>
@@ -22,13 +22,12 @@
 <body>
     <?php
     session_start();
-    if (!isset($_SESSION['login']) || $_SESSION['login'] == '') {
-        include '../componentes/headerNotLog.php';
-    } else {
+    if (isset($_SESSION['login'])) {
         include '../componentes/headerLog.php';
+    } else {
+        include '../componentes/headerNotLog.php';
     }
     ?>
-
     <div class="container-all">
         <div class="navbar2">
             <div class="pesquisar">
@@ -51,34 +50,34 @@
         ?>
         <h1 id="noticias" class="titulo">Notícias</h1>
         <div class="noticias">
-            <?php foreach ($Noticias as $noticia): ?>
+            <?php foreach ($Noticias as $noticia) : ?>
                 <div class="card cards" style="width: 20rem; background-color: rgba(12,12,12, 0.50);">
-                <img src="/Nexus/public/img/capaNoticias/ <?php echo $noticia['capaNoticia']?>" class="card-img-top" alt="Imagem Noticia">
+                    <img src="/Nexus/public/img/capaNoticias/ <?php echo $noticia['capaNoticia'] ?>" class="card-img-top" alt="Imagem Noticia">
                     <div class="card-body">
-                        <h5 class="card-title t-cor"><?php echo $noticia['tituloNoticia']?></h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $noticia['temaNoticia']?></h6>
+                        <h5 class="card-title t-cor"><?php echo $noticia['tituloNoticia'] ?></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo $noticia['temaNoticia'] ?></h6>
                         <?php
-                            // Divide o textoNoticia em palavras
-                            $palavras = explode(' ', $noticia['textoNoticia']);
-                            
-                            // Seleciona apenas as primeiras 20 palavras
-                            $textoLimitado = implode(' ', array_slice($palavras, 0, 40));
+                        // Divide o textoNoticia em palavras
+                        $palavras = explode(' ', $noticia['textoNoticia']);
+
+                        // Seleciona apenas as primeiras 20 palavras
+                        $textoLimitado = implode(' ', array_slice($palavras, 0, 40));
                         ?>
                         <p class="card-text t-cor"><?php echo $textoLimitado; ?></p>
                         <p class="card-text t-cor"><?php echo date('d/m/Y H:i', strtotime($noticia['dataModfcNoticia'])); ?></p>
-                        <a href="<?php echo $noticia['linkNoticia']?>" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
+                        <a href="<?php echo $noticia['linkNoticia'] ?>" target="_blank" class="card-link" style="color: #a926f1;">Leia mais</a>
                     </div>
                 </div>
             <?php endforeach ?>
         </div>
         <h1 id="novidades" class="titulo">Novidades</h1>
         <div class="container-trailer">
-            <?php foreach($trailers as $trailer): ?>    
+            <?php foreach ($trailers as $trailer) : ?>
                 <div class="trailers">
-                <?php
+                    <?php
                     $larguraOriginal = 1280;
                     $alturaOriginal = 720;
-                ?>
+                    ?>
                     <iframe width="380" height="<?php echo 380 * ($alturaOriginal / $larguraOriginal); ?>" src="<?php echo str_replace("\\", "", $trailer['linkTrailer']) ?>" frameborder="0" allowfullscreen></iframe>
                     <p class="t-trailer"><?php echo $trailer['tituloTrailer']; ?></p>
                 </div>

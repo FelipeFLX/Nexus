@@ -42,7 +42,7 @@ class NoticiasDao
             echo "Erro na conexão: " . $e->getMessage();
         }
 
-        $sql_code = "SELECT * FROM tbnoticias";
+        $sql_code = "SELECT * FROM tbnoticias ORDER BY idNoticia DESC";
         $stmt = $pdo->prepare($sql_code);        
         $stmt->execute();
 
@@ -67,6 +67,24 @@ class NoticiasDao
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $resultado;
+    }
+    public static function contAll()
+    {
+        try {
+            $conexao = new conexao();
+            $pdo = $conexao->getPDO();
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+        $sql_code = "SELECT COUNT(*) FROM tbnoticias";
+        $stmt = $pdo->prepare($sql_code);
+        $stmt->execute();
+
+        $total = $stmt->fetchColumn();
+
+        // Retorne o total, ou false se não houver registros
+        return $total !== false ? $total : false;
     }
     public static function update($id, $titulo, $tema, $texto, $dataModfc, $capa)
     {

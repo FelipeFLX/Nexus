@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilmeOn - Adm</title>
+  <title>User - Adm</title>
   <link rel="short icon" href="./../../img/site/logo.png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- icon -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> <!-- CSS Projeto -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <!-- CSS Projeto -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,16 +23,18 @@
       <?php 
       include('./../../componentes/menu-adm.php');
       ?>
-      <div class="col-md-10  p-4 borber">
+      <div class="col-md-10  p-4 border">
         <div class="card">
-          <form method="post" action="process.php" enctype="multipart/form-data" class="needs-validation" novalidate>
+          <form method="post" action="../../../controllers/userAdminController.php" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <input type="hidden" name="admin" value="true">
+            <input type="hidden" name="option" value="INSERT">
             <div class="card-header">
               <strong>INFORMAÇÕES DO USUÁRIO</strong>
             </div>
             <div class="card-body row justify-content-center align-items-center">
               <div class="col-md-2   text-center">
                 <div class="bg-white rounded">
-                  <img id="preview" src="../../img/user/padrao.png" alt="..." class=" w-75">
+                  <img id="preview" src="../../img/user/padrao.png" class="w-75">
                 </div>
               </div>
               <div class=" col-md-10">
@@ -65,11 +68,12 @@
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-3">
-                    <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input">
+                    <label for="foto" class="form-label">Escolher Foto:</label>
+                    <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input" onchange="previewImage(this)">
                   </div>
                 </div>
                 <div class=" text-end p-3">
-                  <a class=" btn btn-primary px-3" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
+                  <a class=" btn btn-primary px-3" role="button" aria-disabled="true" href="index.php">Voltar</a>
                   <input type="submit" class=" btn btn-success" value="Salvar" name="acao">
                 </div>
               </div>
@@ -87,6 +91,18 @@
   <script type="text/javascript" src="./../../js/jquery.mask.min.js"></script>
   <script type="text/javascript" src="./../../js/personalizar.js"></script>
 
+  <script>
+    function previewImage(input) {
+      var preview = document.getElementById('preview');
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
 </body>
 
 </html>

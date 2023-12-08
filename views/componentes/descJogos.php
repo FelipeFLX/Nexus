@@ -52,7 +52,7 @@
     <div class="jogos-container">
         <h1 class="titu-jogos"><?php echo $jogo['nomeJogo'] ?></h1>
         <div class="ficTec">
-            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> <?php if (!$jogo['subgeneroJogo'] == 0) { echo "e " . JogoDao::getGenero($jogo['subgeneroJogo']); } ?></p>
+            <p class="borderText"><?php echo JogoDao::getGenero($jogo['generoPrincipalJogo']); ?> <?php if ($jogo['subgeneroJogo'] !=21 && $jogo['subgeneroJogo'] != null) { echo "e " . JogoDao::getGenero($jogo['subgeneroJogo']); } ?></p>
             <p class="borderText">Avaliações: <?php 
                 $avaliacoes = ComentarioDao::getAll($id);
                 $totalAvaliacoes = 0; // Inicializa a variável
